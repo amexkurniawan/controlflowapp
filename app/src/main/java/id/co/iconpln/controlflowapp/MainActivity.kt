@@ -15,5 +15,7 @@ class MainActivity : AppCompatActivity() {
         btnShow.setOnClickListener {
             Toast.makeText(this, etNilai.text, Toast.LENGTH_LONG).show()
         }
+
+        // TODO: Delete Toast, set TextView to hold EditText
     }
 }

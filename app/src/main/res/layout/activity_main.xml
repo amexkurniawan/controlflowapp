@@ -21,4 +21,6 @@
         android:text="@string/show_title"
         android:background="@color/colorPrimary" />
 
+    <!-- TODO: Add Text View-->
+
 </LinearLayout>
