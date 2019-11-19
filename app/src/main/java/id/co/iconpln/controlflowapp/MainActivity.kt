@@ -11,9 +11,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        etNilai.setText("100")
+        etNilai.setText("0")
         btnShow.setOnClickListener {
-            Toast.makeText(this, etNilai.text, Toast.LENGTH_LONG).show()
+            // TODO: dikasih operasi perkalian
+
+            val angka = etNilai.text.toString().toInt()
+            val hitungPangkat = angka * angka;
+
+            Toast.makeText(this, hitungPangkat.toString(), Toast.LENGTH_LONG).show()
         }
     }
 }
