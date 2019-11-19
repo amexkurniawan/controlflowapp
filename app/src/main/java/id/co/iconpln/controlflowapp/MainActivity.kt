@@ -2,6 +2,8 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -11,11 +13,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Get the widgets
+        val textView = findViewById<TextView>(R.id.tvTextHold)
+        val button = findViewById<Button>(R.id.btnShow);
         etNilai.setText("100")
+
         btnShow.setOnClickListener {
-            Toast.makeText(this, etNilai.text, Toast.LENGTH_LONG).show()
+            textView.text = etNilai.text
+            //Toast.makeText(this, etNilai.text, Toast.LENGTH_LONG).show()
         }
 
         // TODO: Delete Toast, set TextView to hold EditText
+
     }
 }
