@@ -21,6 +21,15 @@
         android:text="@string/show_title"
         android:background="@color/colorPrimary" />
 
+    <Button
+        android:id="@+id/btnShowToast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="show toast"
+        android:background="@color/colorPrimary"
+        android:paddingTop="10dp"/>
+
     <!-- TODO: Add Text View-->
     <TextView
         android:id="@+id/tvTextHold"
