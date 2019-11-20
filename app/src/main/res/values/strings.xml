@@ -5,4 +5,7 @@
     <string name="show_toast">Show</string>
     <string name="btn_calculation">Hitung Pangkat</string>
     <string name="btn_clasification">Klasifikasi Nilai</string>
+    <string name="et_username">username</string>
+    <string name="et_password">password</string>
+    <string name="btn_login">Login</string>
 </resources>
