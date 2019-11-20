@@ -22,6 +22,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         // onClickListener
         btnCalculation.setOnClickListener(this)
         btnClassification.setOnClickListener(this)
+        btnLogin.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -37,6 +38,12 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 // navigate to Classification activity
                 val classificationIntent = Intent(this, ClassificationActivity::class.java)
                 startActivity(classificationIntent)
+            }
+
+            R.id.btnLogin -> {
+                // navigate to login activity
+                val loginIntent = Intent(this, LoginActivity::class.java)
+                startActivity(loginIntent)
             }
         }
     }
