@@ -13,7 +13,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        
+
         setOnClickButton()
     }
 
