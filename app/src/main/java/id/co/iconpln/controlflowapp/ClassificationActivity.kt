@@ -14,8 +14,12 @@ class ClassificationActivity : AppCompatActivity() {
         etClassificationNilai.setText("0")
 
         btnClassificationShow.setOnClickListener {
-
-            
+            val nilai = etClassificationNilai.text.toString().toInt()
+            doClassification(nilai)
         }
+    }
+
+    fun doClassification(nilai: Int) {
+        tvClassificationText.text = "Hasilnya Anda Lulus!"
     }
 }
