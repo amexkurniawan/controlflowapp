@@ -36,6 +36,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnClassification -> {
                 // navigate to Classification activity
                 val classificationIntent = Intent(this, ClassificationActivity::class.java)
+                startActivity(classificationIntent)
             }
         }
     }
