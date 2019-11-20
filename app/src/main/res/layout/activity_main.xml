@@ -31,7 +31,6 @@
         android:background="@color/colorPrimary"
         android:layout_marginTop="10dp"/>
 
-    <!-- TODO: Add Text View-->
     <TextView
         android:id="@+id/tvTextHold"
         android:layout_width="match_parent"
