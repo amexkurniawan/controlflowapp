@@ -26,9 +26,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
-        android:text="show toast"
+        android:text="@string/show_toast"
         android:background="@color/colorPrimary"
-        android:paddingTop="10dp"/>
+        android:layout_marginTop="10dp"/>
 
     <!-- TODO: Add Text View-->
     <TextView
@@ -38,6 +38,7 @@
         android:textColor="@color/colorAccent"
         android:textAlignment="center"
         android:text="Hello Kotlin."
-        android:paddingTop="10dp" />
+        android:textSize="25sp"
+        android:layout_marginTop="10dp" />
 
 </LinearLayout>

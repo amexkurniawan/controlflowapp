@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         // Get the widgets
         val textView = findViewById<TextView>(R.id.tvTextHold)
         val button = findViewById<Button>(R.id.btnShow);
-        
+
         etNilai.setText("100")
 
         btnShow.setOnClickListener {
