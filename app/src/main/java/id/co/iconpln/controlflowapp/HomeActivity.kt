@@ -10,24 +10,36 @@ import kotlinx.android.synthetic.main.activity_home.*
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        
+        setOnClickButton()
+    }
 
-        btnCalculation.setOnClickListener {
+    private fun setOnClickButton() {
 
-            // navigate to activity main
-            val calculationIntent = Intent(this, MainActivity::class.java)
-            startActivity(calculationIntent)
-        }
-
-        btnClassification.setOnClickListener {
-
-            // Toast
-            Toast.makeText(this, "Classification", Toast.LENGTH_LONG).show()
-        }
+        // onClickListener
+        btnCalculation.setOnClickListener(this)
+        btnClassification.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        when (view.id) {
+
+            R.id.btnCalculation -> {
+
+                // navigate to activity main
+                val calculationIntent = Intent(this, MainActivity::class.java)
+                startActivity(calculationIntent)
+            }
+
+            R.id.btnClassification -> {
+
+                // Toast
+                Toast.makeText(this, "Classification", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }
