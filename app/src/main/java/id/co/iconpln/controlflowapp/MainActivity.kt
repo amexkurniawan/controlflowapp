@@ -17,11 +17,13 @@ class MainActivity : AppCompatActivity() {
         val textView = findViewById<TextView>(R.id.tvTextHold)
         val button = findViewById<Button>(R.id.btnShow);
 
-        etNilai.setText("100")
+        etNilai.setText("0")
 
         btnShow.setOnClickListener {
-            val angka = etNilai.text.toString().toInt()
-            hitungPangkat(angka)
+            if(etNilai.text.isNotEmpty()) {
+                val angka = etNilai.text.toString().toInt()
+                hitungPangkat(angka)
+            }
         }
 
         btnShowToast.setOnClickListener {
