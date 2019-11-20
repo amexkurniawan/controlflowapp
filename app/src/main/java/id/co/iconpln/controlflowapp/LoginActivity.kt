@@ -29,11 +29,15 @@ class LoginActivity : AppCompatActivity() {
         if(etLoginUsername.text.toString() == myUsername && etLoginPassword.text.toString() == myPassword){
             tvLoginStatus.setText("Status login : Successfull")
         }
+        else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(etLoginUsername.text).matches()){
+            etLoginUsername.error = "Invalid e-mail format"
+        }
         else if (etLoginUsername.text.isNullOrEmpty() || etLoginPassword.text.isNullOrEmpty()) {
-            Toast.makeText(this, "Please insert username or password.", Toast.LENGTH_LONG).show()
+            etLoginUsername.error = "Please insert username"
+            etLoginPassword.error = "Please insert password"
         }
         else if(etLoginPassword.text.length < 7 ) {
-            Toast.makeText(this, "Password length must > 7 !", Toast.LENGTH_LONG).show()
+            etLoginPassword.error = "Password length must greater or same than 7"
         }
         else {
             tvLoginStatus.setText("Username and password invalid.")
