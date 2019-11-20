@@ -3,4 +3,6 @@
     <string name="et_nilai_hint">Nilai</string>
     <string name="show_title">Calculate</string>
     <string name="show_toast">Show</string>
+    <string name="btn_calculation">Hitung Pangkat</string>
+    <string name="btn_clasification">Klasifikasi Nilai</string>
 </resources>

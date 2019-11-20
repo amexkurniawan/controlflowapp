@@ -11,12 +11,12 @@
         android:id="@+id/btnCalculation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hitung Pangkat" />
+        android:text="@string/btn_calculation" />
 
     <Button
         android:id="@+id/btnClassification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Klasifikasi Nilai" />
+        android:text="@string/btn_clasification" />
 
 </LinearLayout>
