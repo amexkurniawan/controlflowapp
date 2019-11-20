@@ -15,8 +15,12 @@ class ClassificationActivity : AppCompatActivity() {
         etClassificationNilai.setText("0")
 
         btnClassificationShow.setOnClickListener {
-            val nilai = etClassificationNilai.text.toString().toInt()
-            doClassification(nilai)
+            if(etClassificationNilai.text.isNullOrEmpty()) {
+                Toast.makeText(this, "Empty value !", Toast.LENGTH_LONG).show()
+            }
+            else {
+                doClassification(etClassificationNilai.text.toString().toInt())
+            }
         }
     }
 
