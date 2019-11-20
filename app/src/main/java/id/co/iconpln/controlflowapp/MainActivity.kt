@@ -20,10 +20,11 @@ class MainActivity : AppCompatActivity() {
 
         btnShow.setOnClickListener {
             textView.text = etNilai.text
-            //Toast.makeText(this, etNilai.text, Toast.LENGTH_LONG).show()
         }
 
-        // TODO: Delete Toast, set TextView to hold EditText
+        btnShowToast.setOnClickListener {
+            Toast.makeText(this, etNilai.text, Toast.LENGTH_LONG).show()
+        }
 
     }
 }
