@@ -20,6 +20,7 @@ class ClassificationActivity : AppCompatActivity() {
     }
 
     fun doClassification(nilai: Int) {
+
         tvClassificationText.text = "Hasilnya Anda Lulus!"
     }
 }

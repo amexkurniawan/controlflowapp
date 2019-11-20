@@ -18,7 +18,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setOnClickButton() {
-
+        
         // onClickListener
         btnCalculation.setOnClickListener(this)
         btnClassification.setOnClickListener(this)
@@ -27,18 +27,15 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
 
         when (view.id) {
-
             R.id.btnCalculation -> {
-
                 // navigate to activity main
                 val calculationIntent = Intent(this, MainActivity::class.java)
                 startActivity(calculationIntent)
             }
 
             R.id.btnClassification -> {
-
-                // Toast
-                Toast.makeText(this, "Classification", Toast.LENGTH_LONG).show()
+                // navigate to Classification activity
+                val classificationIntent = Intent(this, ClassificationActivity::class.java)
             }
         }
     }
