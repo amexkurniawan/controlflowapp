@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_classification.*
 
 class ClassificationActivity : AppCompatActivity() {
@@ -21,6 +22,16 @@ class ClassificationActivity : AppCompatActivity() {
 
     fun doClassification(nilai: Int) {
 
-        tvClassificationText.text = "Hasilnya Anda Lulus!"
+        var result = "";
+
+        when(nilai) {
+            in 0..70 -> result = "Hasilnya Anda Tidak Lulus!"
+            in 71..80 -> result = "Hasilnya Anda Lulus!"
+            in 81..100 -> result = "Hasilnya Anda Lulus Banget!"
+            in 101..1000 -> result = "Not support value!"
+            else -> Toast.makeText(this, "Not support value!", Toast.LENGTH_LONG).show()
+        }
+
+        tvClassificationText.text = result
     }
 }
