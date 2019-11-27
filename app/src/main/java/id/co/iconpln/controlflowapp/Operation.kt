@@ -36,16 +36,29 @@ class Operation : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id) {
             R.id.btnAdd -> {
+                getInputNumbers()
+                val add = OperationClass.Add(inputY)
+                val addResult = execute(inputX, add)
+                tbOpResult.text = addResult.toString()
 
             }
             R.id.btnDiv -> {
-
+                getInputNumbers()
+                val div = OperationClass.Divide(inputY)
+                val divResult = execute(inputX, div)
+                tbOpResult.text = divResult.toString()
             }
             R.id.btnMult -> {
-
+                getInputNumbers()
+                val mult = OperationClass.Multiply(inputY)
+                val multResult = execute(inputX, mult)
+                tbOpResult.text = multResult.toString()
             }
             R.id.btnSub -> {
-
+                getInputNumbers()
+                val sub = OperationClass.Substract(inputY)
+                val subResult = execute(inputX, sub)
+                tbOpResult.text = subResult.toString()
             }
             R.id.btnOperation -> {
 
