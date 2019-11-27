@@ -9,4 +9,8 @@
     <string name="et_password">password</string>
     <string name="btn_login">Login</string>
     <string name="login">Login</string>
+    <string name="operation_add">+</string>
+    <string name="operation_sub">-</string>
+    <string name="operation_mult">x</string>
+    <string name="operation_div">:</string>
 </resources>
