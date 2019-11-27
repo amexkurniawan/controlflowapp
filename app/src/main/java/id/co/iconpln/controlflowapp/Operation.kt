@@ -19,8 +19,10 @@ class Operation : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getInputNumbers() {
-        inputX = etBilanganX.text.toString().toInt()
-        inputY = etBilanganY.text.toString().toInt()
+        if(etBilanganX.text?.isNotEmpty() == true || etBilanganY.text?.isNotEmpty() == true) {
+            inputX = etBilanganX.text.toString().toInt()
+            inputY = etBilanganY.text.toString().toInt()
+        }
     }
 
     private fun setButtonClickListener() {
