@@ -46,8 +46,8 @@ class Operation : AppCompatActivity(), View.OnClickListener {
             R.id.btnDiv -> {
                 getInputNumbers()
                 tvOperator.text = getString(R.string.operation_div)
-                val div = OperationClass.Divide(inputY)
-                val divResult = execute(inputX, div)
+                val div = OperationClass.Divide(inputX)
+                val divResult = execute(inputY, div)
                 tbOpResult.text = divResult.toString()
             }
             R.id.btnMult -> {
@@ -60,8 +60,8 @@ class Operation : AppCompatActivity(), View.OnClickListener {
             R.id.btnSub -> {
                 getInputNumbers()
                 tvOperator.text = getString(R.string.operation_sub)
-                val sub = OperationClass.Substract(inputY)
-                val subResult = execute(inputX, sub)
+                val sub = OperationClass.Substract(inputX)
+                val subResult = execute(inputY, sub)
                 tbOpResult.text = subResult.toString()
             }
             R.id.btnOperation -> {
