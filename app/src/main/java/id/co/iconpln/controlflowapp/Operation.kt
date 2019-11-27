@@ -30,7 +30,7 @@ class Operation : AppCompatActivity(), View.OnClickListener {
         btnDiv.setOnClickListener(this)
         btnMult.setOnClickListener(this)
         btnSub.setOnClickListener(this)
-        btnOperation.setOnClickListener(this)
+        btnReset.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -38,8 +38,8 @@ class Operation : AppCompatActivity(), View.OnClickListener {
             R.id.btnAdd -> {
                 getInputNumbers()
                 tvOperator.text = getString(R.string.operation_add)
-                val add = OperationClass.Add(inputY)
-                val addResult = execute(inputX, add)
+                val add = OperationClass.Add(inputX)
+                val addResult = execute(inputY, add)
                 tbOpResult.text = addResult.toString()
 
             }
@@ -53,8 +53,8 @@ class Operation : AppCompatActivity(), View.OnClickListener {
             R.id.btnMult -> {
                 getInputNumbers()
                 tvOperator.text = getString(R.string.operation_mult)
-                val mult = OperationClass.Multiply(inputY)
-                val multResult = execute(inputX, mult)
+                val mult = OperationClass.Multiply(inputX)
+                val multResult = execute(inputY, mult)
                 tbOpResult.text = multResult.toString()
             }
             R.id.btnSub -> {
@@ -64,8 +64,10 @@ class Operation : AppCompatActivity(), View.OnClickListener {
                 val subResult = execute(inputY, sub)
                 tbOpResult.text = subResult.toString()
             }
-            R.id.btnOperation -> {
-
+            R.id.btnReset -> {
+                etBilanganX.setText("")
+                etBilanganY.setText("")
+                tbOpResult.setText("0")
             }
         }
     }
