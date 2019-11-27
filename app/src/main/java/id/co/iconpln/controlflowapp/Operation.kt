@@ -7,11 +7,20 @@ import kotlinx.android.synthetic.main.activity_operation.*
 
 class Operation : AppCompatActivity(), View.OnClickListener {
 
+    private var inputX: Int = 0
+    private var inputY: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_operation)
 
         setButtonClickListener()
+        getInputNumbers()
+    }
+
+    private fun getInputNumbers() {
+        inputX = etBilanganX.text.toString().toInt()
+        inputY = etBilanganY.text.toString().toInt()
     }
 
     private fun setButtonClickListener() {
@@ -27,21 +36,17 @@ class Operation : AppCompatActivity(), View.OnClickListener {
             R.id.btnAdd -> {
 
             }
-
             R.id.btnDiv -> {
 
             }
-
             R.id.btnMult -> {
 
             }
-
             R.id.btnSub -> {
 
             }
-
             R.id.btnOperation -> {
-                
+
             }
         }
     }
