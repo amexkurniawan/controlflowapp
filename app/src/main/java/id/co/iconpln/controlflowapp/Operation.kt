@@ -37,6 +37,7 @@ class Operation : AppCompatActivity(), View.OnClickListener {
         when(view.id) {
             R.id.btnAdd -> {
                 getInputNumbers()
+                tvOperator.text = getString(R.string.operation_add)
                 val add = OperationClass.Add(inputY)
                 val addResult = execute(inputX, add)
                 tbOpResult.text = addResult.toString()
@@ -44,18 +45,21 @@ class Operation : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btnDiv -> {
                 getInputNumbers()
+                tvOperator.text = getString(R.string.operation_div)
                 val div = OperationClass.Divide(inputY)
                 val divResult = execute(inputX, div)
                 tbOpResult.text = divResult.toString()
             }
             R.id.btnMult -> {
                 getInputNumbers()
+                tvOperator.text = getString(R.string.operation_mult)
                 val mult = OperationClass.Multiply(inputY)
                 val multResult = execute(inputX, mult)
                 tbOpResult.text = multResult.toString()
             }
             R.id.btnSub -> {
                 getInputNumbers()
+                tvOperator.text = getString(R.string.operation_sub)
                 val sub = OperationClass.Substract(inputY)
                 val subResult = execute(inputX, sub)
                 tbOpResult.text = subResult.toString()

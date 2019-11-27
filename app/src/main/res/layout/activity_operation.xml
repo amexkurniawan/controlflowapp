@@ -40,7 +40,7 @@
             android:layout_marginBottom="8dp" />
 
         <TextView
-            android:id="@+id/operator"
+            android:id="@+id/tvOperator"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
