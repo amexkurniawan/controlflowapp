@@ -19,13 +19,6 @@ class Operation : AppCompatActivity(), View.OnClickListener {
         getInputNumbers()
     }
 
-    private fun getInputNumbers() {
-        if(etBilanganX.text?.isNotEmpty() == true || etBilanganY.text?.isNotEmpty() == true) {
-            inputX = etBilanganX.text.toString().toInt()
-            inputY = etBilanganY.text.toString().toInt()
-        }
-    }
-
     private fun setButtonClickListener() {
         btnAdd.setOnClickListener(this)
         btnDiv.setOnClickListener(this)
@@ -37,18 +30,18 @@ class Operation : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id) {
             R.id.btnAdd -> {
-                getInputNumbers()
-                tvOperator.text = getString(R.string.operation_add)
-                val add = OperationClass.Add(inputX)
-                val addResult = execute(inputY, add)
-                tbOpResult.text = addResult.toString()
-
+                var check = checkForError()
+                if(check) {
+                    getInputNumbers()
+                    tvOperator.text = getString(R.string.operation_add)
+                    val add = OperationClass.Add(inputX)
+                    val addResult = execute(inputY, add)
+                    tbOpResult.text = addResult.toString()
+                }
             }
             R.id.btnDiv -> {
-                if(etBilanganX.text?.isNullOrEmpty() == true || etBilanganY.text?.isNullOrEmpty() == true){
-                    tbOpResult.text = "Error"
-                }
-                else {
+                var check = checkForError()
+                if(check && etBilanganY.text.toString().toInt() != 0) {
                     getInputNumbers()
                     tvOperator.text = getString(R.string.operation_div)
                     val div = OperationClass.Divide(inputX)
@@ -57,18 +50,24 @@ class Operation : AppCompatActivity(), View.OnClickListener {
                 }
             }
             R.id.btnMult -> {
-                getInputNumbers()
-                tvOperator.text = getString(R.string.operation_mult)
-                val mult = OperationClass.Multiply(inputX)
-                val multResult = execute(inputY, mult)
-                tbOpResult.text = multResult.toString()
+                var check = checkForError()
+                if(check) {
+                    getInputNumbers()
+                    tvOperator.text = getString(R.string.operation_mult)
+                    val mult = OperationClass.Multiply(inputX)
+                    val multResult = execute(inputY, mult)
+                    tbOpResult.text = multResult.toString()
+                }
             }
             R.id.btnSub -> {
-                getInputNumbers()
-                tvOperator.text = getString(R.string.operation_sub)
-                val sub = OperationClass.Substract(inputX)
-                val subResult = execute(inputY, sub)
-                tbOpResult.text = subResult.toString()
+                var check = checkForError()
+                if(check) {
+                    getInputNumbers()
+                    tvOperator.text = getString(R.string.operation_sub)
+                    val sub = OperationClass.Substract(inputX)
+                    val subResult = execute(inputY, sub)
+                    tbOpResult.text = subResult.toString()
+                }
             }
             R.id.btnReset -> {
                 etBilanganX.setText("0")
@@ -84,6 +83,23 @@ class Operation : AppCompatActivity(), View.OnClickListener {
             is OperationClass.Divide -> operationClass.value / x
             is OperationClass.Multiply -> operationClass.value * x
             is OperationClass.Substract -> operationClass.value - x
+        }
+    }
+
+    private fun getInputNumbers() {
+        if(etBilanganX.text?.isNotEmpty() == true || etBilanganY.text?.isNotEmpty() == true) {
+            inputX = etBilanganX.text.toString().toInt()
+            inputY = etBilanganY.text.toString().toInt()
+        }
+    }
+
+    private fun checkForError(): Boolean {
+        if(etBilanganX.text.isNullOrBlank() || etBilanganY.text.isNullOrBlank() || etBilanganX.text.isNullOrEmpty() || etBilanganY.text.isNullOrEmpty()) {
+            tbOpResult.text = "Error"
+            return false
+        }
+        else {
+            return true
         }
     }
 }
