@@ -3,6 +3,7 @@ package id.co.iconpln.controlflowapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_operation.*
 
 class Operation : AppCompatActivity(), View.OnClickListener {
@@ -44,11 +45,16 @@ class Operation : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.btnDiv -> {
-                getInputNumbers()
-                tvOperator.text = getString(R.string.operation_div)
-                val div = OperationClass.Divide(inputX)
-                val divResult = execute(inputY, div)
-                tbOpResult.text = divResult.toString()
+                if(etBilanganX.text?.isNullOrEmpty() == true || etBilanganY.text?.isNullOrEmpty() == true){
+                    tbOpResult.text = "Error"
+                }
+                else {
+                    getInputNumbers()
+                    tvOperator.text = getString(R.string.operation_div)
+                    val div = OperationClass.Divide(inputX)
+                    val divResult = execute(inputY, div)
+                    tbOpResult.text = divResult.toString()
+                }
             }
             R.id.btnMult -> {
                 getInputNumbers()
