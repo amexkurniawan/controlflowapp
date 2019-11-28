@@ -71,8 +71,8 @@ class Operation : AppCompatActivity(), View.OnClickListener {
                 tbOpResult.text = subResult.toString()
             }
             R.id.btnReset -> {
-                etBilanganX.setText("")
-                etBilanganY.setText("")
+                etBilanganX.setText("0")
+                etBilanganY.setText("0")
                 tbOpResult.setText("0")
             }
         }
