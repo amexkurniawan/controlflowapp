@@ -77,19 +77,12 @@
                 android:layout_marginBottom="16dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
-                    android:text="@string/display"
-                    android:textSize="14sp" />
+                    style="@style/TextSpec.Field"
+                    android:text="@string/display" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/content_specs_display"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp" />
+                    style="@style/TextSpec.Value"
+                    android:text="@string/content_specs_display"/>
 
             </TableRow>
 
@@ -99,19 +92,12 @@
                 android:layout_marginBottom="16dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
-                    android:text="@string/size"
-                    android:textSize="14sp" />
+                    style="@style/TextSpec.Field"
+                    android:text="@string/size"/>
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/content_specs_size"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp" />
+                    style="@style/TextSpec.Value"
+                    android:text="@string/content_specs_size"/>
 
             </TableRow>
 
@@ -121,19 +107,12 @@
                 android:layout_marginBottom="16dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
-                    android:text="@string/battery"
-                    android:textSize="14sp" />
+                    style="@style/TextSpec.Field"
+                    android:text="@string/battery"/>
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/content_specs_battery"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp" />
+                    style="@style/TextSpec.Value"
+                    android:text="@string/content_specs_battery"/>
 
             </TableRow>
 
