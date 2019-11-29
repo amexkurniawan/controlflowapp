@@ -23,8 +23,7 @@
                 android:src="@drawable/pixel_google" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TextContent.Small.White"
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="16dp"
                 android:layout_marginBottom="16dp"
@@ -40,44 +39,30 @@
         </FrameLayout>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            style="@style/TextContent.Black"
             android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             android:lineSpacingMultiplier="1"
             android:text="@string/dummy_value"
-            android:textColor="@android:color/black"
             android:textSize="32sp" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            style="@style/TextContent.Subtitle"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            android:text="@string/stock"
-            android:textSize="12sp" />
+            android:text="@string/stock" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            style="@style/TextContent"
             android:layout_marginBottom="16dp"
             android:lineSpacingMultiplier="1"
             android:text="@string/content_text"
             android:textColor="@android:color/black" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            style="@style/TextContent.Subtitle"
             android:layout_marginBottom="16dp"
-            android:text="@string/specification"
-            android:textSize="12sp" />
+            android:text="@string/specification"/>
 
         <TableLayout
             android:layout_width="match_parent"
