@@ -121,8 +121,7 @@
         android:id="@+id/btnReset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/btn_blue"
-        android:text="Reset"
-        android:textColor="@android:color/white" />
+        android:background="@color/btn_base"
+        android:text="Reset" />
 
 </LinearLayout>

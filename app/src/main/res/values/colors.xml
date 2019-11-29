@@ -4,5 +4,5 @@
     <color name="colorPrimaryDark">#005b4f</color>
     <color name="colorAccent">#4db6ac</color>
     <color name="colorSubtitle">#00867d</color>
-    <color name="btn_blue">#54a0ff</color>
+    <color name="btn_base">#82e9de</color>
 </resources>
