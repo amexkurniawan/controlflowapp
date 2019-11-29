@@ -119,13 +119,9 @@
         </TableLayout>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            style="@style/TextContent.Subtitle"
             android:layout_marginBottom="16dp"
-            android:text="@string/seller"
-            android:textSize="12sp" />
+            android:text="@string/seller"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -143,12 +139,10 @@
                 app:srcCompat="@drawable/ic_launcher_foreground" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/TextContent"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/profile_image"
-                android:text="@string/my_name"
-                android:textColor="@android:color/black" />
+                android:text="@string/my_name"/>
 
         </RelativeLayout>
 
