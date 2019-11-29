@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_launcher_foreground" />
+            android:src="@drawable/pixel_google" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,10 +25,11 @@
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="16dp"
             android:background="#4D000000"
+            android:drawableStart="@drawable/ic_photo"
             android:drawablePadding="4dp"
             android:gravity="center_vertical"
             android:padding="8dp"
-            android:text="6 photos"
+            android:text="@string/dummy_photos"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@android:color/white" />
 
@@ -41,7 +42,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="$735"
+        android:lineSpacingMultiplier="1"
+        android:text="@string/dummy_value"
         android:textColor="@android:color/black"
         android:textSize="32sp" />
 
@@ -51,7 +53,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Stok"
+        android:text="@string/stock"
         android:textSize="12sp" />
 
     <TextView
@@ -61,7 +63,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:lineSpacingMultiplier="1"
-        android:text="Google desc"
+        android:text="@string/content_text"
         android:textColor="@android:color/black" />
 
     <TextView
@@ -70,7 +72,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Spek"
+        android:text="@string/specification"
         android:textSize="12sp" />
 
     <TableLayout
@@ -89,14 +91,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
-                android:text="Display"
+                android:text="@string/display"
                 android:textSize="14sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Display Value"
+                android:text="@string/content_specs_display"
                 android:textColor="@android:color/black"
                 android:textSize="14sp" />
 
@@ -111,14 +113,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
-                android:text="size"
+                android:text="@string/size"
                 android:textSize="14sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Size Value"
+                android:text="@string/content_specs_size"
                 android:textColor="@android:color/black"
                 android:textSize="14sp" />
 
@@ -133,14 +135,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
-                android:text="Battery"
+                android:text="@string/battery"
                 android:textSize="14sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Battery Value"
+                android:text="@string/content_specs_battery"
                 android:textColor="@android:color/black"
                 android:textSize="14sp" />
 
@@ -154,7 +156,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Seller"
+        android:text="@string/seller"
         android:textSize="12sp" />
 
     <RelativeLayout
@@ -177,7 +179,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@id/profile_image"
-            android:text="Name"
+            android:text="@string/my_name"
             android:textColor="@android:color/black" />
 
     </RelativeLayout>
@@ -188,6 +190,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Beli" />
+        android:text="@string/buy" />
 
 </LinearLayout>
