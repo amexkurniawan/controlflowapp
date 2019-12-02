@@ -25,6 +25,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnLogin.setOnClickListener(this)
         btnOperation.setOnClickListener(this)
         btnStyle.setOnClickListener(this)
+        btnDemo.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -59,6 +60,13 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 val styleIntent = Intent(this, StyleActivity::class.java)
                 startActivity(styleIntent)
             }
+
+            R.id.btnDemo -> {
+                // navigate to demo activity
+                val demoIntent = Intent(this, DemoActivity::class.java)
+                startActivity(demoIntent)
+            }
+
         }
     }
 }
