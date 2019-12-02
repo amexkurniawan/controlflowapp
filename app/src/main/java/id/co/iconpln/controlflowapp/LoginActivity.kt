@@ -26,21 +26,21 @@ class LoginActivity : AppCompatActivity() {
         val myUsername: String = "user@mail.com"
         val myPassword: String = "password"
 
-        if(etLoginUsername.text.toString() == myUsername && etLoginPassword.text.toString() == myPassword){
-            tvLoginStatus.setText("Status login : Successfull")
+        if (etLoginUsername.text.isNullOrEmpty() || etLoginPassword.text.isNullOrEmpty()) {
+            etLoginUsername.error = "Please insert username"
+            etLoginPassword.error = "Please insert password"
         }
         else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(etLoginUsername.text).matches()){
             etLoginUsername.error = "Invalid e-mail format"
         }
-        else if (etLoginUsername.text.isNullOrEmpty() || etLoginPassword.text.isNullOrEmpty()) {
-            etLoginUsername.error = "Please insert username"
-            etLoginPassword.error = "Please insert password"
-        }
         else if(etLoginPassword.text.length < 7 ) {
             etLoginPassword.error = "Password length must greater or same than 7"
         }
-        else {
-            tvLoginStatus.setText("Username and password invalid.")
+        else if(etLoginUsername.text.toString() != myUsername && etLoginPassword.text.toString() != myPassword) {
+            tvLoginStatus.setText("Username or password invalid.")
+        }
+        else{
+            tvLoginStatus.setText("Status login : Successfull")
         }
     }
 }
