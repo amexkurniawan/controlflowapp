@@ -13,6 +13,27 @@ class VolumeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_volume)
 
         displayResult()
+        setClickListener()
+    }
+
+    private fun setClickListener() {
+        btnCalculate.setOnClickListener {
+            val length: String = etVolLength.text.toString()
+            val width = etVolWidth.text.toString()
+            val height = etVolHeight.text.toString()
+
+            if(length.isEmpty()) {
+                etVolLength.error = "Empty field"
+            } else if(width.isEmpty()) {
+                etVolWidth.error = "Empty field"
+            } else if (height.isEmpty()) {
+                etVolHeight.error = "Empty field"
+            } else {
+                calculate(length,width,height)
+            }
+
+            displayResult()
+        }
     }
 
     private fun displayResult() {
