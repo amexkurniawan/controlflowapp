@@ -8,9 +8,6 @@
     android:orientation="vertical"
     tools:context=".VolumeActivity">
 
-
-
-
     <EditText
         android:id="@+id/etVolHeight"
         android:layout_width="match_parent"
@@ -34,9 +31,6 @@
         android:layout_margin="1dp"
         android:hint="Length"
         android:inputType="number"/>
-
-
-
 
     <Button
         android:id="@+id/btnCalculate"
