@@ -8,14 +8,23 @@ import kotlinx.android.synthetic.main.activity_operation.*
 
 class Operation : AppCompatActivity(), View.OnClickListener {
 
-    lateinit var operationViewModel: VolumeViewModel
+    //lateinit var operationViewModel: VolumeViewModel
+    private var inputX: Int = 0
+    private var inputY: Int = 0
+    private var operationResult: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_operation)
-        
+
+        // init view model
+        displayResult()
         setButtonClickListener()
         getInputNumbers()
+    }
+
+    private fun displayResult() {
+        tbOpResult.text = operationResult.toString()
     }
 
     private fun setButtonClickListener() {
@@ -34,8 +43,8 @@ class Operation : AppCompatActivity(), View.OnClickListener {
                     getInputNumbers()
                     tvOperator.text = getString(R.string.operation_add)
                     val add = OperationClass.Add(inputX)
-                    val addResult = execute(inputY, add)
-                    tbOpResult.text = addResult.toString()
+                    operationResult = execute(inputY, add)
+                    displayResult()
                 }
             }
             R.id.btnDiv -> {
@@ -44,8 +53,8 @@ class Operation : AppCompatActivity(), View.OnClickListener {
                     getInputNumbers()
                     tvOperator.text = getString(R.string.operation_div)
                     val div = OperationClass.Divide(inputX)
-                    val divResult = execute(inputY, div)
-                    tbOpResult.text = divResult.toString()
+                    operationResult = execute(inputY, div)
+                    displayResult()
                 }
             }
             R.id.btnMult -> {
@@ -54,8 +63,8 @@ class Operation : AppCompatActivity(), View.OnClickListener {
                     getInputNumbers()
                     tvOperator.text = getString(R.string.operation_mult)
                     val mult = OperationClass.Multiply(inputX)
-                    val multResult = execute(inputY, mult)
-                    tbOpResult.text = multResult.toString()
+                    operationResult = execute(inputY, mult)
+                    displayResult()
                 }
             }
             R.id.btnSub -> {
@@ -64,14 +73,16 @@ class Operation : AppCompatActivity(), View.OnClickListener {
                     getInputNumbers()
                     tvOperator.text = getString(R.string.operation_sub)
                     val sub = OperationClass.Substract(inputX)
-                    val subResult = execute(inputY, sub)
-                    tbOpResult.text = subResult.toString()
+                    operationResult = execute(inputY, sub)
+                    displayResult()
                 }
             }
             R.id.btnReset -> {
+                tvOperator.setText("")
                 etBilanganX.setText("0")
                 etBilanganY.setText("0")
-                tbOpResult.setText("0")
+                operationResult = 0
+                displayResult()
             }
         }
     }
