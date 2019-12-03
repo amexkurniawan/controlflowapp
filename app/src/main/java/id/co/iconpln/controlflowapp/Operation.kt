@@ -3,28 +3,34 @@ package id.co.iconpln.controlflowapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_operation.*
 
 class Operation : AppCompatActivity(), View.OnClickListener {
 
-    //lateinit var operationViewModel: VolumeViewModel
+    lateinit var operationViewModel: OperationViewModel
     private var inputX: Int = 0
     private var inputY: Int = 0
-    private var operationResult: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_operation)
 
         // init view model
+        initViewModel()
         displayResult()
         setButtonClickListener()
         getInputNumbers()
     }
 
+    private fun initViewModel() {
+        operationViewModel = ViewModelProviders.of(this)
+            .get(OperationViewModel::class.java)
+    }
+
     private fun displayResult() {
-        tbOpResult.text = operationResult.toString()
+        tbOpResult.text = operationViewModel.operationResult.toString()
+        tvOperator.text = operationViewModel.operator
     }
 
     private fun setButtonClickListener() {
@@ -41,9 +47,9 @@ class Operation : AppCompatActivity(), View.OnClickListener {
                 var check = checkForError()
                 if(check) {
                     getInputNumbers()
-                    tvOperator.text = getString(R.string.operation_add)
+                    // operationViewModel.operator = resources.getString(R.string.operation_add)
                     val add = OperationClass.Add(inputX)
-                    operationResult = execute(inputY, add)
+                    operationViewModel.execute(inputY, add)
                     displayResult()
                 }
             }
@@ -51,9 +57,9 @@ class Operation : AppCompatActivity(), View.OnClickListener {
                 var check = checkForError()
                 if(check && etBilanganY.text.toString().toInt() != 0) {
                     getInputNumbers()
-                    tvOperator.text = getString(R.string.operation_div)
+                    //operationViewModel.operator = resources.getString(R.string.operation_div)
                     val div = OperationClass.Divide(inputX)
-                    operationResult = execute(inputY, div)
+                    operationViewModel.execute(inputY, div)
                     displayResult()
                 }
             }
@@ -61,9 +67,9 @@ class Operation : AppCompatActivity(), View.OnClickListener {
                 var check = checkForError()
                 if(check) {
                     getInputNumbers()
-                    tvOperator.text = getString(R.string.operation_mult)
+                    //operationViewModel.operator = resources.getString(R.string.operation_mult)
                     val mult = OperationClass.Multiply(inputX)
-                    operationResult = execute(inputY, mult)
+                    operationViewModel.execute(inputY, mult)
                     displayResult()
                 }
             }
@@ -71,28 +77,19 @@ class Operation : AppCompatActivity(), View.OnClickListener {
                 var check = checkForError()
                 if(check) {
                     getInputNumbers()
-                    tvOperator.text = getString(R.string.operation_sub)
+                    //operationViewModel.operator = resources.getString(R.string.operation_sub)
                     val sub = OperationClass.Substract(inputX)
-                    operationResult = execute(inputY, sub)
+                    operationViewModel.execute(inputY, sub)
                     displayResult()
                 }
             }
             R.id.btnReset -> {
-                tvOperator.setText("")
                 etBilanganX.setText("0")
                 etBilanganY.setText("0")
-                operationResult = 0
+                operationViewModel.operationResult = 0
+                operationViewModel.operator = ""
                 displayResult()
             }
-        }
-    }
-
-    private fun execute(x: Int, operationClass: OperationClass): Int {
-        return when (operationClass) {
-            is OperationClass.Add -> operationClass.value + x
-            is OperationClass.Divide -> operationClass.value / x
-            is OperationClass.Multiply -> operationClass.value * x
-            is OperationClass.Substract -> operationClass.value - x
         }
     }
 
