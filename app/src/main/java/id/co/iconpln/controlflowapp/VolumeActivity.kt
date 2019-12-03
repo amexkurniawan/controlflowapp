@@ -8,13 +8,13 @@ import kotlinx.android.synthetic.main.activity_volume.*
 
 class VolumeActivity : AppCompatActivity() {
 
-    private var volumeResult: Int = 0
     lateinit var volumeViewModel: VolumeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_volume)
 
+        initViewModel()
         displayResult()
         setClickListener()
     }
@@ -37,7 +37,7 @@ class VolumeActivity : AppCompatActivity() {
             } else if (height.isEmpty()) {
                 etVolHeight.error = "Empty field"
             } else {
-                calculate(length,width,height)
+                volumeViewModel.calculate(length,width,height)
             }
 
             displayResult()
@@ -45,10 +45,6 @@ class VolumeActivity : AppCompatActivity() {
     }
 
     private fun displayResult() {
-        tvVolResult.text = volumeResult.toString()
-    }
-
-    private fun calculate(length: String, width:String, height: String) {
-        volumeResult = Integer.parseInt(length) * Integer.parseInt(width) * Integer.parseInt(height)
+        tvVolResult.text = volumeViewModel.volumeResult.toString()
     }
 }
