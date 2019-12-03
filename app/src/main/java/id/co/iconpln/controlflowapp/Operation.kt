@@ -8,13 +8,12 @@ import kotlinx.android.synthetic.main.activity_operation.*
 
 class Operation : AppCompatActivity(), View.OnClickListener {
 
-    private var inputX: Int = 0
-    private var inputY: Int = 0
+    lateinit var operationViewModel: VolumeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_operation)
-
+        
         setButtonClickListener()
         getInputNumbers()
     }
