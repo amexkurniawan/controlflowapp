@@ -2,11 +2,14 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_volume.*
 
 class VolumeActivity : AppCompatActivity() {
 
     private var volumeResult: Int = 0
+    lateinit var volumeViewModel: VolumeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,6 +17,11 @@ class VolumeActivity : AppCompatActivity() {
 
         displayResult()
         setClickListener()
+    }
+
+    private fun initViewModel() {
+        volumeViewModel = ViewModelProviders.of(this)
+            .get(VolumeViewModel::class.java)
     }
 
     private fun setClickListener() {
