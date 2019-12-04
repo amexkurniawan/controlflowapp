@@ -78,6 +78,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnIntent -> {
                 // navigate to intent activity
                 val intent = Intent(this, IntentActivity::class.java)
+                startActivity(intent)
             }
 
         }
