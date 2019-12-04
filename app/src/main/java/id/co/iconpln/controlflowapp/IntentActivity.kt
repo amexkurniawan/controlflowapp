@@ -38,6 +38,10 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btnMoveActivityWithBundle -> {
                 val intent = Intent(this, IntentWithBundleActivity::class.java)
+                val bundle = Bundle()
+                bundle.putString(IntentWithBundleActivity.EXTRA_BUNDLE_NAME, "ameks bundle")
+                bundle.putInt(IntentWithBundleActivity.EXTRA_BUNDLE_AGE, 25)
+                intent.putExtras(bundle)
                 startActivity(intent)
             }
             R.id.btnMoveActivityWithObject -> {
