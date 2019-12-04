@@ -7,7 +7,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_intent.*
 
 class IntentActivity : AppCompatActivity(), View.OnClickListener {
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intent)
@@ -16,14 +16,19 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setOnClickButton() {
+        btnMoveActivity.setOnClickListener(this)
         btnMoveActivityWithData.setOnClickListener(this)
         btnMoveActivityWithBundle.setOnClickListener(this)
         btnMoveActivityWithObject.setOnClickListener(this)
+        btnMoveActivityImplicit.setOnClickListener(this)
         btnMoveActivityWithResult.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when(view!!.id) {
+            R.id.btnMoveActivity -> {
+
+            }
             R.id.btnMoveActivityWithData -> {
                 val intent = Intent(this, IntentWithDataActivity::class.java)
                 startActivity(intent)
@@ -36,7 +41,10 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 val intent = Intent(this, IntentWithObjectActivity::class.java)
                 startActivity(intent)
             }
-            R.id.btnMoveActivityWithData -> {
+            R.id.btnMoveActivityImplicit -> {
+
+            }
+            R.id.btnMoveActivityWithResult -> {
                 val intent = Intent(this, IntentWithResultActivity::class.java)
                 startActivity(intent)
             }
