@@ -7,7 +7,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_intent.*
 
 class IntentActivity : AppCompatActivity(), View.OnClickListener {
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intent)
@@ -27,7 +27,8 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when(view!!.id) {
             R.id.btnMoveActivity -> {
-
+                val intent = Intent(this, StyleActivity::class.java)
+                startActivity(intent)
             }
             R.id.btnMoveActivityWithData -> {
                 val intent = Intent(this, IntentWithDataActivity::class.java)
