@@ -24,7 +24,7 @@
     </style>
 
     <style name="TextContent.Subtitle">
-        <item name="android:textColor">@color/colorSubtitle</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textSize">12sp</item>
     </style>
 
