@@ -23,7 +23,7 @@ class IntentWithBundleActivity : AppCompatActivity() {
     }
 
     private fun showData() {
-        var str = "Intent with data, name: $name, age: $age"
+        var str = "Intent with bundle, name: $name, age: $age"
         tvDataReceivedBundle.text = str
     }
 
