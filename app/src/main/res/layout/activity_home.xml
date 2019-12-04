@@ -11,48 +11,64 @@
         android:id="@+id/btnCalculation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
         android:text="@string/btn_calculation" />
 
     <Button
         android:id="@+id/btnClassification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
         android:text="@string/btn_clasification" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
         android:text="@string/login" />
 
     <Button
         android:id="@+id/btnOperation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
         android:text="Operation" />
 
     <Button
         android:id="@+id/btnStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
         android:text="Style Activity" />
 
     <Button
         android:id="@+id/btnDemo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
         android:text="Demo Activity" />
 
     <Button
         android:id="@+id/btnVolume"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
         android:text="Volume" />
 
     <Button
         android:id="@+id/btnIntent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
         android:text="Intent" />
 
 </LinearLayout>

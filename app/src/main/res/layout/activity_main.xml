@@ -18,27 +18,25 @@
         android:id="@+id/btnShow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:text="@string/show_title"
-        android:background="@color/colorPrimary" />
+        android:background="@drawable/bg_button"
+        android:text="@string/show_title" />
 
     <Button
         android:id="@+id/btnShowToast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:text="@string/show_toast"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_button"
+        android:text="@string/show_toast" />
 
     <TextView
         android:id="@+id/tvTextHold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorAccent"
-        android:textAlignment="center"
+        android:layout_marginTop="10dp"
         android:text="Hello Kotlin."
-        android:textSize="25sp"
-        android:layout_marginTop="10dp" />
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp" />
 
 </LinearLayout>

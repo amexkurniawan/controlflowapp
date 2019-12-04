@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".IntentActivity">
 
     <Button
@@ -12,47 +12,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@color/colorAccent"
-        android:text="Intent Move Activity"/>
+        android:background="@drawable/bg_button"
+        android:text="Intent Move Activity" />
 
     <Button
         android:id="@+id/btnMoveActivityWithData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@color/colorAccent"
-        android:text="Intent Move Activity with Data"/>
+        android:background="@drawable/bg_button"
+        android:text="Intent Move Activity with Data" />
 
     <Button
         android:id="@+id/btnMoveActivityWithBundle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@color/colorAccent"
-        android:text="Intent Move Activity with Bundle"/>
+        android:background="@drawable/bg_button"
+        android:text="Intent Move Activity with Bundle" />
 
     <Button
         android:id="@+id/btnMoveActivityWithObject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
         android:layout_marginTop="8dp"
-        android:text="Intent Move Activity with Object"/>
+        android:background="@drawable/bg_button"
+        android:text="Intent Move Activity with Object" />
 
     <Button
         android:id="@+id/btnMoveActivityImplicit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@color/colorAccent"
-        android:text="Intent Implicit"/>
+        android:background="@drawable/bg_button"
+        android:text="Intent Implicit" />
 
     <Button
         android:id="@+id/btnMoveActivityWithResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@color/colorAccent"
-        android:text="Intent with Result"/>
+        android:background="@drawable/bg_button"
+        android:text="Intent with Result" />
 
 </LinearLayout>

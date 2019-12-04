@@ -62,7 +62,7 @@
         <TextView
             style="@style/TextContent.Subtitle"
             android:layout_marginBottom="16dp"
-            android:text="@string/specification"/>
+            android:text="@string/specification" />
 
         <TableLayout
             android:layout_width="match_parent"
@@ -82,7 +82,7 @@
 
                 <TextView
                     style="@style/TextSpec.Value"
-                    android:text="@string/content_specs_display"/>
+                    android:text="@string/content_specs_display" />
 
             </TableRow>
 
@@ -93,11 +93,11 @@
 
                 <TextView
                     style="@style/TextSpec.Field"
-                    android:text="@string/size"/>
+                    android:text="@string/size" />
 
                 <TextView
                     style="@style/TextSpec.Value"
-                    android:text="@string/content_specs_size"/>
+                    android:text="@string/content_specs_size" />
 
             </TableRow>
 
@@ -108,11 +108,11 @@
 
                 <TextView
                     style="@style/TextSpec.Field"
-                    android:text="@string/battery"/>
+                    android:text="@string/battery" />
 
                 <TextView
                     style="@style/TextSpec.Value"
-                    android:text="@string/content_specs_battery"/>
+                    android:text="@string/content_specs_battery" />
 
             </TableRow>
 
@@ -121,7 +121,7 @@
         <TextView
             style="@style/TextContent.Subtitle"
             android:layout_marginBottom="16dp"
-            android:text="@string/seller"/>
+            android:text="@string/seller" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -142,17 +142,17 @@
                 style="@style/TextContent"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/profile_image"
-                android:text="@string/my_name"/>
+                android:text="@string/my_name" />
 
         </RelativeLayout>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_button"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_button"
             android:text="@string/buy" />
 
     </LinearLayout>

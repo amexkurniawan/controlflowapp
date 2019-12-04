@@ -5,8 +5,8 @@
     <color name="colorAccent">#63ccff</color>
     <color name="colorSubtitle">#67daff</color>
 
-    <color name="button_pressed">#4ebaaa</color>
-    <color name="button_focused">#005b4f</color>
-    <color name="button_default">#00867d</color>
-    <color name="btn_base">#00897b</color>
+    <color name="button_pressed">#039be5</color>
+    <color name="button_focused">#006db3</color>
+    <color name="button_default">#63ccff</color>
+    <color name="btn_base">#63ccff</color>
 </resources>

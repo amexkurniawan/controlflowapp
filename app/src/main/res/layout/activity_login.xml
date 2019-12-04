@@ -11,42 +11,42 @@
         android:id="@+id/tvLoginText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Login"
         android:textAlignment="center"
-        android:textSize="20dp"
         android:textColor="@color/colorPrimary"
-        android:layout_marginTop="20dp" />
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/etLoginUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/et_username"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:hint="@string/et_username" />
 
     <EditText
         android:id="@+id/etLoginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/et_password"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:hint="@string/et_password" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_login"
         android:layout_marginTop="20dp"
-        android:background="@color/colorPrimary"/>
+        android:background="@drawable/bg_button"
+        android:text="@string/btn_login" />
 
     <TextView
         android:id="@+id/tvLoginStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
         android:layout_marginTop="15dp"
+        android:text=""
         android:textAlignment="center"
-        android:textStyle="italic"/>
+        android:textStyle="italic" />
 
 
 </LinearLayout>
