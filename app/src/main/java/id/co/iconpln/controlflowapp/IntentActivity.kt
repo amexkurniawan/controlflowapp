@@ -94,7 +94,16 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             R.id.btnMoveShareText -> {
+                val shareText = "Ini teks yang akan di share"
 
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.putExtra(Intent.EXTRA_TEXT, shareText)
+                intent.type = "text/plain"
+
+                val shareIntent = Intent.createChooser(
+                    intent, "hmmm share kemana yak ?"
+                )
+                startActivity(intent)
             }
             R.id.btnMoveActivityWithResult -> {
                 // IntentResult, give back value for result
