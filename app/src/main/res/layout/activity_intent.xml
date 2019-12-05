@@ -91,6 +91,14 @@
             android:background="@drawable/bg_button"
             android:text="Intent with Result" />
 
+        <TextView
+            android:id="@+id/tvIntentResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="text result"
+            android:textAlignment="center"
+            android:layout_marginTop="5dp" />
+
     </LinearLayout>
 
 </ScrollView>

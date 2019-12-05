@@ -10,6 +10,8 @@ import kotlinx.android.synthetic.main.activity_intent.*
 
 class IntentActivity : AppCompatActivity(), View.OnClickListener {
 
+    private val REQUEST_CODE = 110
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intent)
@@ -70,13 +72,22 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.btnMoveActivityWithResult -> {
+                // IntentResult, give back value for result
                 val intent = Intent(this, IntentWithResultActivity::class.java)
-                startActivity(intent)
+                startActivityForResult(intent, REQUEST_CODE)
             }
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == REQUEST_CODE) {
+            if(resultCode == IntentWithResultActivity.RESULT_CODE){
+                val selectedValue = data?.getIntExtra(IntentWithResultActivity.EXTRA_VALUE, 0)
+                tvIntentResult.text = "Hasil result intent: " + selectedValue.toString()
+
+            }
+        }
     }
 }
