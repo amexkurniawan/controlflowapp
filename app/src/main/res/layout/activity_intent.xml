@@ -1,90 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
     tools:context=".IntentActivity">
 
-    <Button
-        android:id="@+id/btnMoveActivity"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_button"
-        android:text="Intent Move Activity" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-    <Button
-        android:id="@+id/btnMoveActivityWithData"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_button"
-        android:text="Intent Move Activity with Data" />
+        <Button
+            android:id="@+id/btnMoveActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Intent Move Activity" />
 
-    <Button
-        android:id="@+id/btnMoveActivityWithBundle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_button"
-        android:text="Intent Move Activity with Bundle" />
+        <Button
+            android:id="@+id/btnMoveActivityWithData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Intent Move Activity with Data" />
 
-    <Button
-        android:id="@+id/btnMoveActivityWithObject"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_button"
-        android:text="Intent Move Activity with Object" />
+        <Button
+            android:id="@+id/btnMoveActivityWithBundle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Intent Move Activity with Bundle" />
 
-    <Button
-        android:id="@+id/btnMoveActivityImplicit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_button"
-        android:text="Intent Implicit" />
+        <Button
+            android:id="@+id/btnMoveActivityWithObject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Intent Move Activity with Object" />
 
-    <Button
-        android:id="@+id/btnMoveWeb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_button"
-        android:text="Intent Open Web" />
+        <Button
+            android:id="@+id/btnMoveActivityImplicit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Intent Implicit" />
 
-    <Button
-        android:id="@+id/btnMoveSms"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_button"
-        android:text="Intent Send Sms" />
+        <Button
+            android:id="@+id/btnMoveWeb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Intent Open Web" />
 
-    <Button
-        android:id="@+id/btnMoveShowMap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_button"
-        android:text="Intent Show Map" />
+        <Button
+            android:id="@+id/btnMoveSms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Intent Send Sms" />
 
-    <Button
-        android:id="@+id/btnMoveShareText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_button"
-        android:text="Intent Share Text" />
+        <Button
+            android:id="@+id/btnMoveShowMap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Intent Show Map" />
 
-    <Button
-        android:id="@+id/btnMoveActivityWithResult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_button"
-        android:text="Intent with Result" />
+        <Button
+            android:id="@+id/btnMoveShareText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Intent Share Text" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnMoveActivityWithResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Intent with Result" />
+
+    </LinearLayout>
+
+</ScrollView>
