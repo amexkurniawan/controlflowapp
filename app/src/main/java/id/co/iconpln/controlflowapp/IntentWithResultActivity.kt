@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_intent_with_result.*
 
@@ -10,6 +11,8 @@ class IntentWithResultActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intent_with_result)
+
+        onClickListener()
     }
 
     override fun onClick(view: View) {
@@ -22,9 +25,13 @@ class IntentWithResultActivity : AppCompatActivity(), View.OnClickListener {
                     R.id.rb150 -> value = 150
                     R.id.rb200 -> value = 200
                 }
+                Log.d("IntentWithResult", "value: $value")
             }
         }
     }
-        
+
+    fun onClickListener() {
+        btnResultChoose.setOnClickListener(this)
+    }
 }
 
