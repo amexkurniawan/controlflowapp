@@ -60,9 +60,11 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
             R.id.btnMoveWeb -> {
-                val webpage: Uri = Uri.parse("https://binar.co.id/")
-                val intent = Intent(Intent.ACTION_VIEW, webpage)
-                startActivity(intent)
+                val webpage = Uri.parse("https://binar.co.id/")
+                val intentWeb = Intent(Intent.ACTION_VIEW, webpage)
+                if(intent.resolveActivity(packageManager) != null) {
+                    startActivity(intentWeb)
+                }
             }
             R.id.btnMoveSms -> {
 
