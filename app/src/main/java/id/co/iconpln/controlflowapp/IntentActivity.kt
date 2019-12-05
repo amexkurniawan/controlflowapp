@@ -57,6 +57,18 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel: $phoneNumber"))
                 startActivity(intent)
             }
+            R.id.btnMoveWeb -> {
+
+            }
+            R.id.btnMoveSms -> {
+
+            }
+            R.id.btnMoveShowMap -> {
+
+            }
+            R.id.btnMoveShareText -> {
+
+            }
             R.id.btnMoveActivityWithResult -> {
                 val intent = Intent(this, IntentWithResultActivity::class.java)
                 startActivity(intent)
