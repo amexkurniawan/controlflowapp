@@ -26,6 +26,10 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
         btnMoveActivityWithObject.setOnClickListener(this)
         btnMoveActivityImplicit.setOnClickListener(this)
         btnMoveActivityWithResult.setOnClickListener(this)
+        btnMoveWeb.setOnClickListener(this)
+        btnMoveSms.setOnClickListener(this)
+        btnMoveShowMap.setOnClickListener(this)
+        btnMoveShareText.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -67,7 +71,16 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             R.id.btnMoveSms -> {
+                val phoneNumber = "089726472412"
+                val sendSms = Uri.parse("smsto: $phoneNumber")
+                val msg = "Halo, ini Ameks keces"
 
+                val intentSms = Intent(Intent.ACTION_SENDTO, sendSms)
+                intentSms.putExtra("sms_body", msg)
+
+                if(intentSms.resolveActivity(packageManager) != null) {
+                    startActivity(intentSms)
+                }
             }
             R.id.btnMoveShowMap -> {
 
