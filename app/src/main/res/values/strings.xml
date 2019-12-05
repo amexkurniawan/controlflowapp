@@ -37,5 +37,7 @@
     <string name="dummy_value">$735</string>
     <string name="dummy_photos">6 photos</string>
     <string name="data_received">data received</string>
+    <string name="choose">Pilih</string>
+    <string name="choose_number">Pilih angka yang disukai</string>
 
 </resources>

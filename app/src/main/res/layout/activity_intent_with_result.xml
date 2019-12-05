@@ -3,6 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin"
     tools:context=".IntentWithResultActivity">
+
+    <TextView
+        android:id="@+id/tvResultData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_number"
+        android:layout_marginBottom="@dimen/activity_half_vertical_margin" />
+
+    <Button
+        android:id="@+id/btnResultChoose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose" />
 
 </LinearLayout>
