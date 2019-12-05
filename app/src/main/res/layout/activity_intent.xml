@@ -48,6 +48,38 @@
         android:text="Intent Implicit" />
 
     <Button
+        android:id="@+id/btnMoveWeb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
+        android:text="Intent Open Web" />
+
+    <Button
+        android:id="@+id/btnMoveSms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
+        android:text="Intent Send Sms" />
+
+    <Button
+        android:id="@+id/btnMoveShowMap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
+        android:text="Intent Show Map" />
+
+    <Button
+        android:id="@+id/btnMoveShareText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
+        android:text="Intent Share Text" />
+
+    <Button
         android:id="@+id/btnMoveActivityWithResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
