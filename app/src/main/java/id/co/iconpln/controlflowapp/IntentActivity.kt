@@ -83,7 +83,15 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             R.id.btnMoveShowMap -> {
+                val latitude = "47.6"
+                val longtitude = "-122.3"
+                val showmap = Uri.parse("geo: $latitude, $longtitude")
 
+                val intentMap = Intent(Intent.ACTION_VIEW, showmap)
+
+                if(intentMap.resolveActivity(packageManager) != null) {
+                    startActivity(intentMap)
+                }
             }
             R.id.btnMoveShareText -> {
 
