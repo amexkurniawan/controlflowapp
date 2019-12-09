@@ -6,4 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".ComplexConstraintActivity">
 
+    <ImageView
+        android:id="@+id/ivConsProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_launcher_foreground"/>
+
+    <EditText
+        android:id="@+id/etConsUsername"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Username" />
+
+    <EditText
+        android:id="@+id/etConsPassword"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Password" />
+
+    <Button
+        android:id="@+id/btnConsLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
