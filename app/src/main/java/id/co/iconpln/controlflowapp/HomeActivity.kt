@@ -29,6 +29,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnVolume.setOnClickListener(this)
         btnIntent.setOnClickListener(this)
         btnComplexConstraint.setOnClickListener(this)
+        btnComplexConstraint2.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -85,6 +86,12 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnComplexConstraint -> {
                 // navigate to ComplexConstraint activity
                 val intent = Intent(this, ComplexConstraintActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.btnComplexConstraint2 -> {
+                // navigate to ComplexConstraint activity
+                val intent = Intent(this, MoreComplexConstraintActivity::class.java)
                 startActivity(intent)
             }
 
