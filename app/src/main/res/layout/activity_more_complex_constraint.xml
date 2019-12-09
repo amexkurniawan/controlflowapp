@@ -17,4 +17,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#4D000000"
+        android:text="@string/dummy_photos"
+        android:textColor="@android:color/white"
+        android:padding="8dp"
+        android:elevation="2dp"
+        android:drawableStart="@drawable/ic_photo"
+        android:drawablePadding="4dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
