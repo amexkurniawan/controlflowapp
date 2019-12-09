@@ -43,5 +43,6 @@
     <string name="value_100">100</string>
     <string name="value_150">150</string>
     <string name="value_200">200</string>
+    <string name="no_image">No Image</string>
 
 </resources>
