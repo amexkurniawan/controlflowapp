@@ -2,6 +2,20 @@ package id.co.iconpln.controlflowapp.models
 
 object HeroesData {
 
+    val listDataHero: ArrayList<Hero>
+    get() {
+        val list = ArrayList<Hero>()
+
+        for(data: Array<String> in dataHeroes) {
+            val hero = Hero()
+            hero.name = data[0]
+            hero.desc = data[1]
+            hero.photo = data[2]
+            list.add(hero)
+        }
+        return list
+    }
+
     private var dataHeroes = arrayOf(
         arrayOf(
             "Ahmad Dahlan",
