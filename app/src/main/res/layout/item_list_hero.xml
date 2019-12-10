@@ -34,7 +34,8 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/tvListDescription"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline2" />
+        app:layout_constraintStart_toEndOf="@id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/ivListImage" />
 
     <TextView
         android:id="@+id/tvListDescription"
