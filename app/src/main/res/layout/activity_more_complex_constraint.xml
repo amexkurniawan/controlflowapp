@@ -89,12 +89,19 @@
             app:layout_constraintGuide_begin="460dp" />
 
         <include layout="@layout/layout_specification"
+            android:id="@+id/layout_spec"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/guidelineSpec"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <include layout="@layout/layout_seller"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_spec" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
