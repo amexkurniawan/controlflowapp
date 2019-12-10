@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.models.Hero
+import kotlinx.android.synthetic.main.item_list_hero.view.*
 
 class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<ListHeroAdapter.HeroViewHolder>() {
 
@@ -19,13 +20,14 @@ class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<List
     }
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
-        
+        holder.bind(listHero[position], position)
     }
 
     inner class HeroViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
 
         fun  bind(hero: Hero, position:Int) {
-
+            view.tvListTitle.text = hero.name
+            view.tvListDescription.text = hero.desc
         }
     }
 }
