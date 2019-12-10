@@ -3,8 +3,9 @@ package id.co.iconpln.controlflowapp.hero
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import id.co.iconpln.controlflowapp.models.Hero
 
-class ListHeroAdapter : RecyclerView.Adapter<ListHeroAdapter.HeroViewHolder>() {
+class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<ListHeroAdapter.HeroViewHolder>() {
 
     inner class HeroViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
 
