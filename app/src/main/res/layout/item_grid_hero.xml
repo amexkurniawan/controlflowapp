@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/ivGridImage"
+        android:id="@+id/ivHeroGridPhoto"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:scaleType="centerCrop"
