@@ -3,6 +3,7 @@ package id.co.iconpln.controlflowapp.hero
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.models.Hero
@@ -25,6 +26,12 @@ class ListHeroActivity : AppCompatActivity() {
     private fun setupListHero() {
         rvListHero.setHasFixedSize(true)
         listHero.addAll(HeroesData.listDataHero)
+    }
+
+    private fun setupListDivider() {
+        val dividerItemDecoration = DividerItemDecoration(
+            rvListHero.context, DividerItemDecoration.VERTICAL )
+        rvListHero.addItemDecoration(dividerItemDecoration)
     }
 
     private fun showRecyclerList() {
