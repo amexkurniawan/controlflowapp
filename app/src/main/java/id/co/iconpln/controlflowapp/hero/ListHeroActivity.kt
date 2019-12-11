@@ -53,5 +53,12 @@ class ListHeroActivity : AppCompatActivity() {
         rvListHero.layoutManager = GridLayoutManager(this, 3)
         val gridHeroAdapter = GridHeroAdapter(listHero)
         rvListHero.adapter = gridHeroAdapter
+
+        gridHeroAdapter.setOnItemClickCallback(object : GridHeroAdapter.OnItemClickCallback{
+            override fun onItemClick(hero: Hero) {
+                Toast.makeText(this@ListHeroActivity, hero.name, Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 }
