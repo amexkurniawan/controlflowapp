@@ -25,8 +25,9 @@ class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<List
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
         holder.bind(listHero[position])
+
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context, listHero[position].name, Toast.LENGTH_SHORT).show()
+            onItemClickCallback.onItemClick(listHero[holder.adapterPosition])
         }
     }
 
@@ -44,8 +45,8 @@ class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<List
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
         this.onItemClickCallback = onItemClickCallback
     }
-}
 
-interface OnItemClickCallback {
-    fun onItemClick(hero: Hero)
+    interface OnItemClickCallback {
+        fun onItemClick(hero: Hero)
+    }
 }

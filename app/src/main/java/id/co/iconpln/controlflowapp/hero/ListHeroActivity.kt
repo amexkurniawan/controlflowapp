@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.hero
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.models.Hero
@@ -21,14 +22,21 @@ class ListHeroActivity : AppCompatActivity() {
 
     }
 
-    private fun showRecyclerList() {
+    private fun setupListHero() {
         rvListHero.setHasFixedSize(true)
         listHero.addAll(HeroesData.listDataHero)
     }
 
-    private fun setupListHero() {
+    private fun showRecyclerList() {
         rvListHero.layoutManager = LinearLayoutManager(this)
         val listHeroAdapter = ListHeroAdapter(listHero)
         rvListHero.adapter = listHeroAdapter
+
+        listHeroAdapter.setOnItemClickCallback(object : ListHeroAdapter.OnItemClickCallback{
+            override fun onItemClick(hero: Hero) {
+                Toast.makeText(this@ListHeroActivity, hero.name, Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 }
