@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.item_list_hero.view.*
 
 class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<ListHeroAdapter.HeroViewHolder>() {
 
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_hero, parent, false)
         return HeroViewHolder(view)
@@ -37,6 +39,10 @@ class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<List
                 .load(hero.photo)
                 .into(view.ivListImage)
         }
+    }
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
+        this.onItemClickCallback = onItemClickCallback
     }
 }
 
