@@ -31,4 +31,8 @@ class GridHeroAdapter(val listHero: ArrayList<Hero>): RecyclerView.Adapter<GridH
                 .into(view.ivHeroGridPhoto)
         }
     }
+
+    interface OnItemClickCallback {
+        fun onItemClick(hero: Hero)
+    }
 }
