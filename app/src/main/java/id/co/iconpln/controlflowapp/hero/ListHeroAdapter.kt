@@ -21,12 +21,12 @@ class ListHeroAdapter(val listHero: ArrayList<Hero>) : RecyclerView.Adapter<List
     }
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
-        holder.bind(listHero[position], position)
+        holder.bind(listHero[position])
     }
 
     inner class HeroViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
 
-        fun  bind(hero: Hero, position:Int) {
+        fun  bind(hero: Hero) {
             view.tvListTitle.text = hero.name
             view.tvListDescription.text = hero.desc
             Glide.with(view.context)
