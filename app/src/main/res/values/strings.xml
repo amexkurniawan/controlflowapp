@@ -54,5 +54,6 @@
 
     <!-- Other Fragment -->
     <string name="hello_other_fragment">Hello Other fragment</string>
+    <string name="to_last_fragment">To Last Fragment</string>
 
 </resources>
