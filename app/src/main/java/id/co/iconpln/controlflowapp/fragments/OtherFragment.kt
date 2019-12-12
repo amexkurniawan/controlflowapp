@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.fragments.LastFragment.Companion.message
 import kotlinx.android.synthetic.main.fragment_other.*
 
 /**
@@ -38,6 +39,16 @@ class OtherFragment : Fragment(), View.OnClickListener {
                 val fragmentTransaction: FragmentTransaction? = fragmentManager?.beginTransaction()
 
                 val fragment = LastFragment()
+
+                val bundle: Bundle? = Bundle()
+                bundle?.putString(LastFragment.EXTRA_NAME_FRAGMENT, "Hi, ame")
+                val hiddenMessage = "My message: this is last message"
+
+                fragment.apply {
+                    arguments = bundle
+                    message = hiddenMessage
+                }
+
                 fragmentTransaction?.replace(R.id.flContainer, fragment)
                 fragmentTransaction?.addToBackStack(null)
                 fragmentTransaction?.commit()
