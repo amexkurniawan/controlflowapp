@@ -32,6 +32,7 @@ class LastFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         btnOtherActivity.setOnClickListener(this)
+        btnShowDialog.setOnClickListener(this)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -47,6 +48,9 @@ class LastFragment : Fragment(), View.OnClickListener {
             R.id.btnOtherActivity -> {
                 val styleIntent = Intent(requireContext(), StyleActivity::class.java)
                 startActivity(styleIntent)
+            }
+            R.id.btnShowDialog -> {
+
             }
         }
     }

@@ -39,4 +39,11 @@
         android:text="@string/go_to_other_activity"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btnShowDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/show_dialog"
+        android:textAllCaps="false" />
+
 </LinearLayout>

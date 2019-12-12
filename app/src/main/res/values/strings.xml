@@ -59,5 +59,6 @@
     <!-- Last Fragment -->
     <string name="hello_last_fragment">Hello Last fragment</string>
     <string name="go_to_other_activity">Go to Other Activity</string>
+    <string name="show_dialog">Show Dialog</string>
 
 </resources>
