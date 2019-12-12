@@ -39,6 +39,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
                 val fragment = OtherFragment()
                 fragmentTransaction?.replace(R.id.flContainer, fragment)
+                fragmentTransaction?.addToBackStack(null)
                 fragmentTransaction?.commit()
             }
         }
