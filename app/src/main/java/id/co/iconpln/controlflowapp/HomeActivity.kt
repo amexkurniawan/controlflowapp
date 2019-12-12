@@ -31,6 +31,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnComplexConstraint.setOnClickListener(this)
         btnComplexConstraint2.setOnClickListener(this)
         btnListHero.setOnClickListener(this)
+        btnGridHero.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -99,6 +100,12 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnListHero -> {
                 // navigate to list hero activity
                 val intent = Intent(this, ListHeroActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.btnGridHero -> {
+                // navigate to grid hero activity
+                val intent = Intent(this, GridHeroActivity::class.java)
                 startActivity(intent)
             }
 
