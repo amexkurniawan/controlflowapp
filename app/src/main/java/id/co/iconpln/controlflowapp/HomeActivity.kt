@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -32,6 +33,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnComplexConstraint2.setOnClickListener(this)
         btnListHero.setOnClickListener(this)
         btnGridHero.setOnClickListener(this)
+        btnDemoFragment.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -106,6 +108,12 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnGridHero -> {
                 // navigate to grid hero activity
                 val intent = Intent(this, GridHeroActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.btnDemoFragment -> {
+                // navigate to demo fragment activity
+                val intent = Intent(this, DemoFragmentActivity::class.java)
                 startActivity(intent)
             }
 
