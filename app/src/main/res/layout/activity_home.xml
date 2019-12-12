@@ -108,6 +108,14 @@
             android:background="@drawable/bg_button"
             android:text="Grid Hero" />
 
+        <Button
+            android:id="@+id/btnDemoFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Demo Fragment" />
+
     </LinearLayout>
 
 </ScrollView>
