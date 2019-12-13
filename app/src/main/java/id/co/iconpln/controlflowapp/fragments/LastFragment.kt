@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.StyleActivity
@@ -60,5 +61,11 @@ class LastFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    var optionDialogListener: OptionDialogFragment.OptionsDialogListener = object : OptionDialogFragment.OptionsDialogListener{
+        override fun onOptionChoosen(text: String) {
+            Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
+        }
+
+    }
 
 }
