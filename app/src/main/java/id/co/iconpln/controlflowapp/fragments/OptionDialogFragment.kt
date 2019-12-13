@@ -32,7 +32,7 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
                 Toast.makeText(requireContext(), "Pilih dongs", Toast.LENGTH_SHORT).show()
             }
             R.id.btnClose -> {
-                Toast.makeText((requireContext(), "Close dong", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Close dong", Toast.LENGTH_SHORT).show()
             }
         }
     }
