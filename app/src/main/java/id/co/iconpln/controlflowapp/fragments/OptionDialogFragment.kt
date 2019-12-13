@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 
 import id.co.iconpln.controlflowapp.R
 
@@ -23,7 +24,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [OptionDialogFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class OptionDialogFragment : Fragment() {
+class OptionDialogFragment : DialogFragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
