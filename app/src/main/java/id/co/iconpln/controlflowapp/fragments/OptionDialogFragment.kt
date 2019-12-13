@@ -32,7 +32,9 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        super.onViewCreated(view, savedInstanceState)
+        btnPilih.setOnClickListener(this)
+        btnClose.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
