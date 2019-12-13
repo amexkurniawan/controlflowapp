@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.fragments
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,10 @@ import kotlinx.android.synthetic.main.fragment_option_dialog.*
  */
 class OptionDialogFragment : DialogFragment(), View.OnClickListener {
 
+    companion object {
+        val TAG: String = OptionDialogFragment::class.java.simpleName
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,10 +31,34 @@ class OptionDialogFragment : DialogFragment(), View.OnClickListener {
         return inflater.inflate(R.layout.fragment_option_dialog, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+    }
+
     override fun onClick(view: View) {
         when(view.id){
             R.id.btnPilih -> {
-                Toast.makeText(requireContext(), "Pilih dongs", Toast.LENGTH_SHORT).show()
+                val checkedRadioBtnId: Int = rgDialogOption.checkedRadioButtonId
+
+                if(checkedRadioBtnId != -1){
+                    var fvColor = ""
+
+                    when(checkedRadioBtnId) {
+                        R.id.rbBlue -> {
+                            fvColor = rbBlue.text.toString().trim()
+                        }
+                        R.id.rbRed -> {
+                            fvColor = rbRed.text.toString().trim()
+                        }
+                        R.id.rbPurple -> {
+                            fvColor = rbPurple.text.toString().trim()
+                        }
+                        R.id.rbGreen -> {
+                            fvColor = rbGreen.text.toString().trim()
+                        }
+                    }
+                    Log.d(TAG, "color $fvColor")
+                }
             }
             R.id.btnClose -> {
                 dialog.cancel()
