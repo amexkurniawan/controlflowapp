@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import id.co.iconpln.controlflowapp.fragmentNav.BottomNavActivity
 import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
 import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
@@ -36,6 +37,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnGridHero.setOnClickListener(this)
         btnDemoFragment.setOnClickListener(this)
         btnTab.setOnClickListener(this)
+        btnNav.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -125,6 +127,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
 
+            R.id.btnNav -> {
+                // navigate to Tab layout
+                val intent = Intent(this, BottomNavActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }
