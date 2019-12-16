@@ -21,6 +21,7 @@ class BottomNavActivity : AppCompatActivity() {
 
     private fun setupBottomNav() {
         navViewBottom.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        navViewBottom.selectedItemId = R.id.navigation_home // default nav
     }
 
     private val onNavigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener
