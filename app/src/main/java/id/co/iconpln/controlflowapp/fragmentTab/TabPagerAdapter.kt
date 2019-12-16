@@ -16,7 +16,7 @@ class TabPagerAdapter(private val context: Context, fm: FragmentManager): Fragme
     }
 
     override fun getCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return 2
     }
 
 }
