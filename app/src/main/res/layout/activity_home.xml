@@ -116,6 +116,14 @@
             android:background="@drawable/bg_button"
             android:text="Demo Fragment" />
 
+        <Button
+            android:id="@+id/btnTab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Tab Layout" />
+
     </LinearLayout>
 
 </ScrollView>
