@@ -6,6 +6,8 @@ import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.fragmentTab.FirstFragment
+import id.co.iconpln.controlflowapp.fragmentTab.SecondFragment
 import kotlinx.android.synthetic.main.activity_bottom_nav.*
 
 class BottomNavActivity : AppCompatActivity() {
@@ -25,8 +27,14 @@ class BottomNavActivity : AppCompatActivity() {
         = object : BottomNavigationView.OnNavigationItemSelectedListener{
         override fun onNavigationItemSelected(item: MenuItem): Boolean {
             when(item.itemId){
-                R.id.navigation_home -> return true
-                R.id.navigation_person -> return true
+                R.id.navigation_home -> {
+                    loadFragment(FirstFragment())
+                    return true
+                }
+                R.id.navigation_person -> {
+                    loadFragment(SecondFragment())
+                    return true
+                }
             }
             return false
         }
