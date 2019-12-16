@@ -3,6 +3,7 @@ package id.co.iconpln.controlflowapp.fragmentNav
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_bottom_nav.*
@@ -17,7 +18,7 @@ class BottomNavActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNav() {
-        navViewBottom.setOnNavigationItemSelectedListener()
+        navViewBottom.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
 
     private val onNavigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener
@@ -29,5 +30,11 @@ class BottomNavActivity : AppCompatActivity() {
             }
             return false
         }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.flContainer, fragment, fragment::class.java.simpleName)
+            .commit()
     }
 }
