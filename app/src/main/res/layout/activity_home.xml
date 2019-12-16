@@ -132,6 +132,14 @@
             android:background="@drawable/bg_button"
             android:text="Nav Layout" />
 
+        <Button
+            android:id="@+id/btnNavDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Nav Drawer Layout" />
+
     </LinearLayout>
 
 </ScrollView>

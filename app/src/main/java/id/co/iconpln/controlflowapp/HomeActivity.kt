@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import id.co.iconpln.controlflowapp.fragmentNav.BottomNavActivity
+import id.co.iconpln.controlflowapp.fragmentNavDrawer.NavDrawerActivity
 import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
 import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
@@ -38,6 +39,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnDemoFragment.setOnClickListener(this)
         btnTab.setOnClickListener(this)
         btnNav.setOnClickListener(this)
+        btnNavDrawer.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -132,6 +134,12 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 val intent = Intent(this, BottomNavActivity::class.java)
                 startActivity(intent)
             }
+
+            R.id.btnNavDrawer -> {
+                val intent = Intent(this, NavDrawerActivity::class.java)
+                startActivity(intent)
+            }
+
         }
     }
 }
