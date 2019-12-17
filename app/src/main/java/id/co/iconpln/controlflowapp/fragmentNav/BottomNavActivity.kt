@@ -8,6 +8,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.fragmentTab.FirstFragment
 import id.co.iconpln.controlflowapp.fragmentTab.SecondFragment
+import id.co.iconpln.controlflowapp.hero.ListHeroFragment
 import kotlinx.android.synthetic.main.activity_bottom_nav.*
 
 class BottomNavActivity : AppCompatActivity() {
@@ -33,7 +34,7 @@ class BottomNavActivity : AppCompatActivity() {
                     return true
                 }
                 R.id.navigation_person -> {
-                    loadFragment(SecondFragment())
+                    loadFragment(ListHeroFragment())
                     return true
                 }
             }
