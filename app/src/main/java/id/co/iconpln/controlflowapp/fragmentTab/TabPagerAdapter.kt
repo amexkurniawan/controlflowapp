@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.hero.ListHeroFragment
 
 class TabPagerAdapter(private val context: Context, fm: FragmentManager): FragmentPagerAdapter(fm) {
 
@@ -16,7 +17,7 @@ class TabPagerAdapter(private val context: Context, fm: FragmentManager): Fragme
     override fun getItem(position: Int): Fragment {
         var fragment: Fragment? = null
         when(position){
-            0 -> fragment = FirstFragment()
+            0 -> fragment = ListHeroFragment()
             1 -> fragment = SecondFragment()
         }
         return fragment as Fragment
