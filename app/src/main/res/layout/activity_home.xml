@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/bg_button"
-            android:text="Tab Layout" />
+            android:text="Nav Tab Layout" />
 
         <Button
             android:id="@+id/btnBottomNav"
@@ -130,7 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/bg_button"
-            android:text="Nav Layout" />
+            android:text="Nav Bottom Layout" />
 
         <Button
             android:id="@+id/btnNavDrawer"
