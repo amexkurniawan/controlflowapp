@@ -44,6 +44,10 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 Toast.makeText(this, "Gallery", Toast.LENGTH_SHORT).show()
             }
         }
+
+
+        title = item.title// item title in actionbar
+        
         dlDrawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
