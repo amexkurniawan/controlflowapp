@@ -7,7 +7,7 @@
     tools:context=".hero.ListHeroFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvListHero"
+        android:id="@+id/rvFragmentListHero"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/item_list_hero" />
