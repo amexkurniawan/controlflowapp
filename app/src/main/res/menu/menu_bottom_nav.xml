@@ -7,4 +7,9 @@
     <item android:id="@+id/navigation_person"
         android:title="Person"
         android:icon="@drawable/ic_person" />
+
+    <item
+        android:id="@+id/navigation_third"
+        android:icon="@drawable/ic_photo"
+        android:title="Third" />
 </menu>
