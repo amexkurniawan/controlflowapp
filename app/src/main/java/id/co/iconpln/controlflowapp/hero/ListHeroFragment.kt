@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.fragment_list_hero.*
 class ListHeroFragment : Fragment() {
 
     private var listHero: ArrayList<Hero> = arrayListOf()
+    lateinit var listHeroAdapter: ListHeroAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +36,7 @@ class ListHeroFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupListHero()
         showRecyclerViewList(view.context)
+        setListHeroItemClickListener()
     }
 
     private fun setupListHero() {
@@ -51,8 +53,13 @@ class ListHeroFragment : Fragment() {
 
     private fun showRecyclerViewList(context: Context) {
         rvFragmentListHero.layoutManager = LinearLayoutManager(context)
-        val listHeroAdapter = ListHeroAdapter(listHero)
+        listHeroAdapter = ListHeroAdapter(listHero)
         rvFragmentListHero.adapter = listHeroAdapter
+
+
+    }
+
+    private fun setListHeroItemClickListener(){
         listHeroAdapter.setOnItemClickCallback(object : ListHeroAdapter.OnItemClickCallback{
             override fun onItemClick(hero: Hero) {
                 Toast.makeText(requireContext(), hero.name, Toast.LENGTH_SHORT).show()
