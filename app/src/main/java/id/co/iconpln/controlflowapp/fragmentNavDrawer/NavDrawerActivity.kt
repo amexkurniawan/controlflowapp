@@ -6,8 +6,11 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.fragmentTab.FirstFragment
+import id.co.iconpln.controlflowapp.fragmentTab.SecondFragment
 import kotlinx.android.synthetic.main.activity_nav_drawer.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 
@@ -35,12 +38,15 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.nav_home_drawer -> {
+                loadFragment(FirstFragment())
                 Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_person_drawer -> {
+                loadFragment(SecondFragment())
                 Toast.makeText(this, "Person", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_gelery_drawer -> {
+                loadFragment(SecondFragment())
                 Toast.makeText(this, "Gallery", Toast.LENGTH_SHORT).show()
             }
         }
@@ -55,5 +61,11 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         dlDrawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun loadFragment(fragment: Fragment){
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.flDrawerContent, fragment, fragment::class.java.simpleName)
+            .commit()
     }
 }
