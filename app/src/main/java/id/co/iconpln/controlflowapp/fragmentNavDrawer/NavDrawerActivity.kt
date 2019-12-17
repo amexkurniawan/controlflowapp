@@ -54,9 +54,7 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             }
         }
         // clicked item
-        for(menuCount: Int in 0 until navViewDrawer.menu.size()){
-            navViewDrawer.menu.getItem(menuCount).isChecked = false
-        }
+        unCheckedItemMenu()
         item.isChecked = true
 
         // item title in actionbar
@@ -70,5 +68,19 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         supportFragmentManager.beginTransaction()
             .replace(R.id.flDrawerContent, fragment, fragment::class.java.simpleName)
             .commit()
+    }
+
+    private fun unCheckedItemMenu(){
+        for (menuCount in 0 until navViewDrawer.menu.size()){
+            navViewDrawer.menu.getItem(menuCount).isChecked = false
+
+            if(navViewDrawer.menu.getItem(menuCount).hasSubMenu()){
+
+                for(submenuCount in 0 until navViewDrawer.menu.getItem(menuCount).subMenu.size()){
+                    navViewDrawer.menu.getItem(menuCount).subMenu
+                        .getItem(submenuCount).isChecked = false
+                }
+            }
+        }
     }
 }
