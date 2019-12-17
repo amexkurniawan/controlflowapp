@@ -57,6 +57,12 @@ class NavDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 startActivity(openActivityIntent)
                 Toast.makeText(this, "Gallery", Toast.LENGTH_SHORT).show()
             }
+            R.id.nav_edit -> {
+                loadFragment(SecondFragment())
+            }
+            R.id.nav_exit -> {
+                finish()
+            }
         }
         // clicked item
         unCheckedItemMenu()
