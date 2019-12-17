@@ -38,7 +38,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnGridHero.setOnClickListener(this)
         btnDemoFragment.setOnClickListener(this)
         btnTab.setOnClickListener(this)
-        btnNav.setOnClickListener(this)
+        btnBottomNav.setOnClickListener(this)
         btnNavDrawer.setOnClickListener(this)
     }
 
@@ -129,7 +129,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
 
-            R.id.btnNav -> {
+            R.id.btnBottomNav -> {
                 // navigate to Tab layout
                 val intent = Intent(this, BottomNavActivity::class.java)
                 startActivity(intent)
