@@ -7,5 +7,5 @@
         android:title="@string/menu_demo_search"
         app:actionViewClass = "androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|ifRoom"/>
-    
+
 </menu>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
+import android.view.Menu
 import android.view.View
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -93,5 +94,11 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
         override fun onClick(view: View) {
             Snackbar.make(clDemo, "Message is restored", Snackbar.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_demo, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
