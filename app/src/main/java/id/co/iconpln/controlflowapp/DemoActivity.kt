@@ -4,9 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import kotlinx.android.synthetic.main.activity_demo.*
 
-class DemoActivity : AppCompatActivity() {
+class DemoActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,6 +16,8 @@ class DemoActivity : AppCompatActivity() {
         btnSubmit.setOnClickListener {
             val styleIntent = Intent(this, StyleActivity::class.java)
             startActivity(styleIntent)
+
+            setOnClickButton()
         }
     }
 
@@ -46,5 +49,25 @@ class DemoActivity : AppCompatActivity() {
     override fun onDestroy() {
         Log.d("Ame", "-- onDestroy")
         super.onDestroy()
+    }
+
+    private fun setOnClickButton() {
+        btnSnackbar.setOnClickListener(this)
+        btnSnackbarButton.setOnClickListener(this)
+        btnSnackbarCustom.setOnClickListener(this)
+    }
+
+    override fun onClick(view: View) {
+        when (view.id) {
+            R.id.btnSnackbar -> {
+
+            }
+            R.id.btnSnackbarButton -> {
+
+            }
+            R.id.btnSnackbarCustom -> {
+
+            }
+        }
     }
 }
