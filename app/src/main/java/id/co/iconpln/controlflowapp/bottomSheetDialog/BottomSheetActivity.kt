@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_bottom_sheet.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet.*
@@ -67,8 +68,11 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             R.id.btnBottomSheetDialog -> {
-                bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-                btnBottomSheet.text = "Expland Bottom Sheet"
+                val dialogView = layoutInflater
+                    .inflate(R.layout.fragment_bottom_sheet, null)
+                val bottomSheetDialog = BottomSheetDialog(this)
+                bottomSheetDialog.setContentView(dialogView)
+                bottomSheetDialog.show()
             }
             R.id.btnBottomDialogFragment -> {
 
