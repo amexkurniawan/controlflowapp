@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fragmentNavDrawer.NavDrawerActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+        <activity android:name=".bottomSheetDialog.BottomSheetActivity"></activity>
+        <activity
+            android:name=".fragmentNavDrawer.NavDrawerActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".fragmentNav.BottomNavActivity" />
         <activity android:name=".fragmentTab.TabActivity" />
         <activity android:name=".fragments.DemoFragmentActivity" />
