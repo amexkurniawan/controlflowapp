@@ -13,27 +13,11 @@ class BottomSheetActivity : AppCompatActivity() { //, View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bottom_sheet)
 
-        //setOnClickButton()
+        setupActionBar()
     }
 
-//    private fun setOnClickButton() {
-//        btnBottomSheet.setOnClickListener(this)
-//        btnBottomSheetDialog.setOnClickListener(this)
-//        btnBottomSheetDialogFragment.setOnClickListener(this)
-//    }
-//
-//    override fun onClick(view: View) {
-//        when (view.id) {
-//            R.id.btnBottomSheet -> {
-//
-//            }
-//            R.id.btnBottomSheetDialog -> {
-//
-//            }
-//            R.id.btnBottomSheetDialogFragment -> {
-//
-//            }
-//        }
-//    }
+    private fun setupActionBar() {
+        setSupportActionBar(toolbarBottomSheet)
+    }
 
 }
