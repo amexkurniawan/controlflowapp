@@ -71,5 +71,8 @@
     <!-- Search -->
     <string name="menu_demo_search">Search</string>
     <string name="menu_demo_search_hint">Search</string>
+    <string name="btn_bottom_sheet">Show Sheet Sheet</string>
+    <string name="btn_bottom_sheet_dialog">Show Bottom Sheet Dialog</string>
+    <string name="btn_bottom_sheet_dialog_fragment">Show Bottom Sheet Dialog Fragment</string>
 
 </resources>

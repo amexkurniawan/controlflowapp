@@ -8,28 +8,5 @@
     android:layout_height="match_parent"
     tools:context=".bottomSheetDialog.BottomSheetActivity">
 
-    <Button
-        android:id="@+id/btnBottomSheet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_button"
-        android:text="Show SnackBar"/>
-
-    <Button
-        android:id="@+id/btnBottomSheetDialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_button"
-        android:layout_marginTop="16dp"
-        android:text="Show Snackbar with button"/>
-
-    <Button
-        android:id="@+id/btnBottomSheetDialogFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_button"
-        android:text="Show custom snackbar"/>
 
 </LinearLayout>
