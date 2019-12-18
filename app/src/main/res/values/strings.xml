@@ -75,4 +75,6 @@
     <string name="btn_bottom_sheet_dialog">Show Bottom Sheet Dialog</string>
     <string name="btn_bottom_sheet_dialog_fragment">Show Bottom Sheet Dialog Fragment</string>
 
+    <string name="btn_bottom_sheet_home">Bottom Sheet</string>
+
 </resources>

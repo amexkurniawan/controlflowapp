@@ -140,6 +140,12 @@
             android:background="@drawable/bg_button"
             android:text="Nav Drawer Layout" />
 
+        <Button
+            android:id="@+id/btnBottomSheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_bottom_sheet_home"/>
+
     </LinearLayout>
 
 </ScrollView>

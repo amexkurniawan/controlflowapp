@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import id.co.iconpln.controlflowapp.bottomSheetDialog.BottomSheetActivity
 import id.co.iconpln.controlflowapp.fragmentNav.BottomNavActivity
 import id.co.iconpln.controlflowapp.fragmentNavDrawer.NavDrawerActivity
 import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
@@ -40,6 +41,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnTab.setOnClickListener(this)
         btnBottomNav.setOnClickListener(this)
         btnNavDrawer.setOnClickListener(this)
+        btnBottomSheet.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -138,6 +140,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnNavDrawer -> {
                 val intent = Intent(this, NavDrawerActivity::class.java)
                 startActivity(intent)
+            }
+
+            R.id.btnBottomSheet -> {
+                val bottomSheet = Intent (this, BottomSheetActivity::class.java)
+                startActivity(bottomSheet)
             }
 
         }
