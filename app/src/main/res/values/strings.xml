@@ -67,4 +67,5 @@
     <!-- String for tab layout -->
     <string name="tab_text_1">First</string>
     <string name="tab_text_2">Second</string>
+    <string name="menu_demo_search">Search</string>
 </resources>
