@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_demo.*
 
 class DemoActivity : AppCompatActivity(), View.OnClickListener {
@@ -13,12 +14,7 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_demo)
 
-        btnSubmit.setOnClickListener {
-            val styleIntent = Intent(this, StyleActivity::class.java)
-            startActivity(styleIntent)
-
-            setOnClickButton()
-        }
+        setOnClickButton()
     }
 
     override fun onStart() {
@@ -52,6 +48,7 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setOnClickButton() {
+        btnSubmit.setOnClickListener(this)
         btnSnackbar.setOnClickListener(this)
         btnSnackbarButton.setOnClickListener(this)
         btnSnackbarCustom.setOnClickListener(this)
@@ -59,8 +56,12 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         when (view.id) {
+            R.id.btnSubmit -> {
+                val styleIntent = Intent(this, StyleActivity::class.java)
+                startActivity(styleIntent)
+            }
             R.id.btnSnackbar -> {
-
+                Snackbar.make(clDemo, "This is Snack", Snackbar.LENGTH_SHORT).show()
             }
             R.id.btnSnackbarButton -> {
 
