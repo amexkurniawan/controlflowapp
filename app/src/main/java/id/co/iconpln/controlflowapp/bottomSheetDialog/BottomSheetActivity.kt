@@ -75,7 +75,8 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
                 bottomSheetDialog.show()
             }
             R.id.btnBottomDialogFragment -> {
-
+                val bottomSheetFragment = BottomSheetFragment()
+                bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
             }
         }
     }
