@@ -116,6 +116,7 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 Toast.makeText(this@DemoActivity, query, Toast.LENGTH_SHORT).show()
+                return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
