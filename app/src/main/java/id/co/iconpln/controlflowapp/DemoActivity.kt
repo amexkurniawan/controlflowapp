@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.view.View
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_demo.*
@@ -72,10 +74,17 @@ class DemoActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.btnSnackbarCustom -> {
-                Snackbar.make(clDemo, "This is custom snackbar", Snackbar.LENGTH_LONG)
+                val customSnackBar = Snackbar.make(clDemo, "This is custom snackbar", Snackbar.LENGTH_LONG)
                     .setAction("Undo", undoListener)
                     .setActionTextColor(ContextCompat.getColor(this, R.color.button_snackbar))
-                    .show()
+
+                val snackbarView = customSnackBar.view
+                val textSnackbar: TextView = snackbarView.findViewById(R.id.snackbar_text)
+                textSnackbar.setTextColor(ContextCompat.getColor(this, R.color.text_snackbar))
+                textSnackbar.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
+                snackbarView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryDark))
+
+                customSnackBar.show()
             }
         }
     }
