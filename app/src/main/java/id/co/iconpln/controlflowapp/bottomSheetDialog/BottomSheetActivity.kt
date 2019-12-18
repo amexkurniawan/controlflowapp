@@ -31,12 +31,23 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
         bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet)
         bottomSheetBehavior.setBottomSheetCallback(
             object : BottomSheetBehavior.BottomSheetCallback() {
-                override fun onSlide(p0: View, p1: Float) {
+                override fun onSlide(view: View, slideOffset: Float) {
 
                 }
 
-                override fun onStateChanged(p0: View, p1: Int) {
-
+                override fun onStateChanged(view: View, newState: Int) {
+                    when(newState) {
+                        BottomSheetBehavior.STATE_COLLAPSED -> {
+                            btnBottomSheet.text = "Expand Bottom Sheet"
+                        }
+                        BottomSheetBehavior.STATE_DRAGGING -> {}
+                        BottomSheetBehavior.STATE_EXPANDED -> {
+                            btnBottomSheet.text = "Close Bottom Sheet"
+                        }
+                        BottomSheetBehavior.STATE_HALF_EXPANDED -> {}
+                        BottomSheetBehavior.STATE_HIDDEN -> {}
+                        BottomSheetBehavior.STATE_SETTLING -> {}
+                    }
                 }
 
             }
