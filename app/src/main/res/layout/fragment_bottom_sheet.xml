@@ -10,6 +10,7 @@
     instead of nested layouts -->
 
     <LinearLayout
+        android:id="@+id/llBottomPreview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -21,6 +22,7 @@
         android:paddingTop="8dp">
 
         <ImageView
+            android:id="@+id/ivBottomPreview"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginRight="32dp"
@@ -28,6 +30,7 @@
             android:tint="#737373" />
 
         <TextView
+            android:id="@+id/tvBottomPreview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -38,6 +41,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llBottomShare"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -49,6 +53,7 @@
         android:paddingTop="8dp">
 
         <ImageView
+            android:id="@+id/ivBottomShare"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginRight="32dp"
@@ -56,6 +61,7 @@
             android:tint="#737373" />
 
         <TextView
+            android:id="@+id/tvBottomShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -66,6 +72,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llBottomEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -77,6 +84,7 @@
         android:paddingTop="8dp">
 
         <ImageView
+            android:id="@+id/ivBottomEdit"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginRight="32dp"
@@ -84,6 +92,7 @@
             android:tint="#737373" />
 
         <TextView
+            android:id="@+id/tvBottomEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -94,6 +103,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llBottomSeach"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -105,6 +115,7 @@
         android:paddingTop="8dp">
 
         <ImageView
+            android:id="@+id/ivBottomSeach"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginRight="32dp"
@@ -112,6 +123,7 @@
             android:tint="#737373" />
 
         <TextView
+            android:id="@+id/tvBottomSeach"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -122,6 +134,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llBottomExit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -133,6 +146,7 @@
         android:paddingTop="8dp">
 
         <ImageView
+            android:id="@+id/ivBottomExit"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginRight="32dp"
@@ -140,6 +154,7 @@
             android:tint="#737373" />
 
         <TextView
+            android:id="@+id/tvBottomExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
