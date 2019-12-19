@@ -17,11 +17,14 @@ class ListHeroActivity : AppCompatActivity() {
 
     private var listHero: ArrayList<Hero> = arrayListOf()
     private var title: String = "Mode List"
+    private var mode: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_hero)
 
+        mode = R.id.action_hero_list
+        setActionBarTitle(title)
         setupListHero()
         showRecyclerList()
         //showRecyclerGrid()
@@ -107,6 +110,7 @@ class ListHeroActivity : AppCompatActivity() {
                 showRecyclerGrid()
             }
         }
+        mode = selectedMode
         setActionBarTitle(title)
     }
 }
