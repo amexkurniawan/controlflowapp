@@ -103,7 +103,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llBottomSeach"
+        android:id="@+id/llBottomSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -115,7 +115,7 @@
         android:paddingTop="8dp">
 
         <ImageView
-            android:id="@+id/ivBottomSeach"
+            android:id="@+id/ivBottomSearch"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginRight="32dp"
@@ -123,7 +123,7 @@
             android:tint="#737373" />
 
         <TextView
-            android:id="@+id/tvBottomSeach"
+            android:id="@+id/tvBottomSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
