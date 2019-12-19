@@ -15,6 +15,12 @@ import kotlinx.android.synthetic.main.activity_list_hero.*
 
 class ListHeroActivity : AppCompatActivity() {
 
+    companion object {
+        private const val STATE_TITLE = "state_title"
+        private const val STATE_LIST = "state_list"
+        private const val STATE_MODE ="state_mode"
+    }
+
     private var listHero: ArrayList<Hero> = arrayListOf()
     private var title: String = "Mode List"
     private var mode: Int = 0
@@ -29,6 +35,31 @@ class ListHeroActivity : AppCompatActivity() {
         showRecyclerList()
         //showRecyclerGrid()
 
+        if (savedInstanceState == null) {
+            mode = R.id.action_hero_list
+            setActionBarTitle(title)
+            listHero.addAll(HeroesData.listDataHero)
+            showRecyclerList()
+        } else {
+            title = savedInstanceState.getString(STATE_TITLE).toString()
+            val stateList: ArrayList<Hero>? =
+                savedInstanceState.getParcelableArrayList<Hero>(STATE_LIST)
+            val stateMode = savedInstanceState.getInt(STATE_MODE)
+
+            setActionBarTitle(title)
+            if(stateList != null){
+                listHero.addAll(stateList)
+            }
+            setListMode(stateMode)
+        }
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(STATE_TITLE, title)
+        outState.putInt(STATE_MODE, mode)
+        outState.putParcelableArrayList(STATE_LIST, listHero)
     }
 
     private fun setActionBarTitle(title: String){
@@ -37,7 +68,6 @@ class ListHeroActivity : AppCompatActivity() {
 
     private fun setupListHero() {
         rvListHero.setHasFixedSize(true)
-        listHero.addAll(HeroesData.listDataHero)
         setupListDivider()
     }
 
