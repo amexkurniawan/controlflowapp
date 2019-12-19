@@ -7,6 +7,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_bottom_sheet.*
+import kotlinx.android.synthetic.main.fragment_bottom_sheet.*
+import kotlinx.android.synthetic.main.fragment_bottom_sheet.view.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet.*
 import kotlinx.android.synthetic.main.layout_content_main.*
 class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomSheetFragment.ItemClickListener {
@@ -69,8 +71,9 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
                 }
             }
             R.id.btnBottomSheetDialog -> {
-                val dialogView = layoutInflater
-                    .inflate(R.layout.fragment_bottom_sheet, null)
+                val dialogView = layoutInflater.inflate(R.layout.fragment_bottom_sheet, null)
+                setDialogClickListener(dialogView)
+
                 val bottomSheetDialog = BottomSheetDialog(this)
                 bottomSheetDialog.setContentView(dialogView)
                 bottomSheetDialog.show()
@@ -82,6 +85,14 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
             R.id.btnProcessPayment -> {
                 tvBottomActivity.setText("Button Payment Clicked")
             }
+        }
+    }
+
+    private fun setDialogClickListener(dialogView: View) {
+        dialogView.llBottomPreview.setOnClickListener {
+            val textPreview = dialogView.tvBottomPreview.text.toString()
+            //tvBottomActivity.text = "Dialog $textPreview"
+            onItemClick("Dialog $textPreview")
         }
     }
 
