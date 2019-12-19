@@ -33,6 +33,23 @@ class ListHeroActivity : AppCompatActivity() {
         setupListDivider()
     }
 
+    private fun getDataHero(): ArrayList<Hero> {
+        var heroName = resources.getStringArray(R.array.hero_name)
+        var heroDesc = resources.getStringArray(R.array.hero_description)
+        var heroPhoto = resources.getStringArray(R.array.hero_photo)
+
+        val listHero = ArrayList<Hero>()
+        for(position in heroName.indices){
+            val hero = Hero(
+                heroName[position],
+                heroDesc[position],
+                heroPhoto[position]
+            )
+            listHero.add(hero)
+        }
+        return listHero
+    }
+
     private fun setupListDivider() {
         val dividerItemDecoration = DividerItemDecoration(
             rvListHero.context, DividerItemDecoration.VERTICAL )
