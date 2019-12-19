@@ -42,6 +42,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnBottomNav.setOnClickListener(this)
         btnNavDrawer.setOnClickListener(this)
         btnBottomSheet.setOnClickListener(this)
+        btnLocalization.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -145,6 +146,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btnBottomSheet -> {
                 val bottomSheet = Intent (this, BottomSheetActivity::class.java)
                 startActivity(bottomSheet)
+            }
+
+            R.id.btnLocalization -> {
+                val localizationSheet = Intent(this, LocalizationActivity::class.java)
+                startActivity(localizationSheet)
             }
 
         }
