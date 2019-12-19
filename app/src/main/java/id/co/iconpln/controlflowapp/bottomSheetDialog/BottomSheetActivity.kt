@@ -26,6 +26,7 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
         btnBottomSheet.setOnClickListener(this)
         btnBottomSheetDialog.setOnClickListener(this)
         btnBottomDialogFragment.setOnClickListener(this)
+        btnProcessPayment.setOnClickListener(this)
     }
 
     private fun setupBottomSheetBehavior() {
@@ -77,6 +78,9 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
             R.id.btnBottomDialogFragment -> {
                 val bottomSheetFragment = BottomSheetFragment()
                 bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+            }
+            R.id.btnProcessPayment -> {
+                tvBottomActivity.setText("Button Payment Clicked")
             }
         }
     }
