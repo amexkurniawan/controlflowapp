@@ -9,7 +9,7 @@ import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_bottom_sheet.*
 import kotlinx.android.synthetic.main.layout_bottom_sheet.*
 import kotlinx.android.synthetic.main.layout_content_main.*
-class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
+class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomSheetFragment.itemClickListener {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<View>
 
@@ -79,6 +79,10 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener {
                 bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
             }
         }
+    }
+
+    override fun onItemClick(text: String) {
+        tvBottomActivity.text = text
     }
 
 }
