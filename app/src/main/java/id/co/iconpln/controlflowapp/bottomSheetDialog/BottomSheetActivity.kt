@@ -94,6 +94,26 @@ class BottomSheetActivity : AppCompatActivity(), View.OnClickListener, BottomShe
             //tvBottomActivity.text = "Dialog $textPreview"
             onItemClick("Dialog $textPreview")
         }
+        dialogView.llBottomShare.setOnClickListener {
+            val textPreview = dialogView.tvBottomShare.text.toString()
+            //tvBottomActivity.text = "Dialog $textPreview"
+            onItemClick("Dialog $textPreview")
+        }
+        dialogView.llBottomEdit.setOnClickListener {
+            val textPreview = dialogView.tvBottomEdit.text.toString()
+            //tvBottomActivity.text = "Dialog $textPreview"
+            onItemClick("Dialog $textPreview")
+        }
+        dialogView.llBottomSearch.setOnClickListener {
+            val textPreview = dialogView.tvBottomSearch.text.toString()
+            //tvBottomActivity.text = "Dialog $textPreview"
+            onItemClick("Dialog $textPreview")
+        }
+        dialogView.llBottomExit.setOnClickListener {
+            val textPreview = dialogView.tvBottomExit.text.toString()
+            //tvBottomActivity.text = "Dialog $textPreview"
+            onItemClick("Dialog $textPreview")
+        }
     }
 
     override fun onItemClick(text: String) {
