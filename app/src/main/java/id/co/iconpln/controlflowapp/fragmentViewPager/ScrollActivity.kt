@@ -18,6 +18,7 @@ class ScrollActivity : FragmentActivity() {
     private fun setupSlideView() {
         val pagerAdapter = ScrollPagerAdapter(supportFragmentManager)
         vpScroll.adapter = pagerAdapter
+        tabScrollIndicator.setupWithViewPager(vpScroll)
     }
 
     override fun onBackPressed() {
