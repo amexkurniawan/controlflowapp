@@ -77,6 +77,7 @@
 
     <string name="btn_bottom_sheet_home">Bottom Sheet</string>
     <string name="locale_good_morning">Selamat Pagi</string>
+    <string name="locale_language_setting">Ubah Pengaturan Bahasa</string>
 
     <!-- Hero -->
     <string-array name="hero_name">

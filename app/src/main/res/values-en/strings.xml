@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="locale_good_morning">Good Morning</string>
+    <string name="locale_language_setting">Ubah Pengaturan Bahasa</string>
 </resources>
