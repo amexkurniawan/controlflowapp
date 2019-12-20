@@ -76,6 +76,7 @@
     <string name="btn_bottom_sheet_dialog_fragment">Show Bottom Sheet Dialog Fragment</string>
 
     <string name="btn_bottom_sheet_home">Bottom Sheet</string>
+    <string name="locale_good_morning">Selamat Pagi</string>
 
     <!-- Hero -->
     <string-array name="hero_name">
