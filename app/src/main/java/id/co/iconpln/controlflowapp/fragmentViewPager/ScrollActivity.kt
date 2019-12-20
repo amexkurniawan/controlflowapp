@@ -19,4 +19,12 @@ class ScrollActivity : FragmentActivity() {
         val pagerAdapter = ScrollPagerAdapter(supportFragmentManager)
         vpScroll.adapter = pagerAdapter
     }
+
+    override fun onBackPressed() {
+        if(vpScroll.currentItem == 0) {
+            super.onBackPressed()
+        } else {
+            vpScroll.currentItem = vpScroll.currentItem - 1
+        }
+    }
 }
