@@ -40,8 +40,8 @@ class LocalizationActivity : AppCompatActivity() {
 
         // plural
         val songCount = 5
-        val pluralText = resources.getQuantityText(
-            R.plurals.locale_count_plural_songs, songCount
+        val pluralText = resources.getQuantityString(
+            R.plurals.locale_count_plural_songs, songCount, songCount
         )
         tvLocalPlural.text = pluralText
     }
