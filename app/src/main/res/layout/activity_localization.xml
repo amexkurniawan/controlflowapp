@@ -23,7 +23,7 @@
         android:layout_marginTop="@dimen/activity_half_vertical_margin"
         android:gravity="center"
         android:textSize="18sp"
-        android:text="Local hello" />
+        android:text="@string/locale_count_hello" />
 
     <TextView
         android:id="@+id/tvLocalPlural"
