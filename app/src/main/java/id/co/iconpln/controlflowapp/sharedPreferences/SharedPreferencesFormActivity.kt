@@ -19,6 +19,8 @@ class SharedPreferencesFormActivity : AppCompatActivity(), View.OnClickListener 
         const val TYPE_EDIT = 2
     }
 
+    private lateinit var user: User
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shared_preferences_form)
@@ -71,5 +73,18 @@ class SharedPreferencesFormActivity : AppCompatActivity(), View.OnClickListener 
 
     private fun isValidEmail(email: CharSequence): Boolean{
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+    private fun saveUser(name: String, email: String, age: String, handphone: String, hasReadingHobby: Boolean){
+        val userPreferences = UserPreferences(this)
+        user.name = name
+        user.email = email
+        user.age = Integer.parseInt(age)
+        user.handphone = handphone
+        user.hasReadingHobby = hasReadingHobby
+
+        userPreferences.setUser(user)
+
+        Toast.makeText(this, "Data Saved", Toast.LENGTH_SHORT).show()
     }
 }
