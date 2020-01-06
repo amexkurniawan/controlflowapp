@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp.sharedPreferences
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
@@ -66,8 +67,12 @@ class SharedPreferencesFormActivity : AppCompatActivity(), View.OnClickListener 
                 return
             }
 
-
             Toast.makeText(this, "$name $email $age $handphone $hasReadingHobby", Toast.LENGTH_SHORT).show()
+
+            saveUser(name, email, age, handphone, hasReadingHobby)
+            val resultIntent = Intent().putExtra(EXTRA_RESULT, user)
+            setResult(RESULT_CODE, resultIntent)
+            finish()
         }
     }
 
