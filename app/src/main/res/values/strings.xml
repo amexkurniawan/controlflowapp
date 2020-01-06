@@ -1,24 +1,24 @@
 <resources>
-    <string name="app_name">ControlFlowApp</string>
-    <string name="et_nilai_hint">Nilai</string>
-    <string name="show_title">Calculate</string>
-    <string name="show_toast">Show</string>
-    <string name="btn_calculation">Hitung Pangkat</string>
-    <string name="btn_clasification">Klasifikasi Nilai</string>
-    <string name="et_username">username</string>
-    <string name="et_password">password</string>
-    <string name="btn_login">Login</string>
-    <string name="login">Login</string>
-    <string name="operation_add">+</string>
-    <string name="operation_sub">-</string>
-    <string name="operation_mult">x</string>
-    <string name="operation_div">:</string>
-    <string name="content_text">Google officially announced its much-anticipated Pixel phones; the Pixel and Pixel XL, on October 4. We attended Google’s London UK event, mirroring the main one taking place in San Francisco, US, where the firm unwrapped the new Android 7.1 Nougat devices which will apparently usurp Google’s long-standing Nexus series.</string>
-    <string name="content_specs_display">5.0 inches\n
+    <string name="app_name" translatable="false">ControlFlowApp</string>
+    <string name="et_nilai_hint" translatable="false">Nilai</string>
+    <string name="show_title" translatable="false">Calculate</string>
+    <string name="show_toast" translatable="false">Show</string>
+    <string name="btn_calculation" translatable="false">Hitung Pangkat</string>
+    <string name="btn_clasification" translatable="false">Klasifikasi Nilai</string>
+    <string name="et_username" translatable="false">username</string>
+    <string name="et_password" translatable="false">password</string>
+    <string name="btn_login" translatable="false">Login</string>
+    <string name="login" translatable="false">Login</string>
+    <string name="operation_add" translatable="false">+</string>
+    <string name="operation_sub" translatable="false">-</string>
+    <string name="operation_mult" translatable="false">x</string>
+    <string name="operation_div" translatable="false">:</string>
+    <string name="content_text" translatable="false">Google officially announced its much-anticipated Pixel phones; the Pixel and Pixel XL, on October 4. We attended Google’s London UK event, mirroring the main one taking place in San Francisco, US, where the firm unwrapped the new Android 7.1 Nougat devices which will apparently usurp Google’s long-standing Nexus series.</string>
+    <string name="content_specs_display" translatable="false">5.0 inches\n
     FHD AMOLED at 441ppi\n
     2.5D Corning® Gorilla® Glass 4</string>
-    <string name="content_specs_size">5.6 x 2.7 x 0.2 ~ 0.3 inches 143.8 x 69.5 x 7.3 ~ 8.5 mm</string>
-    <string name="content_specs_battery">2,770 mAh battery\n
+    <string name="content_specs_size" translatable="false">5.6 x 2.7 x 0.2 ~ 0.3 inches 143.8 x 69.5 x 7.3 ~ 8.5 mm</string>
+    <string name="content_specs_battery" translatable="false">2,770 mAh battery\n
     Standby time (LTE): up to 19 days\n
     Talk time (3g/WCDMA): up to 26 hours\n
     Internet use time (Wi-Fi): up to 13 hours\n
@@ -26,66 +26,61 @@
     Video playback: up to 13 hours\n
     Audio playback (via headset): up to 110 hours\n
     Fast charging: up to 7 hours of use from only 15 minutes of charging</string>
-    <string name="stock">Stock hanya 5 buah</string>
-    <string name="specification">Spesifikasi</string>
-    <string name="display">Display</string>
-    <string name="size">Size</string>
-    <string name="battery">Battery</string>
-    <string name="seller">Dijual oleh</string>
-    <string name="my_name">Amek Kece</string>
-    <string name="buy">Beli</string>
-    <string name="dummy_value">$735</string>
-    <string name="dummy_photos">6 photos</string>
-    <string name="data_received">data received</string>
-    <string name="choose">Pilih</string>
-    <string name="choose_number">Pilih angka yang disukai</string>
-    <string name="value_50">50</string>
-    <string name="value_100">100</string>
-    <string name="value_150">150</string>
-    <string name="value_200">200</string>
-    <string name="no_image">No Image</string>
-    <string name="detail_list_description">A hero is a real person or a main fictional character of a literary work who, in the face of danger, combats adversity through feats of ingenuity, courage, or strength; the original hero type of classical epics did such things for the sake of glory and honor. A hero is a real person or a main fictional character of a literary work who, in the face of danger, combats adversity through feats of ingenuity, courage, or strength; the original hero type of classical epics did such things for the sake of glory and honor.</string>
-    <string name="menu_list_hero">List Hero</string>
-    <string name="menu_grid_hero">Grid Hero</string>
+    <string name="stock" translatable="false">Stock hanya 5 buah</string>
+    <string name="specification" translatable="false">Spesifikasi</string>
+    <string name="display" translatable="false">Display</string>
+    <string name="size" translatable="false">Size</string>
+    <string name="battery" translatable="false">Battery</string>
+    <string name="seller" translatable="false">Dijual oleh</string>
+    <string name="my_name" translatable="false">Amek Kece</string>
+    <string name="buy" translatable="false">Beli</string>
+    <string name="dummy_value" translatable="false">$735</string>
+    <string name="dummy_photos" translatable="false">6 photos</string>
+    <string name="data_received" translatable="false">data received</string>
+    <string name="choose" translatable="false">Pilih</string>
+    <string name="choose_number" translatable="false">Pilih angka yang disukai</string>
+    <string name="value_50" translatable="false">50</string>
+    <string name="value_100" translatable="false">100</string>
+    <string name="value_150" translatable="false">150</string>
+    <string name="value_200" translatable="false">200</string>
+    <string name="no_image" translatable="false">No Image</string>
+    <string name="detail_list_description" translatable="false">A hero is a real person or a main fictional character of a literary work who, in the face of danger, combats adversity through feats of ingenuity, courage, or strength; the original hero type of classical epics did such things for the sake of glory and honor. A hero is a real person or a main fictional character of a literary work who, in the face of danger, combats adversity through feats of ingenuity, courage, or strength; the original hero type of classical epics did such things for the sake of glory and honor.</string>
+    <string name="menu_list_hero" translatable="false">List Hero</string>
+    <string name="menu_grid_hero" translatable="false">Grid Hero</string>
 
     <!-- Home Fragment -->
-    <string name="hello_home_fragment">Hello Home fragment</string>
-    <string name="to_other_fragment">To Other Fragment</string>
+    <string name="hello_home_fragment" translatable="false">Hello Home fragment</string>
+    <string name="to_other_fragment" translatable="false">To Other Fragment</string>
 
     <!-- Other Fragment -->
-    <string name="hello_other_fragment">Hello Other fragment</string>
-    <string name="to_last_fragment">To Last Fragment</string>
+    <string name="hello_other_fragment" translatable="false">Hello Other fragment</string>
+    <string name="to_last_fragment" translatable="false">To Last Fragment</string>
 
     <!-- Last Fragment -->
-    <string name="hello_last_fragment">Hello Last fragment</string>
-    <string name="go_to_other_activity">Go to Other Activity</string>
-    <string name="show_dialog">Show Dialog</string>
+    <string name="hello_last_fragment" translatable="false">Hello Last fragment</string>
+    <string name="go_to_other_activity" translatable="false">Go to Other Activity</string>
+    <string name="show_dialog" translatable="false">Show Dialog</string>
 
     <!-- String for fragment -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
     <!-- String for tab layout -->
-    <string name="tab_text_1">First</string>
-    <string name="tab_text_2">Second</string>
+    <string name="tab_text_1" translatable="false">First</string>
+    <string name="tab_text_2" translatable="false">Second</string>
 
     <!-- Search -->
-    <string name="menu_demo_search">Search</string>
-    <string name="menu_demo_search_hint">Search</string>
-    <string name="btn_bottom_sheet">Show Sheet Sheet</string>
-    <string name="btn_bottom_sheet_dialog">Show Bottom Sheet Dialog</string>
-    <string name="btn_bottom_sheet_dialog_fragment">Show Bottom Sheet Dialog Fragment</string>
+    <string name="menu_demo_search" translatable="false">Search</string>
+    <string name="menu_demo_search_hint" translatable="false">Search</string>
+    <string name="btn_bottom_sheet" translatable="false">Show Sheet Sheet</string>
+    <string name="btn_bottom_sheet_dialog" translatable="false">Show Bottom Sheet Dialog</string>
+    <string name="btn_bottom_sheet_dialog_fragment" translatable="false">Show Bottom Sheet Dialog Fragment</string>
 
-    <string name="btn_bottom_sheet_home">Bottom Sheet</string>
+    <string name="btn_bottom_sheet_home" translatable="false">Bottom Sheet</string>
 
     <!-- Localization -->
     <string name="locale_good_morning">Selamat Pagi</string>
     <string name="locale_language_setting">Ubah Pengaturan Bahasa</string>
     <string name="locale_count_hello">Halo %1$s , kamu memiliki %2$d cubitan dari %3$s</string>
-    <string name="sp_nama">Name</string>
-    <string name="sp_email">Email</string>
-    <string name="sp_handphone">Handphone</string>
-    <string name="sp_age">Age</string>
-    <string name="sp_hobby">Hobby</string>
     <plurals name="locale_count_plural_songs">
         <item quantity="one">%d lagu ditemukan</item>
         <item quantity="other">%d lagu ditemukan</item>
@@ -131,5 +126,17 @@
         <item>https://upload.wikimedia.org/wikipedia/commons/8/87/Ahmad_Dahlan.jpg</item>
     </string-array>
 
+    <string name="sp_name" translatable="false">Nama</string>
+    <string name="sp_email" translatable="false">Email</string>
+    <string name="sp_handphone" translatable="false">Handphone</string>
+    <string name="sp_age" translatable="false">Age</string>
+    <string name="sp_hobby" translatable="false">Hobby</string>
+    <string name="sp_save" translatable="false">Save</string>
+    <string name="sp_change" translatable="false">Change</string>
+    <string name="sp_hobby_reading" translatable="false">Reading</string>
+    <string name="sp_hobby_else" translatable="false">No</string>
+    <string name="sp_field_required" translatable="false">Field tidak boleh kosong</string>
+    <string name="sp_field_digit_only" translatable="false">Hanya boleh terisi numerik</string>
+    <string name="sp_field_email_not_valid" translatable="false">Email tidak valid</string>
 
 </resources>
