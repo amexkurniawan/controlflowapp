@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.core.text.isDigitsOnly
@@ -27,6 +28,7 @@ class SharedPreferencesFormActivity : AppCompatActivity(), View.OnClickListener 
         setContentView(R.layout.activity_shared_preferences_form)
 
         btnPrefFormSave.setOnClickListener(this)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onClick(view: View) {
@@ -91,5 +93,10 @@ class SharedPreferencesFormActivity : AppCompatActivity(), View.OnClickListener 
         userPreferences.setUser(user)
 
         Toast.makeText(this, "Data Saved", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) finish()
+        return super.onOptionsItemSelected(item)
     }
 }
