@@ -9,11 +9,22 @@ import kotlinx.android.synthetic.main.activity_shared_preferences.*
 
 class SharedPreferencesActivity : AppCompatActivity(), View.OnClickListener {
 
+    private lateinit var userPreferences: UserPreferences
+    private lateinit var user: User
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shared_preferences)
 
         btnPrefSave.setOnClickListener(this)
+
+        supportActionBar?.title = "My User Preference"
+        userPreferences = UserPreferences(this)
+        showExistingPreference()
+    }
+
+    private fun showExistingPreference(){
+        user = userPreferences.getUser()
     }
 
     override fun onClick(view: View) {
