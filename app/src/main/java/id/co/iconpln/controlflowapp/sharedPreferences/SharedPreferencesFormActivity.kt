@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.sharedPreferences
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import id.co.iconpln.controlflowapp.R
 
 class SharedPreferencesFormActivity : AppCompatActivity() {
 
