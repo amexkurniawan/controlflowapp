@@ -28,13 +28,32 @@ class SharedPreferencesFormActivity : AppCompatActivity(), View.OnClickListener 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shared_preferences_form)
 
+        getIntentExtra()
         btnPrefFormSave.setOnClickListener(this)
+        setupForm("", "")
+        setupFormType()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun getIntentExtra(){
         user = intent.getParcelableExtra("USER") as User
         formType = intent.getIntExtra(EXTRA_TYPE_FORM, 0)
+    }
+
+    private fun setupForm(actionBarTitle: String, btnTitle: String){
+        supportActionBar?.title = actionBarTitle
+        btnPrefFormSave.text = btnTitle
+    }
+
+    private fun setupFormType(){
+        when(formType){
+            TYPE_ADD -> {
+                setupForm("Tambah Baru", "Simpan")
+            }
+            TYPE_EDIT -> {
+                setupForm("Ubah", "Update")
+            }
+        }
     }
 
     override fun onClick(view: View) {
