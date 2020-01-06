@@ -52,8 +52,18 @@ class SharedPreferencesFormActivity : AppCompatActivity(), View.OnClickListener 
             }
             TYPE_EDIT -> {
                 setupForm("Ubah", "Update")
+                showPreferencesForm()
             }
         }
+    }
+
+    private fun showPreferencesForm(){
+        etPrefFormName.setText(user.name)
+        etPrefFormEmail.setText(user.email)
+        etPrefFormAge.setText(user.age.toString())
+        etPrefFormHandphone.setText(user.handphone)
+        rbPrefFormReading.isChecked = user.hasReadingHobby
+        rbPrefFormNotReading.isChecked = !user.hasReadingHobby
     }
 
     override fun onClick(view: View) {
