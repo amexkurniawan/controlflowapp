@@ -5,6 +5,84 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".shared.SharedPreferencesActivity">
+    tools:context=".shared.SharedPreferencesActivity"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sp_nama"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/tvPrefName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:text="Nama" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sp_email"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/tvPrefEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:text="Email" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sp_handphone"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/tvPrefHandphone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:text="Handphone" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sp_age"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/tvPrefAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:text="Age" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sp_hobby"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/tvPrefHobby"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:text="Hobby" />
+
+    <Button
+        android:id="@+id/btnPrefSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change"
+        android:layout_marginTop="4dp" />
 
 </LinearLayout>

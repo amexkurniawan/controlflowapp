@@ -81,6 +81,11 @@
     <string name="locale_good_morning">Selamat Pagi</string>
     <string name="locale_language_setting">Ubah Pengaturan Bahasa</string>
     <string name="locale_count_hello">Halo %1$s , kamu memiliki %2$d cubitan dari %3$s</string>
+    <string name="sp_nama">Name</string>
+    <string name="sp_email">Email</string>
+    <string name="sp_handphone">Handphone</string>
+    <string name="sp_age">Age</string>
+    <string name="sp_hobby">Hobby</string>
     <plurals name="locale_count_plural_songs">
         <item quantity="one">%d lagu ditemukan</item>
         <item quantity="other">%d lagu ditemukan</item>
