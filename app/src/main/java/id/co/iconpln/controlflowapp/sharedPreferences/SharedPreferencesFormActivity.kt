@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.sharedPreferences
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import id.co.iconpln.controlflowapp.R
@@ -34,5 +35,9 @@ class SharedPreferencesFormActivity : AppCompatActivity(), View.OnClickListener 
 
             Toast.makeText(this, "$name $email $age $handphone $hasReadingHobby", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun isValidEmail(email: CharSequence): Boolean{
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }
