@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
+import androidx.core.text.isDigitsOnly
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_shared_preferences_form.*
 
@@ -32,6 +33,37 @@ class SharedPreferencesFormActivity : AppCompatActivity(), View.OnClickListener 
             val age = etPrefFormAge.text.toString().trim()
             val handphone = etPrefFormHandphone.text.toString().trim()
             val hasReadingHobby = rgPrefFormHobby.checkedRadioButtonId == R.id.rbPrefFormReading
+
+            if (name.isEmpty()){
+                etPrefFormName.error = resources.getString(R.string.sp_field_required)
+                return
+            }
+
+            if (email.isEmpty()){
+                etPrefFormEmail.error = resources.getString(R.string.sp_field_required)
+                return
+            }
+
+            if(!isValidEmail(email)){
+                etPrefFormEmail.error = resources.getString(R.string.sp_field_email_not_valid)
+                return
+            }
+
+            if (age.isEmpty()){
+                etPrefFormAge.error = resources.getString(R.string.sp_field_required)
+                return
+            }
+
+            if (handphone.isEmpty()){
+                etPrefFormHandphone.error = resources.getString(R.string.sp_field_required)
+                return
+            }
+
+            if (!handphone.isDigitsOnly()){
+                etPrefFormHandphone.error = resources.getString(R.string.sp_field_digit_only)
+                return
+            }
+
 
             Toast.makeText(this, "$name $email $age $handphone $hasReadingHobby", Toast.LENGTH_SHORT).show()
         }
