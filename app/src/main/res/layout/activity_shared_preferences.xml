@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:text="Nama" />
+        android:text="@string/sp_nama" />
 
     <TextView
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:text="Email" />
+        android:text="@string/sp_email" />
 
     <TextView
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:text="Handphone" />
+        android:text="@string/sp_handphone" />
 
     <TextView
         android:layout_width="match_parent"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:text="Age" />
+        android:text="@string/sp_age" />
 
     <TextView
         android:layout_width="match_parent"
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:text="Hobby" />
+        android:text="@string/sp_hobby" />
 
     <Button
         android:id="@+id/btnPrefSave"
