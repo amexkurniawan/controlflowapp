@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".shared.SharedPreferencesActivity"
+    tools:context=".sharedPreferences.SharedPreferencesActivity"
     android:padding="10dp">
 
     <TextView

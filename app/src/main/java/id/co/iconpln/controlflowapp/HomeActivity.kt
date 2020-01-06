@@ -11,7 +11,7 @@ import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
 import id.co.iconpln.controlflowapp.fragmentViewPager.ScrollActivity
 import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
-import id.co.iconpln.controlflowapp.shared.SharedPreferencesActivity
+import id.co.iconpln.controlflowapp.sharedPreferences.SharedPreferencesActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
