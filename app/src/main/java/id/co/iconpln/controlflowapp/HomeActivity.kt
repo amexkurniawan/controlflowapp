@@ -11,6 +11,7 @@ import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
 import id.co.iconpln.controlflowapp.fragmentViewPager.ScrollActivity
 import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
+import id.co.iconpln.controlflowapp.shared.SharedPreferencesActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
@@ -45,6 +46,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnBottomSheet.setOnClickListener(this)
         btnLocalization.setOnClickListener(this)
         btnScrollVP.setOnClickListener(this)
+        btnSharedPreferences.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -157,6 +159,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.btnScrollVP -> {
                 val intent = Intent(this, ScrollActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.btnSharedPreferences -> {
+                val intent = Intent(this, SharedPreferencesActivity::class.java)
                 startActivity(intent)
             }
         }

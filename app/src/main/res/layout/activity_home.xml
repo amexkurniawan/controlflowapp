@@ -163,6 +163,14 @@
             android:background="@drawable/bg_button"
             android:text="Scroll View Pager" />
 
+        <Button
+            android:id="@+id/btnSharedPreferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Shared Preferences" />
+
     </LinearLayout>
 
 </ScrollView>
