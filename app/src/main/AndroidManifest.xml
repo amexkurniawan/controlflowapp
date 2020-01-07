@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".sharedPreferences.SharedPreferencesFormActivity"></activity>
+        <activity android:name=".weather.WeatherActivity"></activity>
+        <activity android:name=".sharedPreferences.SharedPreferencesFormActivity" />
         <activity android:name=".sharedPreferences.SharedPreferencesActivity" />
         <activity android:name=".fragmentViewPager.ScrollActivity" />
         <activity android:name=".LocalizationActivity" />
