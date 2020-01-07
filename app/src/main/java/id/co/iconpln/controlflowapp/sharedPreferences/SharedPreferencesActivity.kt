@@ -84,4 +84,16 @@ class SharedPreferencesActivity : AppCompatActivity(), View.OnClickListener {
             startActivityForResult(sharedPrefFormIntent, REQUEST_CODE)
         }
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQUEST_CODE){
+            if(resultCode == SharedPreferencesFormActivity.RESULT_CODE){
+                user = data?.getParcelableExtra(SharedPreferencesFormActivity.EXTRA_RESULT) as User
+                populateView(user)
+                checkForm(user)
+            }
+        }
+    }
 }
