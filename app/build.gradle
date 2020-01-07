@@ -39,6 +39,10 @@ dependencies {
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
     implementation 'com.romandanylyk:pageindicatorview:1.0.3'
 
+    //dependency for view model demo in Weather Activity (loopJ, AAC)
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.1.0'
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
