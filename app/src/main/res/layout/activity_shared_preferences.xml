@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sp_nama"
+        android:text="@string/sp_name"
         android:layout_marginTop="4dp"/>
 
     <TextView
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        android:text="@string/sp_nama" />
+        android:text="@string/sp_name" />
 
     <TextView
         android:layout_width="match_parent"
