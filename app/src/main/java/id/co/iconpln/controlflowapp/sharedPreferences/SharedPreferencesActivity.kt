@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.sharedPreferences.SharedPreferencesFormActivity.Companion.EXTRA_USER
 import kotlinx.android.synthetic.main.activity_shared_preferences.*
 
 class SharedPreferencesActivity : AppCompatActivity(), View.OnClickListener {
@@ -79,7 +80,7 @@ class SharedPreferencesActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
 
-            sharedPrefFormIntent.putExtra("USER", user)
+            sharedPrefFormIntent.putExtra(EXTRA_USER, user)
             startActivityForResult(sharedPrefFormIntent, REQUEST_CODE)
         }
     }

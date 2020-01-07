@@ -19,6 +19,7 @@ class SharedPreferencesFormActivity : AppCompatActivity(), View.OnClickListener 
         const val RESULT_CODE = 101
         const val TYPE_ADD = 1
         const val TYPE_EDIT = 2
+        const val EXTRA_USER = "USER"
     }
 
     private lateinit var user: User
@@ -36,7 +37,7 @@ class SharedPreferencesFormActivity : AppCompatActivity(), View.OnClickListener 
     }
 
     private fun getIntentExtra(){
-        user = intent.getParcelableExtra("USER") as User
+        user = intent.getParcelableExtra(EXTRA_USER) as User
         formType = intent.getIntExtra(EXTRA_TYPE_FORM, 0)
     }
 
