@@ -9,6 +9,10 @@ import kotlinx.android.synthetic.main.activity_shared_preferences.*
 
 class SharedPreferencesActivity : AppCompatActivity(), View.OnClickListener {
 
+    companion object{
+        private const val REQUEST_CODE = 100
+    }
+
     private lateinit var userPreferences: UserPreferences
     private var isPreferencesEmpty = false
     private lateinit var user: User
@@ -59,7 +63,24 @@ class SharedPreferencesActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         if(view.id == R.id.btnPrefSave){
             val sharedPrefFormIntent = Intent(this, SharedPreferencesFormActivity::class.java)
-            startActivity(sharedPrefFormIntent)
+
+            when{
+                isPreferencesEmpty -> {
+                    sharedPrefFormIntent.putExtra(
+                        SharedPreferencesFormActivity.EXTRA_TYPE_FORM,
+                        SharedPreferencesFormActivity.TYPE_ADD
+                    )
+                }
+                else -> {
+                    sharedPrefFormIntent.putExtra(
+                        SharedPreferencesFormActivity.EXTRA_TYPE_FORM,
+                        SharedPreferencesFormActivity.TYPE_EDIT
+                    )
+                }
+            }
+
+            sharedPrefFormIntent.putExtra("USER", user)
+            startActivityForResult(sharedPrefFormIntent, REQUEST_CODE)
         }
     }
 }
