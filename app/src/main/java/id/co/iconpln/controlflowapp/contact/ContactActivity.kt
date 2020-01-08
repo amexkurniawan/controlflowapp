@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_contact.*
@@ -39,8 +40,15 @@ class ContactActivity : AppCompatActivity() {
     private fun showListContact() {
         adapter = ContactAdapter()
         adapter.notifyDataSetChanged()
+        setupListDivider()
 
         rvContactList.layoutManager = LinearLayoutManager(this)
         rvContactList.adapter = adapter
+    }
+
+    private fun setupListDivider() {
+        val dividerItemDecoration = DividerItemDecoration(
+            rvContactList.context, DividerItemDecoration.VERTICAL )
+        rvContactList.addItemDecoration(dividerItemDecoration)
     }
 }

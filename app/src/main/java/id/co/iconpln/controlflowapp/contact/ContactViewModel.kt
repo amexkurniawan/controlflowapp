@@ -66,6 +66,6 @@ class ContactViewModel : ViewModel() {
     }
 
     internal fun getContact(): LiveData<ArrayList<Contact>>{
-        return listContact
+        return listContacts
     }
 }
