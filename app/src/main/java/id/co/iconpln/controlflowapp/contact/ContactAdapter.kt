@@ -23,6 +23,12 @@ class ContactAdapter: RecyclerView.Adapter<ContactAdapter.ContactViewHolder>() {
         holder.bind(contactData[position])
     }
 
+    fun setData(contactItem: ArrayList<Contact>){
+        contactData.clear()
+        contactData.addAll(contactItem)
+        notifyDataSetChanged()
+    }
+
     inner class ContactViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         fun bind(contactItem: Contact) {
             itemView.tvContactName.text = contactItem.name
