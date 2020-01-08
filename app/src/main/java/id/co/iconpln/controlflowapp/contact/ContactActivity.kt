@@ -14,10 +14,10 @@ class ContactActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact)
 
-        showListWeather()
+        showListContact()
     }
 
-    private fun showListWeather() {
+    private fun showListContact() {
         adapter = ContactAdapter()
         adapter.notifyDataSetChanged()
 
