@@ -50,6 +50,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnScrollVP.setOnClickListener(this)
         btnSharedPreferences.setOnClickListener(this)
         btnWeather.setOnClickListener(this)
+        btnContact.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
