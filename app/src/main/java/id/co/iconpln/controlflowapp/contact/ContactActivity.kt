@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.contact
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +20,16 @@ class ContactActivity : AppCompatActivity() {
 
         initialViewModel()
         showListContact()
+        contactViewModel.setContact()
+        fetchContactData()
+    }
+
+    private fun fetchContactData() {
+        contactViewModel.getContact().observe(this, Observer { contactItem ->
+            if (contactItem != null){
+                adapter.setData(contactItem)
+            }
+        })
     }
 
     private fun initialViewModel() {
