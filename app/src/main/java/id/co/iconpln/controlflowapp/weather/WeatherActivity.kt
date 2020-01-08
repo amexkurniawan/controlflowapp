@@ -57,7 +57,13 @@ class WeatherActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         if(view.id == R.id.btnWeatherSearch){
+            val city = etWeatherCity.text.toString()
+            if(city.isEmpty()){
+                return
+            }
 
+            weatherViewModel.setWeather(city)
+            showLoading(true)
         }
     }
 }
