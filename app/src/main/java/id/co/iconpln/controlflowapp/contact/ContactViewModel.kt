@@ -7,14 +7,15 @@ import androidx.lifecycle.ViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header
+import org.json.JSONObject
 import java.lang.Exception
 
 class ContactViewModel : ViewModel() {
-    private val listContact = MutableLiveData<ArrayList<Contact>>()
+    private val listContacts = MutableLiveData<ArrayList<Contact>>()
 
     internal fun setContact(){
         val client = AsyncHttpClient()
-        val listContacts = ArrayList<Contact>()
+        val listItemContacts = ArrayList<Contact>()
         val url = "https://api.androidhive.info/contacts/"
 
         client.get(url, object : AsyncHttpResponseHandler() {
@@ -24,7 +25,29 @@ class ContactViewModel : ViewModel() {
                 responseBody: ByteArray
             ) {
                 try {
-                    
+
+                    // get data json
+                    val result = String(responseBody)
+                    val responseObject = JSONObject(result)
+                    val arrayContacts = responseObject.getJSONArray("contacts")
+
+                    // convert JSON Object to readable data
+                    // data in JSON Object is read by ITS key, exp: id, name
+                    for(i in 0 until arrayContacts.length()){
+                        val contact = arrayContacts.getJSONObject(i)
+                        val contactItem = Contact()
+
+                        contactItem.id = contact.getString("id")
+                        contactItem.name = contact.getString("name")
+                        contactItem.email = contact.getString("email")
+                        contactItem.mobile = contact.getJSONObject("phone").getString("mobile")
+
+                        listItemContacts.add(contactItem)
+                    }
+
+                    // post realtime latest value from Backgroud Thread
+                    listContacts.postValue(listItemContacts)
+
                 } catch (e: Exception){
                     Log.d("@@@ContactException", e.message.toString())
                 }
