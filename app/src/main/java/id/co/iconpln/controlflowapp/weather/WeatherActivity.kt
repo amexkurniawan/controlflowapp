@@ -3,6 +3,7 @@ package id.co.iconpln.controlflowapp.weather
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
@@ -19,6 +20,18 @@ class WeatherActivity : AppCompatActivity(), View.OnClickListener {
 
         initViewModel()
         showListWeather()
+        btnWeatherSearch.setOnClickListener(this)
+        fetchWeatherData()
+    }
+
+    private fun fetchWeatherData() {
+        // get value from View Model live's data
+        weatherViewModel.getWeather().observe(this, Observer { weatherItem ->
+            if(weatherItem != null){
+                adapter.setData(weatherItem)
+                showLoading(false)
+            }
+        })
     }
 
     private fun initViewModel(){
@@ -41,7 +54,7 @@ class WeatherActivity : AppCompatActivity(), View.OnClickListener {
         rvWeatherList.layoutManager = LinearLayoutManager(this)
         rvWeatherList.adapter = adapter
     }
-    
+
     override fun onClick(view: View) {
         if(view.id == R.id.btnWeatherSearch){
 
