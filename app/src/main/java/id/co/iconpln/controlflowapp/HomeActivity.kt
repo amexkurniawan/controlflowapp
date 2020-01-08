@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import id.co.iconpln.controlflowapp.bottomSheetDialog.BottomSheetActivity
+import id.co.iconpln.controlflowapp.contact.ContactActivity
 import id.co.iconpln.controlflowapp.fragmentNav.BottomNavActivity
 import id.co.iconpln.controlflowapp.fragmentNavDrawer.NavDrawerActivity
 import id.co.iconpln.controlflowapp.fragmentTab.TabActivity
@@ -171,6 +172,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.btnWeather -> {
                 val intent = Intent(this, WeatherActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.btnContact -> {
+                val intent = Intent(this, ContactActivity::class.java)
                 startActivity(intent)
             }
         }
