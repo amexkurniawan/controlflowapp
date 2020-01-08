@@ -1,11 +1,13 @@
 package id.co.iconpln.controlflowapp.contact
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header
+import java.lang.Exception
 
 class ContactViewModel : ViewModel() {
     private val listContact = MutableLiveData<ArrayList<Contact>>()
@@ -21,7 +23,11 @@ class ContactViewModel : ViewModel() {
                 headers: Array<out Header>,
                 responseBody: ByteArray
             ) {
-
+                try {
+                    
+                } catch (e: Exception){
+                    Log.d("@@@ContactException", e.message.toString())
+                }
             }
 
             override fun onFailure(
@@ -30,7 +36,7 @@ class ContactViewModel : ViewModel() {
                 responseBody: ByteArray,
                 error: Throwable
             ) {
-
+                Log.d("@@@ContactFailure", error.message.toString())
             }
 
         })
