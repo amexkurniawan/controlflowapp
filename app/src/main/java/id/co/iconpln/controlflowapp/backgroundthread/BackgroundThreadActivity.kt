@@ -71,8 +71,20 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
 
     //<URL, Progres, Result>
     class FetchContactAsyncTask: AsyncTask<URL, Int, String>(){
+        override fun onPreExecute() {
+            super.onPreExecute()
+        }
+
+        override fun onProgressUpdate(vararg values: Int?) {
+            super.onProgressUpdate(*values)
+        }
+
+        override fun onPostExecute(result: String?) {
+            super.onPostExecute(result)
+        }
+
         override fun doInBackground(vararg urls: URL): String {
-            
+
         }
     }
 }
