@@ -112,7 +112,8 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
         }
 
         override fun doInBackground(vararg urls: URL): String {
-
+            val urlResult = urls[0].readText()
+            return urlResult
         }
     }
 }
