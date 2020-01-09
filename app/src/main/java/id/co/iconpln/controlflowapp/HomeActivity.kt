@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import id.co.iconpln.controlflowapp.backgroundthread.BackgroundThreadActivity
 import id.co.iconpln.controlflowapp.bottomSheetDialog.BottomSheetActivity
 import id.co.iconpln.controlflowapp.contact.ContactActivity
 import id.co.iconpln.controlflowapp.fragmentNav.BottomNavActivity
@@ -51,6 +52,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         btnSharedPreferences.setOnClickListener(this)
         btnWeather.setOnClickListener(this)
         btnContact.setOnClickListener(this)
+        btnBackgroundThread.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -178,6 +180,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.btnContact -> {
                 val intent = Intent(this, ContactActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.btnBackgroundThread -> {
+                val intent = Intent(this, BackgroundThreadActivity::class.java)
                 startActivity(intent)
             }
         }
