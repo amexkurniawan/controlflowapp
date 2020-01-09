@@ -90,14 +90,23 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
 
         override fun onPreExecute() {
             super.onPreExecute()
+
+            val myListener = contactListener.get()
+            myListener?.onPreExecute()
         }
 
         override fun onProgressUpdate(vararg values: Int?) {
             super.onProgressUpdate(*values)
+
+            val myListener = contactListener.get()
+            myListener?.onProgressUpdate(*values)
         }
 
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
+
+            val myListener = contactListener.get()
+            myListener?.onPostExecute(result)
         }
 
         override fun doInBackground(vararg urls: URL): String {
