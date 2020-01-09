@@ -30,6 +30,10 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
                 val text = URL("https://api.androidhive.info/contacts/").readText()
                 tvThreadWorkerResult.text = text
                 */
+                
+                Thread(Runnable {
+                    val contactResultText = URL("https://api.androidhive.info/contacts/").readText()
+                }).start()
             }
             R.id.btnThreadHandler -> {}
             R.id.btnThreadAsyncTask -> {}
