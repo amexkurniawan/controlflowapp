@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp.backgroundthread
 
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -66,5 +67,12 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
     private val contactHandler = Handler() { message: Message ->
         tvThreadHandlerResult.text = message.obj as String
         true
+    }
+
+    //<URL, Progres, Result>
+    class FetchContactAsyncTask: AsyncTask<URL, Int, String>(){
+        override fun doInBackground(vararg urls: URL): String {
+            
+        }
     }
 }
