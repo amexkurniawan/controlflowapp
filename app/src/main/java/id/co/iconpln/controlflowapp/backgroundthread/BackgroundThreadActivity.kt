@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_background_thread.*
 import java.lang.ref.WeakReference
 import java.net.URL
 
-class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
+class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, ContactAsyncTaskCallBack {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +68,18 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
     private val contactHandler = Handler() { message: Message ->
         tvThreadHandlerResult.text = message.obj as String
         true
+    }
+
+    override fun onPreExecute() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onProgressUpdate(vararg values: Int?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onPostExecute(result: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     //<URL, Progres, Result>
