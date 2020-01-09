@@ -35,6 +35,11 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
                     val contactResultText = URL("https://api.androidhive.info/contacts/").readText()
                     // Can't call UI in Background Thread
                     //tvThreadWorkerResult.text = contactResultText
+
+                    // TO access ui in background thread
+                    tvThreadWorkerResult.post(Runnable {
+                        tvThreadWorkerResult.text = contactResultText
+                    })
                 }).start()
             }
             R.id.btnThreadHandler -> {}
