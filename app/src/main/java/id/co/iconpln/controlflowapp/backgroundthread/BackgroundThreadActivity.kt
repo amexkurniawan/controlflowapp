@@ -71,7 +71,8 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
     }
 
     override fun onPreExecute() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        pbThreadAsyncProgress.visibility = View.VISIBLE
+        tvThreadAsyncResult.visibility = View.GONE
     }
 
     override fun onProgressUpdate(vararg values: Int?) {
@@ -79,7 +80,8 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
     }
 
     override fun onPostExecute(result: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        pbThreadAsyncProgress.visibility = View.GONE
+        tvThreadAsyncResult.visibility = View.VISIBLE
     }
 
     //<URL, Progres, Result>
