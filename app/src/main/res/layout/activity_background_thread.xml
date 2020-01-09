@@ -15,7 +15,7 @@
         <TextView
             android:id="@+id/tvThreadWorkerResult"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:text="Worker Thread Result"/>
 
         <Button
@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/tvThreadHandlerResult"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:text="Handler Result"/>
 
         <Button
@@ -39,7 +39,7 @@
         <TextView
             android:id="@+id/tvThreadAsyncResult"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:text="Async Task Result"/>
 
         <ProgressBar
@@ -57,7 +57,7 @@
         <TextView
             android:id="@+id/tvThreadCoroutineResult"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:text="Coroutine Result"/>
 
         <Button
@@ -69,7 +69,7 @@
         <TextView
             android:id="@+id/tvThreadCoroutineAsycn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:text="Coroutine Asycn"/>
 
         <Button
