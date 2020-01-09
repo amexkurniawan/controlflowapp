@@ -85,6 +85,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
     override fun onPostExecute(result: String?) {
         pbThreadAsyncProgress.visibility = View.GONE
         tvThreadAsyncResult.visibility = View.VISIBLE
+        tvThreadAsyncResult.text = result
     }
 
     //<URL, Progres, Result>
