@@ -2,6 +2,8 @@ package id.co.iconpln.controlflowapp.backgroundthread
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.view.View
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_background_thread.*
@@ -42,10 +44,27 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
                     })
                 }).start()
             }
-            R.id.btnThreadHandler -> {}
+
+            R.id.btnThreadHandler -> {
+                Thread(Runnable {
+                    val contactResultText = URL("https://api.androidhive.info/contacts/").readText()
+                    val msg = Message.obtain()
+                    msg.obj = contactResultText
+                    msg.target = contactHandler
+                    msg.sendToTarget()
+                }).start()
+            }
+
             R.id.btnThreadAsyncTask -> {}
+
             R.id.btnThreadCoroutine -> {}
+
             R.id.btnThreadCoroutineAscy -> {}
         }
+    }
+
+    private val contactHandler = Handler() { message: Message ->
+        tvThreadHandlerResult.text = message.obj as String
+        true
     }
 }
