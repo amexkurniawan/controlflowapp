@@ -8,6 +8,9 @@ import android.os.Message
 import android.view.View
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_background_thread.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.lang.ref.WeakReference
 import java.net.URL
 
@@ -62,7 +65,14 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
                 FetchContactAsyncTask(this).execute(contactUrl)
             }
 
-            R.id.btnThreadCoroutine -> {}
+            R.id.btnThreadCoroutine -> {
+                runBlocking {
+                    launch {
+                        delay(1000)
+                        tvThreadCoroutineResult.text = "Coroutine!"
+                    }
+                }
+            }
 
             R.id.btnThreadCoroutineAscy -> {}
         }
