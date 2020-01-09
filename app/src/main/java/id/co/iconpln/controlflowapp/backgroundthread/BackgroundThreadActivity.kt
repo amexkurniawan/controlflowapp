@@ -88,3 +88,9 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 }
+
+interface ContactAsyncTaskCallBack {
+    fun onPreExecute()
+    fun onProgressUpdate(vararg values: Int?)
+    fun onPostExecute(result: String?)
+}
