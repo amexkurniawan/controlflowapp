@@ -8,10 +8,8 @@ import android.os.Message
 import android.view.View
 import id.co.iconpln.controlflowapp.R
 import kotlinx.android.synthetic.main.activity_background_thread.*
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
+import java.lang.Runnable
 import java.lang.ref.WeakReference
 import java.net.URL
 
@@ -77,7 +75,7 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
 
             R.id.btnThreadCoroutineAscy -> { // Coroutine Async
                 runBlocking {
-                    val numberAsync = async { getNumber() }
+                    val numberAsync = async { getContact() }
                     val result = numberAsync.await()
                     tvThreadCoroutineAsycn.text = result.toString()
                 }
@@ -88,6 +86,12 @@ class BackgroundThreadActivity : AppCompatActivity(), View.OnClickListener, Cont
     suspend fun getNumber():Int {
         delay(1000)
         return 3*2
+    }
+
+    suspend fun getContact(): String {
+        return withContext(Dispatchers.IO){
+            URL("https://api.androidhive.info/contacts/").readText()
+        }
     }
 
     private val contactHandler = Handler() { message: Message ->
