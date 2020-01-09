@@ -66,6 +66,18 @@
             android:layout_height="wrap_content"
             android:text="Coroutine"/>
 
+        <TextView
+            android:id="@+id/tvThreadCoroutineAsycn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coroutine Asycn"/>
+
+        <Button
+            android:id="@+id/btnThreadCoroutineAscy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coroutine Async"/>
+
     </LinearLayout>
 
 </ScrollView>
