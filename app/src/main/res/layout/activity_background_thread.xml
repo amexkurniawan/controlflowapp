@@ -1,9 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".backgroundthread.BackgroundThreadActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvThreadWorkerResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Worker Thread Result"/>
+
+        <Button
+            android:id="@+id/btnThreadWorker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Worker Thread"/>
+
+        <TextView
+            android:id="@+id/tvThreadHandlerResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Handler Result"/>
+
+        <Button
+            android:id="@+id/btnThreadHandler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Handler"/>
+
+        <TextView
+            android:id="@+id/tvThreadAsyncResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Async Task Result"/>
+
+        <ProgressBar
+            android:id="@+id/pbThreadAsyncProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/btnThreadAsyncTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Async Task"/>
+
+        <TextView
+            android:id="@+id/tvThreadCoroutineResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coroutine Result"/>
+
+        <Button
+            android:id="@+id/btnThreadCoroutine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coroutine"/>
+
+    </LinearLayout>
+
+</ScrollView>
