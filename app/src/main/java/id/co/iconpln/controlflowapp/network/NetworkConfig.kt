@@ -10,6 +10,16 @@ class NetworkConfig {
         @Volatile
         private var retrofit: Retrofit? = null
 
+        private fun getRetrofit(): Retrofit {
+            return retrofit?: synchronized(this) {
+
+                retrofit ?: buildRetrofit().also {
+                    retrofit = it
+                }
+            }
+
+        }
+
         private fun buildRetrofit(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(BuildConfig.CONTACT_BASE_URL)
