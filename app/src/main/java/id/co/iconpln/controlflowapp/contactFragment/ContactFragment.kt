@@ -35,6 +35,7 @@ class ContactFragment : Fragment() {
         initialViewModel()
         showListContactFragment()
         contactViewModel.setContact()
+        showLoading(true)
         fetchContactData()
     }
 
@@ -46,6 +47,7 @@ class ContactFragment : Fragment() {
         contactViewModel.getContact().observe(this, Observer { contactFragmentItem ->
             if (contactFragmentItem != null){
                 adapter.setData(contactFragmentItem)
+                showLoading(false)
             }
         })
     }
@@ -63,6 +65,14 @@ class ContactFragment : Fragment() {
         val dividerItemDecoration = DividerItemDecoration(
             rvContactFragmentList.context, DividerItemDecoration.VERTICAL )
         rvContactFragmentList.addItemDecoration(dividerItemDecoration)
+    }
+
+    private fun showLoading(state: Boolean){
+        if(state){
+            pbContactFragment.visibility = View.VISIBLE
+        } else {
+            pbContactFragment.visibility = View.GONE
+        }
     }
 
 }
