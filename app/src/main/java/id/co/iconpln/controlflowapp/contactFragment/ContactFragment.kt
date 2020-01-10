@@ -6,17 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
-import id.co.iconpln.controlflowapp.contact.ContactViewModel
+import kotlinx.android.synthetic.main.fragment_contact.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class ContactFragment : Fragment() {
 
-    private lateinit var contactViewModel: ContactViewModel
+    private lateinit var adapter: ContactFragmentAdapter
+    private lateinit var contactViewModel: ContactFragmentViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,11 +33,36 @@ class ContactFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initialViewModel()
+        showListContactFragment()
+        contactViewModel.setContact()
+        fetchContactData()
     }
 
     private fun initialViewModel() {
-        contactViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ContactViewModel::class.java)
+        contactViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(ContactFragmentViewModel::class.java)
     }
 
+    private fun fetchContactData() {
+        contactViewModel.getContact().observe(this, Observer { contactFragmentItem ->
+            if (contactFragmentItem != null){
+                adapter.setData(contactFragmentItem)
+            }
+        })
+    }
+
+    private fun showListContactFragment() {
+        adapter = ContactFragmentAdapter()
+        adapter.notifyDataSetChanged()
+        setupListDivider()
+
+        rvContactFragmentList.layoutManager = LinearLayoutManager(requireContext())
+        rvContactFragmentList.adapter = adapter
+    }
+
+    private fun setupListDivider() {
+        val dividerItemDecoration = DividerItemDecoration(
+            rvContactFragmentList.context, DividerItemDecoration.VERTICAL )
+        rvContactFragmentList.addItemDecoration(dividerItemDecoration)
+    }
 
 }
