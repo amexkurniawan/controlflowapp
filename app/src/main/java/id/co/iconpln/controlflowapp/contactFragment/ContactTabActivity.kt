@@ -18,7 +18,7 @@ class ContactTabActivity : AppCompatActivity() {
         val fragmentTrasaction = fragmentManager.beginTransaction()
 
         val fragment = ContactFragment()
-        fragmentTrasaction.add(R.id.flContainer, fragment)
+        fragmentTrasaction.add(R.id.flContactContainer, fragment)
         fragmentTrasaction.commit()
     }
 }
