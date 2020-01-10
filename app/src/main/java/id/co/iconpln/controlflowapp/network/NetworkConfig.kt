@@ -26,6 +26,7 @@ class NetworkConfig {
         private fun buildRetrofit(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(BuildConfig.CONTACT_BASE_URL)
+                .client(getInterceptor())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
