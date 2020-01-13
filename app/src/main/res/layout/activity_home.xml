@@ -211,6 +211,14 @@
             android:background="@drawable/bg_button"
             android:text="Background Thread" />
 
+        <Button
+            android:id="@+id/btnMyUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="My User" />
+
     </LinearLayout>
 
 </ScrollView>
