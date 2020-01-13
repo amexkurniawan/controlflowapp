@@ -6,7 +6,7 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/tvContactName"
+        android:id="@+id/tvMyContactName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
@@ -14,7 +14,7 @@
         android:text="name" />
 
     <TextView
-        android:id="@+id/tvContactEmail"
+        android:id="@+id/tvMyContactEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -22,7 +22,7 @@
         android:text="email" />
 
     <TextView
-        android:id="@+id/tvContactMobile"
+        android:id="@+id/tvMyContactMobile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
