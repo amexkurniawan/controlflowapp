@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header
+import id.co.iconpln.controlflowapp.models.myContact.ContactResponse
+import id.co.iconpln.controlflowapp.network.MyContactNetworkRepository
 import org.json.JSONObject
 
 class MyContactViewModel : ViewModel() {
@@ -66,5 +68,9 @@ class MyContactViewModel : ViewModel() {
 
     internal fun getContact(): LiveData<ArrayList<MyContact>> {
         return listContacts
+    }
+
+    fun getListContact(): MutableLiveData<ArrayList<ContactResponse>> {
+        return MyContactNetworkRepository().fetchContact()
     }
 }
