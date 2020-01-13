@@ -20,12 +20,12 @@ class MyContactActivity : AppCompatActivity() {
 
         initialViewModel()
         showListContact()
-        contactViewModel.setContact()
+
         fetchContactData()
     }
 
     private fun fetchContactData() {
-        contactViewModel.getContact().observe(this, Observer { contactItem ->
+        contactViewModel.getListContact().observe(this, Observer { contactItem ->
             if (contactItem != null){
                 adapter.setData(contactItem)
             }
