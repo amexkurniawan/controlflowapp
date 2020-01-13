@@ -7,16 +7,17 @@ import retrofit2.Call
 import retrofit2.Response
 import javax.security.auth.callback.Callback
 
-class MyContactNetworkRepository {
-    // gate for conect between view model and network
+class MyContactNetworkRepository { // gate for conect between view model and network
 
     fun fetchContact(): MutableLiveData<ArrayList<ContactResponse>> {
         val contactData = MutableLiveData<ArrayList<ContactResponse>>()
+        val listContact = ArrayList<ContactResponse>()
 
         NetworkConfig.contactAPI().fetchContacts().enqueue(object
             :retrofit2.Callback<BaseContactResponse<ContactResponse>> {
             override fun onFailure(call: Call<BaseContactResponse<ContactResponse>>, t: Throwable) {
 
+                contactData.postValue(null)
             }
 
             override fun onResponse(
@@ -24,6 +25,15 @@ class MyContactNetworkRepository {
                 response: Response<BaseContactResponse<ContactResponse>>
             ) {
 
+                if(response.isSuccessful){
+                    val listContactSize = response.body()?.contacts?.size as Int
+
+                    for(i in 0 until listContactSize){
+                        listContact.add(response.body()?.contacts?.get(i) as ContactResponse)
+                    }
+
+                    contactData.postValue(listContact)
+                }
             }
 
         })
