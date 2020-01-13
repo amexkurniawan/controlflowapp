@@ -196,6 +196,14 @@
             android:text="Contact Fragment" />
 
         <Button
+            android:id="@+id/btnMyContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="My Contact" />
+
+        <Button
             android:id="@+id/btnBackgroundThread"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
