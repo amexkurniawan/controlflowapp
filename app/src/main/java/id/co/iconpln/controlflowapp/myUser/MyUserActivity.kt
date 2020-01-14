@@ -26,6 +26,12 @@ class MyUserActivity : AppCompatActivity() {
         fetchUserList()
     }
 
+    override fun onResume() {
+        super.onResume()
+        // reload data after deleted or updated
+        fetchUserList()
+    }
+
     private fun initRecyclerView() {
         adapter = MyUserAdapter(object: MyUserListener {
             override fun onClick(user: UserDataResponse) {
