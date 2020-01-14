@@ -144,6 +144,7 @@
             android:id="@+id/btnBottomSheet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:background="@drawable/bg_button"
             android:text="@string/btn_bottom_sheet_home"/>
 
