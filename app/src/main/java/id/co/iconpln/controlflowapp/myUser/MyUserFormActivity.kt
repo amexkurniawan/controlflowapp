@@ -17,6 +17,8 @@ class MyUserFormActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_user_form)
+        initIntentExtra()
+        populateFormData(user)
     }
 
     private fun initIntentExtra() {
