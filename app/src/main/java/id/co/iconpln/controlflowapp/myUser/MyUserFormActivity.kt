@@ -56,7 +56,23 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                     updateUser(id, updateUserData)
                 }
             }
+            R.id.btnUserFormDelete -> {
+                userId?.let { id ->
+                    deleteUser(id)
+                }
+            }
         }
+    }
+
+    private fun deleteUser(id: Int) {
+        viewModel.deleteUser(id).observe(this, Observer {
+            if (it != null) {
+                Toast.makeText(this, "Successfully Deleted!", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                Toast.makeText(this, "Failed to delete", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun updateUser(id: Int, userData: UserDataResponse) {
