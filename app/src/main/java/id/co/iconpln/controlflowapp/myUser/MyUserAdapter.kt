@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.item_list_myuser.view.*
 class MyUserAdapter : RecyclerView.Adapter<MyUserAdapter.MyUserViewHolder>(){
 
     private val userData = ArrayList<MyUser>()
+    private lateinit var onItemClickCallback: OnItemClickCallback
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyUserViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_myuser, parent, false)
@@ -22,6 +23,9 @@ class MyUserAdapter : RecyclerView.Adapter<MyUserAdapter.MyUserViewHolder>(){
 
     override fun onBindViewHolder(holder: MyUserViewHolder, position: Int) {
         holder.bind(userData[position])
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClick(userData[holder.adapterPosition])
+        }
     }
 
     fun setData(contactItem: ArrayList<MyUser>){
@@ -36,5 +40,13 @@ class MyUserAdapter : RecyclerView.Adapter<MyUserAdapter.MyUserViewHolder>(){
             itemView.tvUserAdress.text = userItem.address
             itemView.tvUserMobile.text = userItem.mobile
         }
+    }
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
+        this.onItemClickCallback = onItemClickCallback
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClick(myUser: MyUser)
     }
 }

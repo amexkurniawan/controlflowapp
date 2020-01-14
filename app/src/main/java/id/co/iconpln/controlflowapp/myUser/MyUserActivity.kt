@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.myUser
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -43,6 +44,13 @@ class MyUserActivity : AppCompatActivity() {
 
         rvMyUserList.layoutManager = LinearLayoutManager(this)
         rvMyUserList.adapter = adapter
+
+        adapter.setOnItemClickCallback(object : MyUserAdapter.OnItemClickCallback{
+            override fun onItemClick(myUser: MyUser) {
+                Toast.makeText(this@MyUserActivity, myUser.name, Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
     private fun setupListDivider() {
