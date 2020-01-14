@@ -5,11 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
 import kotlinx.android.synthetic.main.item_list_myuser.view.*
 
 class MyUserAdapter : RecyclerView.Adapter<MyUserAdapter.MyUserViewHolder>(){
 
-    private val userData = ArrayList<MyUser>()
+    private val userData = ArrayList<UserDataResponse>()
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyUserViewHolder {
@@ -28,17 +29,17 @@ class MyUserAdapter : RecyclerView.Adapter<MyUserAdapter.MyUserViewHolder>(){
         }
     }
 
-    fun setData(contactItem: ArrayList<MyUser>){
+    fun setData(contactItem: ArrayList<UserDataResponse>){
         userData.clear()
         userData.addAll(contactItem)
         notifyDataSetChanged()
     }
 
     inner class MyUserViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        fun bind(userItem: MyUser) {
+        fun bind(userItem: UserDataResponse) {
             itemView.tvUserName.text = userItem.name
             itemView.tvUserAdress.text = userItem.address
-            itemView.tvUserMobile.text = userItem.mobile
+            itemView.tvUserMobile.text = userItem.phone
         }
     }
 
@@ -47,6 +48,6 @@ class MyUserAdapter : RecyclerView.Adapter<MyUserAdapter.MyUserViewHolder>(){
     }
 
     interface OnItemClickCallback {
-        fun onItemClick(myUser: MyUser)
+        fun onItemClick(userItem: UserDataResponse)
     }
 }

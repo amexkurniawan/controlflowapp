@@ -41,7 +41,7 @@ class NetworkConfig {
         private fun getUserRetrofit(): Retrofit {
             return retrofit?: synchronized(this) {
 
-                retrofit ?: buildRetrofit().also {
+                retrofit ?: buildUserRetrofit().also {
                     retrofit = it
                 }
             }
@@ -73,7 +73,7 @@ class NetworkConfig {
         }
 
         fun userAPI(): UserAPIService {
-            return getRetrofit().create(UserAPIService::class.java)
+            return getUserRetrofit().create(UserAPIService::class.java)
         }
     }
 }

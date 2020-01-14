@@ -3,12 +3,12 @@ package id.co.iconpln.controlflowapp.myUser
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
 import kotlinx.android.synthetic.main.activity_my_user.*
 
 class MyUserActivity : AppCompatActivity() {
@@ -22,12 +22,12 @@ class MyUserActivity : AppCompatActivity() {
 
         initialViewModel()
         showListUser()
-        userViewModel.setContact()
+        userViewModel.getListUsers()
         fetchUserData()
     }
 
     private fun fetchUserData() {
-        userViewModel.getContact().observe(this, Observer { userItem ->
+        userViewModel.getListUsers().observe(this, Observer { userItem ->
             if (userItem != null){
                 adapter.setData(userItem)
             }
@@ -47,13 +47,12 @@ class MyUserActivity : AppCompatActivity() {
         rvMyUserList.adapter = adapter
 
         adapter.setOnItemClickCallback(object : MyUserAdapter.OnItemClickCallback{
-            override fun onItemClick(myUser: MyUser) {
+            override fun onItemClick(userItem: UserDataResponse) {
                 //Toast.makeText(this@MyUserActivity, myUser.name, Toast.LENGTH_SHORT).show()
                 val intent = Intent(applicationContext, MyUserFormActivity::class.java)
-                intent.putExtra(MyUserFormActivity.EXTRA_USER, myUser)
+                intent.putExtra(MyUserFormActivity.EXTRA_USER, userItem)
                 startActivity(intent)
             }
-
         })
     }
 
