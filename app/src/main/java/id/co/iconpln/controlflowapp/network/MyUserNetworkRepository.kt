@@ -74,12 +74,19 @@ class MyUserNetworkRepository {// gate for conect between view model and network
 
         NetworkConfig.userAPI().deleteUser(id).enqueue(object: Callback<DeleteUserResponse> {
             override fun onFailure(call: Call<DeleteUserResponse>, t: Throwable) {
-
+                deletedUserData.postValue(null)
             }
 
             override fun onResponse(
                 call: Call<DeleteUserResponse>,
                 response: Response<DeleteUserResponse>) {
+
+                if(response.isSuccessful){
+                    val deleteUserResponse = response.body()?.deleted_user as UserDataResponse
+                    deletedUserData.postValue(deleteUserResponse)
+                } else {
+                    deletedUserData.postValue(null)
+                }
 
             }
 
