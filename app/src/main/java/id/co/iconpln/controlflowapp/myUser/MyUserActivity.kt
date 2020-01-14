@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp.myUser
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -47,7 +48,10 @@ class MyUserActivity : AppCompatActivity() {
 
         adapter.setOnItemClickCallback(object : MyUserAdapter.OnItemClickCallback{
             override fun onItemClick(myUser: MyUser) {
-                Toast.makeText(this@MyUserActivity, myUser.name, Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@MyUserActivity, myUser.name, Toast.LENGTH_SHORT).show()
+                val intent = Intent(applicationContext, MyUserFormActivity::class.java)
+                intent.putExtra(MyUserFormActivity.EXTRA_USER, myUser)
+                startActivity(intent)
             }
 
         })
