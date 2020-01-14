@@ -48,13 +48,19 @@ class MyUserNetworkRepository {// gate for conect between view model and network
             .enqueue(object: Callback<UpdatedUserResponse> {
 
                 override fun onFailure(call: Call<UpdatedUserResponse>, t: Throwable) {
-
+                    updatedUserData.postValue(null)
                 }
 
                 override fun onResponse(
                     call: Call<UpdatedUserResponse>,
                     response: Response<UpdatedUserResponse>) {
 
+                    if (response.isSuccessful) {
+                        val updatedUserResponse = response.body()?.updated_user as UserDataResponse
+                        updatedUserData.postValue(updatedUserResponse)
+                    } else {
+                        updatedUserData.postValue(null)
+                    }
                 }
 
             })
