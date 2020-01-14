@@ -13,7 +13,7 @@ class MyContactNetworkRepository { // gate for conect between view model and net
         val contactData = MutableLiveData<ArrayList<ContactResponse>>()
         val listContact = ArrayList<ContactResponse>()
 
-        NetworkConfig.contactAPI().fetchContacts().enqueue(object
+        NetworkConfig.contactApi().fetchContacts().enqueue(object
             :retrofit2.Callback<BaseContactResponse<ContactResponse>> {
             override fun onFailure(call: Call<BaseContactResponse<ContactResponse>>, t: Throwable) {
 

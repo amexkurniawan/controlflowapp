@@ -11,41 +11,37 @@ import retrofit2.Response
 
 class MyUserNetworkRepository {// gate for conect between view model and network
 
-    fun getAllUser(): MutableLiveData<ArrayList<UserDataResponse>>{
-        val userData = MutableLiveData<ArrayList<UserDataResponse>>()
-        var listUser = ArrayList<UserDataResponse>()
+    fun getUsers(): MutableLiveData<ArrayList<UserDataResponse>> {
+        val usersData = MutableLiveData<ArrayList<UserDataResponse>>()
+        val listUsers = ArrayList<UserDataResponse>()
 
-        NetworkConfig.userAPI().getAllUsers().enqueue(object :
-        Callback<BaseUserResponse<UserDataResponse>> {
-            override fun onFailure(call: Call<BaseUserResponse<UserDataResponse>>, t: Throwable) {
-                userData.postValue(null)
+        NetworkConfig.userApi().fetchUsers().enqueue(object: Callback<BaseUserResponse> {
+            override fun onFailure(call: Call<BaseUserResponse>, t: Throwable) {
+                usersData.postValue(null)
             }
 
             override fun onResponse(
-                call: Call<BaseUserResponse<UserDataResponse>>,
-                response: Response<BaseUserResponse<UserDataResponse>>
-            ) {
+                call: Call<BaseUserResponse>,
+                response: Response<BaseUserResponse>) {
 
-                if(response.isSuccessful) {
-                    val listUserSize = response.body()?.data?.size as Int
+                if (response.isSuccessful) {
+                    val listSize = response.body()?.data?.size as Int
 
-                    for(i in 0 until listUserSize) {
-                        listUser.add(response.body()?.data?.get(i) as UserDataResponse)
+                    for (i in 0 until listSize) {
+                        listUsers.add(response.body()?.data?.get(i) as UserDataResponse)
                     }
-
-                    userData.postValue(listUser)
+                    usersData.postValue(listUsers)
                 }
             }
 
         })
-
-        return userData
+        return usersData
     }
 
     fun updateUser(id: Int, userData: UserDataResponse): MutableLiveData<UserDataResponse> {
         val updatedUserData = MutableLiveData<UserDataResponse>()
 
-        NetworkConfig.userAPI().updateUser(id, userData)
+        NetworkConfig.userApi().updateUser(id, userData)
             .enqueue(object: Callback<UpdatedUserResponse> {
 
                 override fun onFailure(call: Call<UpdatedUserResponse>, t: Throwable) {
@@ -72,7 +68,7 @@ class MyUserNetworkRepository {// gate for conect between view model and network
     fun deleteUser(id: Int): MutableLiveData<UserDataResponse> {
         val deletedUserData = MutableLiveData<UserDataResponse>()
 
-        NetworkConfig.userAPI().deleteUser(id).enqueue(object: Callback<DeleteUserResponse> {
+        NetworkConfig.userApi().deleteUser(id).enqueue(object: Callback<DeleteUserResponse> {
             override fun onFailure(call: Call<DeleteUserResponse>, t: Throwable) {
                 deletedUserData.postValue(null)
             }
@@ -81,13 +77,12 @@ class MyUserNetworkRepository {// gate for conect between view model and network
                 call: Call<DeleteUserResponse>,
                 response: Response<DeleteUserResponse>) {
 
-                if(response.isSuccessful){
-                    val deleteUserResponse = response.body()?.deleted_user as UserDataResponse
-                    deletedUserData.postValue(deleteUserResponse)
+                if (response.isSuccessful) {
+                    val deletedUserResponse = response.body()?.deleted_user as UserDataResponse
+                    deletedUserData.postValue(deletedUserResponse)
                 } else {
                     deletedUserData.postValue(null)
                 }
-
             }
 
         })

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
@@ -14,50 +15,41 @@ import kotlinx.android.synthetic.main.activity_my_user.*
 class MyUserActivity : AppCompatActivity() {
 
     private lateinit var adapter: MyUserAdapter
-    private lateinit var userViewModel: MyUserViewModel
+    private lateinit var viewModel: MyUserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_user)
 
-        initialViewModel()
-        showListUser()
-        fetchUserData()
+        initRecyclerView()
+        initViewModel()
+        fetchUserList()
     }
 
-    private fun fetchUserData() {
-        userViewModel.getListUsers().observe(this, Observer { userItem ->
-            if (userItem != null){
-                adapter.setData(userItem)
-            }
-        })
-    }
-
-    private fun initialViewModel() {
-        userViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(MyUserViewModel::class.java)
-    }
-
-    private fun showListUser() {
-        adapter = MyUserAdapter()
-        adapter.notifyDataSetChanged()
-        setupListDivider()
-
-        rvMyUserList.layoutManager = LinearLayoutManager(this)
-        rvMyUserList.adapter = adapter
-
-        adapter.setOnItemClickCallback(object : MyUserAdapter.OnItemClickCallback{
-            override fun onItemClick(userItem: UserDataResponse) {
-                //Toast.makeText(this@MyUserActivity, myUser.name, Toast.LENGTH_SHORT).show()
+    private fun initRecyclerView() {
+        adapter = MyUserAdapter(object: MyUserListener {
+            override fun onClick(user: UserDataResponse) {
                 val intent = Intent(applicationContext, MyUserFormActivity::class.java)
-                intent.putExtra(MyUserFormActivity.EXTRA_USER, userItem)
+                intent.putExtra(MyUserFormActivity.EXTRA_USER, user)
+
                 startActivity(intent)
             }
         })
+
+        rvMyUserList.layoutManager = LinearLayoutManager(this)
+        rvMyUserList.adapter = adapter
     }
 
-    private fun setupListDivider() {
-        val dividerItemDecoration = DividerItemDecoration(
-            rvMyUserList.context, DividerItemDecoration.VERTICAL )
-        rvMyUserList.addItemDecoration(dividerItemDecoration)
+    private fun initViewModel() {
+        viewModel = ViewModelProviders.of(this)
+            .get(MyUserViewModel::class.java)
     }
+
+    private fun fetchUserList() {
+        viewModel.getListUsers().observe(this, Observer {
+            adapter.setMyUserList(it)
+        })
+    }
+
 }
+

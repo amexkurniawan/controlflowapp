@@ -17,18 +17,17 @@ import java.util.concurrent.TimeUnit
 
 class NetworkConfig {
 
-    companion object { // retrofit object
+    companion object {
+
         @Volatile
         private var retrofit: Retrofit? = null
 
         private fun getRetrofit(): Retrofit {
-            return retrofit?: synchronized(this) {
-
+            return retrofit ?: synchronized(this) {
                 retrofit ?: buildRetrofit().also {
                     retrofit = it
                 }
             }
-
         }
 
         private fun buildRetrofit(): Retrofit {
@@ -39,15 +38,12 @@ class NetworkConfig {
                 .build()
         }
 
-        // USER
         private fun getUserRetrofit(): Retrofit {
-            return retrofit?: synchronized(this) {
-
+            return retrofit ?: synchronized(this) {
                 retrofit ?: buildUserRetrofit().also {
                     retrofit = it
                 }
             }
-
         }
 
         private fun buildUserRetrofit(): Retrofit {
@@ -61,7 +57,6 @@ class NetworkConfig {
         private fun getInterceptor(): OkHttpClient {
             val httpLoggingInterceptor = HttpLoggingInterceptor()
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-
             return OkHttpClient.Builder()
                 .addInterceptor(httpLoggingInterceptor)
                 .connectTimeout(30, TimeUnit.SECONDS)
@@ -70,31 +65,31 @@ class NetworkConfig {
                 .build()
         }
 
-        fun contactAPI(): ContactAPIService {
-            return getRetrofit().create(ContactAPIService::class.java)
+        fun contactApi(): ContactApiService {
+            return getRetrofit().create(ContactApiService::class.java)
         }
 
-        fun userAPI(): UserAPIService {
-            return getUserRetrofit().create(UserAPIService::class.java)
+        fun userApi(): UserApiService {
+            return getUserRetrofit().create(UserApiService::class.java)
         }
     }
 }
 
-interface ContactAPIService {
-    @GET("contacts") // get endpoint
-    fun fetchContacts()
-        : Call<BaseContactResponse<ContactResponse>>
+interface ContactApiService {
+
+    @GET("contacts")
+    fun fetchContacts(): Call<BaseContactResponse<ContactResponse>>
 }
 
-interface UserAPIService {
+interface UserApiService {
+
     @GET("api/v1/users")
-    fun getAllUsers() : Call<BaseUserResponse<UserDataResponse>>
+    fun fetchUsers(): Call<BaseUserResponse>
 
     @PUT("api/v1/user/{id}")
     fun updateUser(@Path("id") id: Int, @Body userData: UserDataResponse):
             Call<UpdatedUserResponse>
 
     @DELETE("api/v1/user/{id}")
-    fun deleteUser(@Path("id") id: Int):
-            Call<DeleteUserResponse>
+    fun deleteUser(@Path("id") id: Int): Call<DeleteUserResponse>
 }

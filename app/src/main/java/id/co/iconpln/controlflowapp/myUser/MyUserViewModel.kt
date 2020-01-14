@@ -9,6 +9,6 @@ import id.co.iconpln.controlflowapp.network.MyUserNetworkRepository
 class MyUserViewModel: ViewModel() {
 
     fun getListUsers(): MutableLiveData<ArrayList<UserDataResponse>> {
-        return MyUserNetworkRepository().getAllUser()
+        return MyUserNetworkRepository().getUsers()
     }
 }

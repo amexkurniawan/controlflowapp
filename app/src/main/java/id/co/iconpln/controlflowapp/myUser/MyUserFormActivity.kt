@@ -13,34 +13,24 @@ import kotlinx.android.synthetic.main.activity_my_user_form.*
 class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
-        const val EXTRA_USER = "EXTRA_USER"
+        const val EXTRA_USER = "user"
     }
 
-    private lateinit var viewModel: MyUserFormViewModel
     private lateinit var user: UserDataResponse
+    private lateinit var viewModel: MyUserFormViewModel
     private var userId: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_user_form)
-        initIntentExtra()
+
+        setClickButton()
+        getIntentExtra()
         initViewModel()
-        populateFormData(user)
+        setFormText()
     }
 
-    private fun initIntentExtra() {
-        user = intent.getParcelableExtra(EXTRA_USER) as UserDataResponse
-    }
-
-    private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this).get(MyUserFormViewModel::class.java)
-    }
-
-    private fun populateFormData(user: UserDataResponse){
-        userId = user.id
-        etUserFormName.setText(user.name)
-        etUserFormAddress.setText(user.address)
-        etUserFormHp.setText(user.phone)
+    private fun setClickButton() {
         btnUserFormSave.setOnClickListener(this)
         btnUserFormDelete.setOnClickListener(this)
     }
@@ -88,6 +78,21 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "Failed to update", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun getIntentExtra() {
+        user = intent.getParcelableExtra(EXTRA_USER) as UserDataResponse
+    }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProviders.of(this).get(MyUserFormViewModel::class.java)
+    }
+
+    private fun setFormText() {
+        userId = user.id
+        etUserFormName.setText(user.name)
+        etUserFormAddress.setText(user.address)
+        etUserFormHp.setText(user.phone)
     }
 
 

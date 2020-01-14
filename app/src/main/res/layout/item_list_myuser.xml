@@ -6,7 +6,7 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/tvUserName"
+        android:id="@+id/tvMyUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
@@ -14,7 +14,7 @@
         android:text="name" />
 
     <TextView
-        android:id="@+id/tvUserAdress"
+        android:id="@+id/tvMyUserAdress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -22,7 +22,7 @@
         android:text="address" />
 
     <TextView
-        android:id="@+id/tvUserMobile"
+        android:id="@+id/tvMyUserMobile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
