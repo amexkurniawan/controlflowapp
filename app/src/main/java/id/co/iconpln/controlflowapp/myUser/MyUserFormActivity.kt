@@ -3,6 +3,8 @@ package id.co.iconpln.controlflowapp.myUser
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
@@ -58,7 +60,14 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun updateUser(id: Int, userData: UserDataResponse) {
+        viewModel.updateUser(id, userData).observe(this, Observer { userDataReponse ->
 
+            if (userDataReponse != null) {
+                Toast.makeText(this, "Updated Successfully", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Failed to update", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
 
