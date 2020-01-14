@@ -22,7 +22,6 @@ class MyUserActivity : AppCompatActivity() {
 
         initialViewModel()
         showListUser()
-        userViewModel.getListUsers()
         fetchUserData()
     }
 

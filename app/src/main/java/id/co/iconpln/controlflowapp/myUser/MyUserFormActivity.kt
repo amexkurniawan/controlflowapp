@@ -37,9 +37,12 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun populateFormData(user: UserDataResponse){
+        userId = user.id
         etUserFormName.setText(user.name)
         etUserFormAddress.setText(user.address)
         etUserFormHp.setText(user.phone)
+        btnUserFormSave.setOnClickListener(this)
+        btnUserFormDelete.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
@@ -80,6 +83,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
             if (userDataReponse != null) {
                 Toast.makeText(this, "Updated Successfully", Toast.LENGTH_SHORT).show()
+                finish()
             } else {
                 Toast.makeText(this, "Failed to update", Toast.LENGTH_SHORT).show()
             }
