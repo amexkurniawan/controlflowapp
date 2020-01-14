@@ -4,6 +4,7 @@ import id.co.iconpln.controlflowapp.BuildConfig
 import id.co.iconpln.controlflowapp.models.myContact.BaseContactResponse
 import id.co.iconpln.controlflowapp.models.myContact.ContactResponse
 import id.co.iconpln.controlflowapp.models.myUser.BaseUserResponse
+import id.co.iconpln.controlflowapp.models.myUser.DeleteUserResponse
 import id.co.iconpln.controlflowapp.models.myUser.UpdatedUserResponse
 import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
 import okhttp3.OkHttpClient
@@ -11,10 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.PUT
-import retrofit2.http.Path
+import retrofit2.http.*
 import java.util.concurrent.TimeUnit
 
 class NetworkConfig {
@@ -95,4 +93,8 @@ interface UserAPIService {
     @PUT("api/v1/user/{id}")
     fun updateUser(@Path("id") id: Int, @Body userData: UserDataResponse):
             Call<UpdatedUserResponse>
+
+    @DELETE("api/v1/user/{id}")
+    fun deleteUser(@Path("id") id: Int):
+            Call<DeleteUserResponse>
 }
