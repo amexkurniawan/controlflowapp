@@ -49,4 +49,13 @@
         android:textColor="@android:color/white"
         android:text="@string/sp_save"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnUserFormDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_half_vertical_margin"
+        android:background="@android:color/holo_orange_light"
+        android:textColor="@android:color/white"
+        android:text="Delete"/>
+
 </LinearLayout>
