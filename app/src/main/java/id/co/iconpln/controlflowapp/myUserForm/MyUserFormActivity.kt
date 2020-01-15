@@ -39,7 +39,16 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id) {
             R.id.btnUserFormAdd -> {
-                Toast.makeText(this, "Add click", Toast.LENGTH_SHORT).show()
+                if (userId == null) {
+                    val newUserData = UserDataResponse(
+                        etUserFormAddress.text.toString(),
+                        0,
+                        etUserFormName.text.toString(),
+                        etUserFormHp.text.toString()
+                    )
+
+                    createUser(newUserData)
+                }
             }
             R.id.btnUserFormSave -> {
                 userId?.let { id ->
@@ -59,6 +68,17 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
+    }
+
+    private fun createUser(newUserData: UserDataResponse) {
+        viewModel.createUser(newUserData).observe(this, Observer {
+            if (it != null) {
+                Toast.makeText(this, "Successfully Added!", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                Toast.makeText(this, "Failed to add", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun deleteUser(id: Int) {
