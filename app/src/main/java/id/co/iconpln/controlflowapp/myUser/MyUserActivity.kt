@@ -4,12 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
+import id.co.iconpln.controlflowapp.myUserForm.MyUserFormActivity
 import kotlinx.android.synthetic.main.activity_my_user.*
 
 class MyUserActivity : AppCompatActivity() {
