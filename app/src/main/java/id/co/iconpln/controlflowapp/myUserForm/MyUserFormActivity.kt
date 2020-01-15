@@ -39,7 +39,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id) {
             R.id.btnUserFormAdd -> {
-                if (userId == null) {
+                if (userId == -1) {
                     val newUserData = UserDataResponse(
                         etUserFormAddress.text.toString(),
                         0,
@@ -105,7 +105,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getIntentExtra() {
-        user = intent.getParcelableExtra(EXTRA_USER) as UserDataResponse
+        user = intent.getParcelableExtra(EXTRA_USER) as UserDataResponse ?: UserDataResponse("", -1, "", "")
     }
 
     private fun initViewModel() {
