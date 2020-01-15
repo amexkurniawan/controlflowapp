@@ -3,6 +3,8 @@ package id.co.iconpln.controlflowapp.myUser
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,7 +13,7 @@ import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
 import id.co.iconpln.controlflowapp.myUserForm.MyUserFormActivity
 import kotlinx.android.synthetic.main.activity_my_user.*
 
-class MyUserActivity : AppCompatActivity() {
+class MyUserActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var adapter: MyUserAdapter
     private lateinit var viewModel: MyUserViewModel
@@ -23,6 +25,7 @@ class MyUserActivity : AppCompatActivity() {
         initRecyclerView()
         initViewModel()
         fetchUserList()
+        fabMyUserAdd.setOnClickListener(this)
     }
 
     override fun onResume() {
@@ -54,6 +57,14 @@ class MyUserActivity : AppCompatActivity() {
         viewModel.getListUsers().observe(this, Observer {
             adapter.setMyUserList(it)
         })
+    }
+
+    override fun onClick(view: View) {
+        when(view.id){
+            R.id.fabMyUserAdd -> {
+                Toast.makeText(this, "Add Click", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
 }

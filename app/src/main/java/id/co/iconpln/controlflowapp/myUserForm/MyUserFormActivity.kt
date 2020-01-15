@@ -31,12 +31,16 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setClickButton() {
+        btnUserFormAdd.setOnClickListener(this)
         btnUserFormSave.setOnClickListener(this)
         btnUserFormDelete.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
         when(view.id) {
+            R.id.btnUserFormAdd -> {
+                Toast.makeText(this, "Add click", Toast.LENGTH_SHORT).show()
+            }
             R.id.btnUserFormSave -> {
                 userId?.let { id ->
                     val updateUserData = UserDataResponse(
