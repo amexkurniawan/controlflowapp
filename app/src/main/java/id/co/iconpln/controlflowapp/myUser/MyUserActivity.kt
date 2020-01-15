@@ -38,7 +38,8 @@ class MyUserActivity : AppCompatActivity(), View.OnClickListener {
         adapter = MyUserAdapter(object: MyUserListener {
             override fun onClick(user: UserDataResponse) {
                 val intent = Intent(applicationContext, MyUserFormActivity::class.java)
-                intent.putExtra(MyUserFormActivity.EXTRA_USER, user)
+                //intent.putExtra(MyUserFormActivity.EXTRA_USER, user)
+                intent.putExtra(MyUserFormActivity.EXTRA_USER_ID, user.id)
                 intent.putExtra(MyUserFormActivity.EXTRA_USER_EDIT, true)
 
                 startActivity(intent)

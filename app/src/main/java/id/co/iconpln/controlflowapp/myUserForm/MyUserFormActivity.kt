@@ -15,6 +15,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         const val EXTRA_USER = "user"
         const val EXTRA_USER_EDIT = "edit"
+        const val EXTRA_USER_ID ="id"
     }
 
     private lateinit var user: UserDataResponse
@@ -107,11 +108,12 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getIntentExtra() {
-        if(intent.hasExtra(EXTRA_USER)){
-            user = intent.getParcelableExtra(EXTRA_USER) as UserDataResponse
-        } else {
-            user = UserDataResponse("", 0, "", "")
-        }
+        userId = intent.getIntExtra(EXTRA_USER_ID, 0)
+//        if(intent.hasExtra(EXTRA_USER)){
+//            user = intent.getParcelableExtra(EXTRA_USER) as UserDataResponse
+//        } else {
+//            user = UserDataResponse("", 0, "", "")
+//        }
         isEditUser = intent.getBooleanExtra(EXTRA_USER_EDIT, false)
     }
 
@@ -121,7 +123,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun cekForm(editUser : Boolean) {
         if(editUser){
-            populateFormData(user)
+            //populateFormData(user)
             btnUserFormSave.visibility = View.VISIBLE
             btnUserFormDelete.visibility = View.VISIBLE
             btnUserFormAdd.visibility = View.GONE
