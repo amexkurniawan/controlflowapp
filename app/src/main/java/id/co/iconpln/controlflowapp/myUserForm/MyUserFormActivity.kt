@@ -41,17 +41,15 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id) {
             R.id.btnUserFormAdd -> {
-                if (userId == -1) {
-                    val newUserData = UserDataResponse(
-                        etUserFormAddress.text.toString(),
-                        0,
-                        etUserFormName.text.toString(),
-                        etUserFormHp.text.toString()
-                    )
+                val newUserData = UserDataResponse(
+                    etUserFormAddress.text.toString(),
+                    0,
+                    etUserFormName.text.toString(),
+                    etUserFormHp.text.toString()
+                )
 
-                    pbUserForm.visibility = View.VISIBLE
-                    createUser(newUserData)
-                }
+                pbUserForm.visibility = View.VISIBLE
+                createUser(newUserData)
             }
             R.id.btnUserFormSave -> {
                 userId?.let { id ->
