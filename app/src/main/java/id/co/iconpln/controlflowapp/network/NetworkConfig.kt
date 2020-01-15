@@ -3,10 +3,7 @@ package id.co.iconpln.controlflowapp.network
 import id.co.iconpln.controlflowapp.BuildConfig
 import id.co.iconpln.controlflowapp.models.myContact.BaseContactResponse
 import id.co.iconpln.controlflowapp.models.myContact.ContactResponse
-import id.co.iconpln.controlflowapp.models.myUser.BaseUserResponse
-import id.co.iconpln.controlflowapp.models.myUser.DeleteUserResponse
-import id.co.iconpln.controlflowapp.models.myUser.UpdatedUserResponse
-import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
+import id.co.iconpln.controlflowapp.models.myUser.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -82,6 +79,8 @@ interface ContactApiService {
 }
 
 interface UserApiService {
+    @POST("api/v1/user")
+    fun createUser(@Body userData: UserDataResponse): Call<CreateUserResponse>
 
     @GET("api/v1/users")
     fun fetchUsers(): Call<BaseUserResponse>
