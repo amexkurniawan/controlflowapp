@@ -62,7 +62,7 @@ class MyUserActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view.id){
             R.id.fabMyUserAdd -> {
-                Toast.makeText(this, "Add Click", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, MyUserFormActivity::class.java))
             }
         }
     }
