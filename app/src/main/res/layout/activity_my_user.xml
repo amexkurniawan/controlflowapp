@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".myUser.MyUserActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/pbUserProgressForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMyUserList"
         android:layout_width="match_parent"
