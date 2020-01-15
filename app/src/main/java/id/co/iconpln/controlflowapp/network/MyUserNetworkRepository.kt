@@ -1,15 +1,31 @@
 package id.co.iconpln.controlflowapp.network
 
 import androidx.lifecycle.MutableLiveData
-import id.co.iconpln.controlflowapp.models.myUser.BaseUserResponse
-import id.co.iconpln.controlflowapp.models.myUser.DeleteUserResponse
-import id.co.iconpln.controlflowapp.models.myUser.UpdatedUserResponse
-import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
+import id.co.iconpln.controlflowapp.models.myUser.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MyUserNetworkRepository {// gate for conect between view model and network
+
+    fun createUser(userData: UserDataResponse): MutableLiveData<UserDataResponse> {
+        val createdUserData = MutableLiveData<UserDataResponse>()
+
+        NetworkConfig.userApi().createUser(userData).enqueue(object: Callback<CreateUserResponse> {
+            override fun onFailure(call: Call<CreateUserResponse>, t: Throwable) {
+
+            }
+
+            override fun onResponse(
+                call: Call<CreateUserResponse>,
+                response: Response<CreateUserResponse>) {
+
+            }
+
+        })
+
+        return createdUserData
+    }
 
     fun getUsers(): MutableLiveData<ArrayList<UserDataResponse>> {
         val usersData = MutableLiveData<ArrayList<UserDataResponse>>()
