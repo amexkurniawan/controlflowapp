@@ -14,11 +14,13 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         const val EXTRA_USER = "user"
+        const val EXTRA_USER_EDIT = "edit"
     }
 
     private lateinit var user: UserDataResponse
     private lateinit var viewModel: MyUserFormViewModel
     private var userId: Int? = null
+    private var isEditUser = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         setClickButton()
         getIntentExtra()
         initViewModel()
-        setFormText()
+        cekForm(isEditUser)
     }
 
     private fun setClickButton() {
@@ -47,6 +49,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                         etUserFormHp.text.toString()
                     )
 
+                    pbUserForm.visibility = View.VISIBLE
                     createUser(newUserData)
                 }
             }
@@ -64,6 +67,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btnUserFormDelete -> {
                 userId?.let { id ->
+                    pbUserForm.visibility = View.VISIBLE
                     deleteUser(id)
                 }
             }
@@ -105,14 +109,32 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getIntentExtra() {
-        user = intent.getParcelableExtra(EXTRA_USER) as UserDataResponse ?: UserDataResponse("", -1, "", "")
+        if(intent.hasExtra(EXTRA_USER)){
+            user = intent.getParcelableExtra(EXTRA_USER) as UserDataResponse
+        } else {
+            user = UserDataResponse("", 0, "", "")
+        }
+        isEditUser = intent.getBooleanExtra(EXTRA_USER_EDIT, false)
     }
 
     private fun initViewModel() {
         viewModel = ViewModelProviders.of(this).get(MyUserFormViewModel::class.java)
     }
 
-    private fun setFormText() {
+    private fun cekForm(editUser : Boolean) {
+        if(editUser){
+            populateFormData(user)
+            btnUserFormSave.visibility = View.VISIBLE
+            btnUserFormDelete.visibility = View.VISIBLE
+            btnUserFormAdd.visibility = View.GONE
+        } else {
+            btnUserFormSave.visibility = View.GONE
+            btnUserFormDelete.visibility = View.GONE
+            btnUserFormAdd.visibility = View.VISIBLE
+        }
+    }
+
+    private fun populateFormData(user: UserDataResponse) {
         userId = user.id
         etUserFormName.setText(user.name)
         etUserFormAddress.setText(user.address)
