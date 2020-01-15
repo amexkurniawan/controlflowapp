@@ -80,15 +80,23 @@ interface ContactApiService {
 
 interface UserApiService {
     @POST("api/v1/user")
-    fun createUser(@Body userData: UserDataResponse): Call<CreateUserResponse>
+    fun createUser(@Body userData: UserDataResponse)
+            : Call<CreateUserResponse>
 
     @GET("api/v1/users")
-    fun fetchUsers(): Call<BaseUserResponse>
+    fun fetchUsers()
+            : Call<BaseUserResponse>
 
     @PUT("api/v1/user/{id}")
     fun updateUser(@Path("id") id: Int, @Body userData: UserDataResponse):
             Call<UpdatedUserResponse>
 
     @DELETE("api/v1/user/{id}")
-    fun deleteUser(@Path("id") id: Int): Call<DeleteUserResponse>
+    fun deleteUser(@Path("id") id: Int)
+            : Call<DeleteUserResponse>
+
+    @GET("api/v1/user/{id}")
+    fun getUser(@Path("id") id: Int)
+            :Call<SingleUserResponse<UserDataResponse>>
+    
 }

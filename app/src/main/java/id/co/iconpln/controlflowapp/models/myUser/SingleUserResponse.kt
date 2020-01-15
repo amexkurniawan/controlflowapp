@@ -1,5 +1,5 @@
 package id.co.iconpln.controlflowapp.models.myUser
 
-data class SingleUserResponse(
+data class SingleUserResponse<T>(
     val data: UserDataResponse
 )
