@@ -34,6 +34,14 @@ class MyUserNetworkRepository {// gate for conect between view model and network
         return createdUserData
     }
 
+    fun getUser(id : Int) : MutableLiveData<UserDataResponse> {
+
+        val userData = MutableLiveData<UserDataResponse>()
+
+
+        return userData
+    }
+
     fun getUsers(): MutableLiveData<ArrayList<UserDataResponse>> {
         val usersData = MutableLiveData<ArrayList<UserDataResponse>>()
         val listUsers = ArrayList<UserDataResponse>()
