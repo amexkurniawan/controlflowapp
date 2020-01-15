@@ -56,6 +56,7 @@ class MyUserActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun fetchUserList() {
         viewModel.getListUsers().observe(this, Observer {
+            pbUserProgressForm.visibility = View.VISIBLE
             adapter.setMyUserList(it)
         })
     }

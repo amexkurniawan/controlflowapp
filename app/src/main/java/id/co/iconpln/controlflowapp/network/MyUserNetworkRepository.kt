@@ -38,6 +38,27 @@ class MyUserNetworkRepository {// gate for conect between view model and network
 
         val userData = MutableLiveData<UserDataResponse>()
 
+        NetworkConfig.userApi().getUser(id).enqueue(object : Callback<SingleUserResponse<UserDataResponse>>{
+            override fun onFailure(call: Call<SingleUserResponse<UserDataResponse>>, t: Throwable) {
+                userData.postValue(null)
+            }
+
+            override fun onResponse(
+                call: Call<SingleUserResponse<UserDataResponse>>,
+                response: Response<SingleUserResponse<UserDataResponse>>
+            ) {
+
+                if(response.isSuccessful){
+                    val userResponse = response.body()?.data as UserDataResponse
+                    userData.postValue(userResponse)
+                } else {
+                    userData.postValue(null)
+                }
+
+            }
+
+        })
+
 
         return userData
     }
