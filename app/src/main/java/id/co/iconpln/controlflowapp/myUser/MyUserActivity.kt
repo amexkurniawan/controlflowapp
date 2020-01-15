@@ -22,6 +22,7 @@ class MyUserActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_user)
 
+        showLoading(true)
         initRecyclerView()
         initViewModel()
         fetchUserList()
@@ -50,15 +51,24 @@ class MyUserActivity : AppCompatActivity(), View.OnClickListener {
         rvMyUserList.adapter = adapter
     }
 
+    private fun showLoading(state: Boolean){
+        if(state){
+            pbUserProgressForm.visibility = View.VISIBLE
+        } else {
+            pbUserProgressForm.visibility = View.GONE
+        }
+    }
+
     private fun initViewModel() {
+        //pbUserProgressForm.visibility = View.VISIBLE
         viewModel = ViewModelProviders.of(this)
             .get(MyUserViewModel::class.java)
     }
 
     private fun fetchUserList() {
         viewModel.getListUsers().observe(this, Observer {
-            pbUserProgressForm.visibility = View.VISIBLE
             adapter.setMyUserList(it)
+            showLoading(false)
         })
     }
 
