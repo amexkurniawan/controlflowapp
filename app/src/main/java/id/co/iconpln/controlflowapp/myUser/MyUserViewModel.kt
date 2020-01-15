@@ -8,10 +8,6 @@ import id.co.iconpln.controlflowapp.network.MyUserNetworkRepository
 
 class MyUserViewModel: ViewModel() {
 
-    fun getUser(id: Int): MutableLiveData<UserDataResponse>{
-        return MyUserNetworkRepository().getUser(id)
-    }
-
     fun getListUsers(): MutableLiveData<ArrayList<UserDataResponse>> {
         return MyUserNetworkRepository().getUsers()
     }

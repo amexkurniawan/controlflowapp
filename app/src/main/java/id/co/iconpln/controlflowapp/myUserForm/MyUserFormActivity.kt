@@ -73,6 +73,23 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    private fun getUser(userId: Int){
+        viewModel.getUser(userId).observe(this, Observer { userDataReponse ->
+            if(userDataReponse != null){
+                Toast.makeText(this, "User loaded successfull!", Toast.LENGTH_SHORT).show()
+                populateFormData(userDataReponse)
+                pbUserForm.visibility = View.GONE
+                llMyUserFormLoading.visibility = View.VISIBLE
+            }
+        })
+    }
+
+    private fun fetchUserData() {
+        pbUserForm.visibility = View.VISIBLE
+        llMyUserFormLoading.visibility = View.GONE
+        getUser(userId as Int)
+    }
+
     private fun createUser(newUserData: UserDataResponse) {
         viewModel.createUser(newUserData).observe(this, Observer {
             if (it != null) {
@@ -123,10 +140,11 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun cekForm(editUser : Boolean) {
         if(editUser){
+            fetchUserData()
             //populateFormData(user)
-            btnUserFormSave.visibility = View.VISIBLE
-            btnUserFormDelete.visibility = View.VISIBLE
-            btnUserFormAdd.visibility = View.GONE
+            //btnUserFormSave.visibility = View.VISIBLE
+            //btnUserFormDelete.visibility = View.VISIBLE
+            //btnUserFormAdd.visibility = View.GONE
         } else {
             btnUserFormSave.visibility = View.GONE
             btnUserFormDelete.visibility = View.GONE

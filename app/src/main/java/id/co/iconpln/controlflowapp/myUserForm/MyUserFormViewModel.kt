@@ -7,6 +7,10 @@ import id.co.iconpln.controlflowapp.network.MyUserNetworkRepository
 
 class MyUserFormViewModel: ViewModel() {
 
+    fun getUser(id: Int): MutableLiveData<UserDataResponse>{
+        return MyUserNetworkRepository().getUser(id)
+    }
+
     fun createUser(userData: UserDataResponse)
             : MutableLiveData<UserDataResponse> {
 
