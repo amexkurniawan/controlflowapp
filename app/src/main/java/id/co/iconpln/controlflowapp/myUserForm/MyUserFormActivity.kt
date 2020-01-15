@@ -142,9 +142,9 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         if(editUser){
             fetchUserData()
             //populateFormData(user)
-            //btnUserFormSave.visibility = View.VISIBLE
-            //btnUserFormDelete.visibility = View.VISIBLE
-            //btnUserFormAdd.visibility = View.GONE
+            btnUserFormSave.visibility = View.VISIBLE
+            btnUserFormDelete.visibility = View.VISIBLE
+            btnUserFormAdd.visibility = View.GONE
         } else {
             btnUserFormSave.visibility = View.GONE
             btnUserFormDelete.visibility = View.GONE
