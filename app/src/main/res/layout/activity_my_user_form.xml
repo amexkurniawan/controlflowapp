@@ -41,11 +41,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnUserFormAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_half_vertical_margin"
+        android:background="@android:color/holo_green_light"
+        android:textColor="@android:color/white"
+        android:text="Add"/>
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnUserFormSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_half_vertical_margin"
-        android:background="@color/colorPrimary"
+        android:background="@android:color/holo_blue_light"
         android:textColor="@android:color/white"
         android:text="@string/sp_save"/>
 
