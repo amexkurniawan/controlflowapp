@@ -3,6 +3,8 @@ package id.co.iconpln.controlflowapp.myUser
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -77,6 +79,21 @@ class MyUserActivity : AppCompatActivity(), View.OnClickListener {
             R.id.fabMyUserAdd -> {
                 startActivity(Intent(this, MyUserFormActivity::class.java))
             }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_favorit_myuser, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.action_list_favorit -> {
+                startActivity(Intent(this, MyUserFavoriteActivity::class.java))
+                true
+            }
+            else -> true
         }
     }
 
