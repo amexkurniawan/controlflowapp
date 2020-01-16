@@ -9,4 +9,8 @@ class FavoriteDatabaseRepository(private val favDatabaseDao: FavoriteDatabaseDao
     fun insertUser(user: FavoriteUser){
         favDatabaseDao.insertUser(user)
     }
+
+    fun deleteUser(id: Int){
+        favDatabaseDao.deleteUser(id)
+    }
 }

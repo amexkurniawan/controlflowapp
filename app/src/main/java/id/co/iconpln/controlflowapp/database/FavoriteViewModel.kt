@@ -29,4 +29,11 @@ class FavoriteViewModel(application: Application): AndroidViewModel(application)
             Log.d("@@@Ame", "User ${user.userName} id ${user.userId}  -- INSERTED")
         }
     }
+
+    fun deleteUser(userId: Int){
+        GlobalScope.launch {
+            repository.deleteUser(userId)
+            Log.d("@@@Ame", "User -- DELETED")
+        }
+    }
 }

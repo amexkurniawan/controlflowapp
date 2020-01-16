@@ -203,7 +203,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         if(isFavorit){
             addToFavorite()
         } else {
-
+            removeFromFavorite()
         }
 
         favoriteViewModel.getAllFavoriteUsers().observe(this, Observer {
@@ -226,6 +226,12 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 etUserFormHp.text.toString()
             )
         )
+    }
+
+    private fun removeFromFavorite(){
+        if(userId != null){
+            favoriteViewModel.deleteUser(userId as Int)
+        }
     }
 
 }
