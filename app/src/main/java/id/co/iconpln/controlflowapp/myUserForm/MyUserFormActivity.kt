@@ -2,6 +2,8 @@ package id.co.iconpln.controlflowapp.myUserForm
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -124,20 +126,6 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         })
     }
 
-    private fun getIntentExtra() {
-        userId = intent.getIntExtra(EXTRA_USER_ID, 0)
-//        if(intent.hasExtra(EXTRA_USER)){
-//            user = intent.getParcelableExtra(EXTRA_USER) as UserDataResponse
-//        } else {
-//            user = UserDataResponse("", 0, "", "")
-//        }
-        isEditUser = intent.getBooleanExtra(EXTRA_USER_EDIT, false)
-    }
-
-    private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this).get(MyUserFormViewModel::class.java)
-    }
-
     private fun cekForm(editUser : Boolean) {
         if(editUser){
             fetchUserData()
@@ -159,5 +147,42 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         etUserFormHp.setText(user.phone)
     }
 
+    private fun getIntentExtra() {
+        userId = intent.getIntExtra(EXTRA_USER_ID, 0)
+//        if(intent.hasExtra(EXTRA_USER)){
+//            user = intent.getParcelableExtra(EXTRA_USER) as UserDataResponse
+//        } else {
+//            user = UserDataResponse("", 0, "", "")
+//        }
+        isEditUser = intent.getBooleanExtra(EXTRA_USER_EDIT, false)
+    }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProviders.of(this).get(MyUserFormViewModel::class.java)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_myuser, menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if(item.itemId == R.id.action_unfavorit){
+            if (item.title == "UnFavorit"){
+                Toast.makeText(this, "Mark to Favorite", Toast.LENGTH_SHORT).show()
+                item.setIcon(R.drawable.ic_favorite)
+                item.title = " Favorit"
+            } else {
+                Toast.makeText(this, "Mark to UnFavorite", Toast.LENGTH_SHORT).show()
+                item.setIcon(R.drawable.ic_unfavorite)
+                item.title = " UnFavorit"
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
 
 }
