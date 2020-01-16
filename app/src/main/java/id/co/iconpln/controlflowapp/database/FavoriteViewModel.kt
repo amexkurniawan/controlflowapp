@@ -26,7 +26,7 @@ class FavoriteViewModel(application: Application): AndroidViewModel(application)
         // using courotine
         GlobalScope.launch {
             repository.insertUser(user)
-            Log.d("@@@Fav", "User ${user.userName} id ${user.userId}  -- INSERTED")
+            Log.d("@@@Ame", "User ${user.userName} id ${user.userId}  -- INSERTED")
         }
     }
 }
