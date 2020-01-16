@@ -2,6 +2,7 @@ package id.co.iconpln.controlflowapp.myUserForm
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.database.FavoriteUser
 import id.co.iconpln.controlflowapp.database.FavoriteViewModel
 import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
 import kotlinx.android.synthetic.main.activity_my_user_form.*
@@ -190,10 +192,40 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
             R.id.action_unfavorit -> {
                 isFavorit = !isFavorit
                 setFavoritIcon()
+                addOrRemoveFavorite()
                 true
             }
             else -> true
         }
+    }
+
+    private fun addOrRemoveFavorite(){
+        if(isFavorit){
+            addToFavorite()
+        } else {
+
+        }
+
+        favoriteViewModel.getAllFavoriteUsers().observe(this, Observer {
+            listFavUser ->
+                if(listFavUser.isNotEmpty()){
+                    for(i in 0 until listFavUser.size){
+                        Log.d("@@@Ame", "" + listFavUser[i].favUserId + listFavUser[i].userName)
+                    }
+                }
+        })
+    }
+
+    private fun addToFavorite(){
+        favoriteViewModel.insertUser(
+            FavoriteUser(
+                0,
+                etUserFormAddress.text.toString(),
+                userId.toString(),
+                etUserFormName.text.toString(),
+                etUserFormHp.text.toString()
+            )
+        )
     }
 
 }
