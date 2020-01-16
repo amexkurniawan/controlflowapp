@@ -19,5 +19,5 @@ interface FavoriteDatabaseDao {
 
     @Query("SELECT * FROM fav_user_table WHERE userId = :key")
     fun getFavUser(key: Int): LiveData<FavoriteUser>
-    
+
 }
