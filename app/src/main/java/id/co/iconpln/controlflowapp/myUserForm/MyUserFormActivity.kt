@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import id.co.iconpln.controlflowapp.R
@@ -24,6 +25,8 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var viewModel: MyUserFormViewModel
     private var userId: Int? = null
     private var isEditUser = false
+    private var menuItem: Menu? = null
+    private var isFavorit: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -162,27 +165,29 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu_myuser, menu)
-
+        menuInflater.inflate(R.menu.menu_myuser, menu)
+        menuItem = menu
+        setFavoritIcon()
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        if(item.itemId == R.id.action_unfavorit){
-            if (item.title == "UnFavorit"){
-                Toast.makeText(this, "Mark to Favorite", Toast.LENGTH_SHORT).show()
-                item.setIcon(R.drawable.ic_favorite)
-                item.title = " Favorit"
-            } else {
-                Toast.makeText(this, "Mark to UnFavorite", Toast.LENGTH_SHORT).show()
-                item.setIcon(R.drawable.ic_unfavorite)
-                item.title = " UnFavorit"
-            }
+    private fun setFavoritIcon(){
+        if(isFavorit){
+            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(this, R.drawable.ic_favorite)
+        } else {
+            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(this, R.drawable.ic_unfavorite)
         }
+    }
 
-        return super.onOptionsItemSelected(item)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.action_unfavorit -> {
+                isFavorit = !isFavorit
+                setFavoritIcon()
+                true
+            }
+            else -> true
+        }
     }
 
 }
