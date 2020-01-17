@@ -33,7 +33,6 @@ class MyUserFavoriteActivity : AppCompatActivity(), View.OnClickListener {
         initRecyclerView()
         initViewModel()
         fetchFavoriteUserData()
-        fabMyUserFavoritAdd.setOnClickListener(this)
     }
 
     override fun onResume() {
@@ -92,9 +91,7 @@ class MyUserFavoriteActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         when(view.id){
-            R.id.fabMyUserFavoritAdd -> {
-                startActivity(Intent(this, MyUserFormActivity::class.java))
-            }
+            
         }
     }
 
