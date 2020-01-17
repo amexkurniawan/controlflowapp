@@ -43,9 +43,15 @@ class MyUserFavoriteActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initRecyclerView() {
         adapter = MyUserFavoritAdapter()
-
         rvMyUserFavoritList.layoutManager = LinearLayoutManager(this)
         rvMyUserFavoritList.adapter = adapter
+
+        adapter.setOnItemClickCallback(object : MyUserFavoritAdapter.OnItemClickCallback{
+            override fun onItemClick(favUser: FavoriteUser) {
+                Toast.makeText(this@MyUserFavoriteActivity, favUser.userName, Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 
     private fun showLoading(state: Boolean){
