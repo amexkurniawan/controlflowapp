@@ -91,7 +91,7 @@ class MyUserFavoriteActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         when(view.id){
-            
+
         }
     }
 
