@@ -34,6 +34,13 @@ class FavoriteViewModel(application: Application): AndroidViewModel(application)
         }
     }
 
+    fun updateUser(user: FavoriteUser){
+        GlobalScope.launch {
+            repository.updateUser(user)
+            Log.d("@@@Ame", "User ${user.userName}, ${user.userId}  -- UPDATED")
+        }
+    }
+
     fun deleteUser(userId: Int){
         GlobalScope.launch {
             repository.deleteUser(userId)

@@ -17,4 +17,8 @@ class FavoriteDatabaseRepository(private val favDatabaseDao: FavoriteDatabaseDao
     fun deleteUser(id: Int){
         favDatabaseDao.deleteUser(id)
     }
+
+    fun updateUser(user: FavoriteUser){
+        favDatabaseDao.updateUser(user)
+    }
 }
