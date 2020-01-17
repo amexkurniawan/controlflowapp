@@ -32,6 +32,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
     private var isEditUser = false
     private var menuItem: Menu? = null
     private var isFavorit: Boolean = false
+    private var favoriteUserId: Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,6 +103,10 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                     Log.d("@@@Ame", "getUser $favoriteUser")
                     isFavorit = favoriteUser != null
                     setFavoritIcon()
+
+                    if (favoriteUser != null){
+                        favoriteUserId = favoriteUser.favUserId
+                    }
             })
         }
     }
@@ -140,11 +145,26 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
 
             if (userDataReponse != null) {
                 Toast.makeText(this, "Updated Successfully", Toast.LENGTH_SHORT).show()
+                updateFavoriteUser(userDataReponse)
                 finish()
             } else {
                 Toast.makeText(this, "Failed to update", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun updateFavoriteUser(userDataResponse: UserDataResponse) {
+        if (favoriteUserId != null){
+            favoriteViewModel.updateUser(
+                FavoriteUser(
+                    favoriteUserId as Long,
+                    userDataResponse.address,
+                    userDataResponse.id.toString(),
+                    userDataResponse.name,
+                    userDataResponse.phone
+                )
+            )
+        }
     }
 
     private fun cekForm(editUser : Boolean) {
@@ -257,6 +277,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         if(userId != null){
             favoriteViewModel.deleteUser(userId as Int)
         }
+        favoriteUserId = null
     }
 
 }
