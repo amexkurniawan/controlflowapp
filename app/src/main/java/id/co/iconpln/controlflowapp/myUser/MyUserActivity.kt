@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
+import id.co.iconpln.controlflowapp.myUserFavorite.MyUserFavoriteActivity
 import id.co.iconpln.controlflowapp.myUserForm.MyUserFormActivity
 import kotlinx.android.synthetic.main.activity_my_user.*
 
