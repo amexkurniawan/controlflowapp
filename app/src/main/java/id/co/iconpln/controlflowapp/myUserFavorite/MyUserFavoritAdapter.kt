@@ -12,6 +12,7 @@ class MyUserFavoritAdapter()
     : RecyclerView.Adapter<MyUserFavoritAdapter.MyUserFavoritViewHolder>() {
 
     private var myUsers = emptyList<FavoriteUser>()
+    private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setMyUserList(userItems: List<FavoriteUser>) {
         val listFavUser = ArrayList<FavoriteUser>()
@@ -38,6 +39,10 @@ class MyUserFavoritAdapter()
 
     override fun onBindViewHolder(holder: MyUserFavoritViewHolder, position: Int) {
         holder.bind(myUsers[position])
+
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClick(myUsers[holder.adapterPosition])
+        }
     }
 
     inner class MyUserFavoritViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -47,5 +52,13 @@ class MyUserFavoritAdapter()
             itemView.tvMyUserAdress.text = myUser.userAddress
             itemView.tvMyUserMobile.text = myUser.userPhone
         }
+    }
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
+        this.onItemClickCallback = onItemClickCallback
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClick(favUser: FavoriteUser)
     }
 }

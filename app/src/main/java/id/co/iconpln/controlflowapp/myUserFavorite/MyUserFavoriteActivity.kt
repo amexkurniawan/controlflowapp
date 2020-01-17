@@ -4,11 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.database.FavoriteUser
 import id.co.iconpln.controlflowapp.database.FavoriteViewModel
 import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
 import id.co.iconpln.controlflowapp.myUser.MyUserAdapter
@@ -58,6 +60,18 @@ class MyUserFavoriteActivity : AppCompatActivity(), View.OnClickListener {
         favoriteViewModel.getAllFavoriteUsers().observe(
             this, Observer { listFav ->
                 adapter.setMyUserList(listFav)
+            }
+        )
+    }
+
+
+    private fun addListClickListener(){
+        adapter.setOnItemClickCallback(
+            object : MyUserFavoritAdapter.OnItemClickCallback{
+                override fun onItemClick(favUser: FavoriteUser) {
+                    Toast.makeText(this@MyUserFavoriteActivity, "Favorite", Toast.LENGTH_SHORT).show()
+                }
+
             }
         )
     }
