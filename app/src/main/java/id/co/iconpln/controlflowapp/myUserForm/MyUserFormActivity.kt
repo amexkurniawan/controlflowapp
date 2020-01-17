@@ -90,8 +90,20 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
                 populateFormData(userDataReponse)
                 pbUserForm.visibility = View.GONE
                 llMyUserFormLoading.visibility = View.VISIBLE
+                setFavorite()
             }
         })
+    }
+
+    private fun setFavorite() {
+        if(userId != null){
+            favoriteViewModel.getUser(userId as Int).observe(this, Observer {
+                favoriteUser ->
+                    Log.d("@@@Ame", "getUser $favoriteUser")
+                    isFavorit = favoriteUser != null
+                    setFavoritIcon()
+            })
+        }
     }
 
     private fun fetchUserData() {

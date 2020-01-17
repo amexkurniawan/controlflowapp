@@ -22,6 +22,10 @@ class FavoriteViewModel(application: Application): AndroidViewModel(application)
         return allFavoriteUsers
     }
 
+    fun getUser(id: Int): LiveData<FavoriteUser> {
+        return repository.getUser(id)
+    }
+
     fun insertUser(user: FavoriteUser){
         // using courotine
         GlobalScope.launch {
