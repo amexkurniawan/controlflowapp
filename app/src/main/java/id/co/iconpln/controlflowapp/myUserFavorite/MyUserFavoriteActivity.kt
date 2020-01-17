@@ -36,6 +36,12 @@ class MyUserFavoriteActivity : AppCompatActivity(), View.OnClickListener {
         fabMyUserFavoritAdd.setOnClickListener(this)
     }
 
+    override fun onResume() {
+        super.onResume()
+        // no observe because not network operation
+        favoriteViewModel.getAllFavoriteUsers()
+    }
+
     private fun initRecyclerView() {
         adapter = MyUserFavoritAdapter()
 
@@ -60,6 +66,7 @@ class MyUserFavoriteActivity : AppCompatActivity(), View.OnClickListener {
         favoriteViewModel.getAllFavoriteUsers().observe(
             this, Observer { listFav ->
                 adapter.setMyUserList(listFav)
+                showLoading(false)
             }
         )
     }
