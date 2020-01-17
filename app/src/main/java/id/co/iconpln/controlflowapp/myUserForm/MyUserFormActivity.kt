@@ -178,7 +178,7 @@ class MyUserFormActivity : AppCompatActivity(), View.OnClickListener {
         setFavoritIcon()
 
         if (!isEditUser){
-            menu?.findItem(R.id.action_unfavorit).isVisible = false
+            menu?.findItem(R.id.action_unfavorit)?.isVisible = false
         }
 
         return super.onCreateOptionsMenu(menu)
