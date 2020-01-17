@@ -76,6 +76,13 @@ class MyUserFavoriteActivity : AppCompatActivity(), View.OnClickListener {
         )
     }
 
+    private fun openUserForm(myUser: FavoriteUser){
+        val userFormIntent = Intent(this, MyUserFormActivity::class.java)
+        userFormIntent.putExtra(MyUserFormActivity.EXTRA_USER_ID, myUser.userId.toInt())
+        userFormIntent.putExtra(MyUserFormActivity.EXTRA_USER_EDIT, true)
+        startActivity(userFormIntent)
+    }
+
     override fun onClick(view: View) {
         when(view.id){
             R.id.fabMyUserFavoritAdd -> {
