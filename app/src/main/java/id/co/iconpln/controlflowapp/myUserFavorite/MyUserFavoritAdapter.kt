@@ -8,14 +8,20 @@ import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.database.FavoriteUser
 import kotlinx.android.synthetic.main.item_list_myuser.view.*
 
-class MyUserFavoritAdapter(private val clickListener: MyUserFavoritListener)
+class MyUserFavoritAdapter()
     : RecyclerView.Adapter<MyUserFavoritAdapter.MyUserFavoritViewHolder>() {
 
-    private val myUsers = ArrayList<FavoriteUser>()
+    private var myUsers = emptyList<FavoriteUser>()
 
-    fun setMyUserList(listItem: ArrayList<FavoriteUser>) {
-        myUsers.clear()
-        myUsers.addAll(listItem)
+    fun setMyUserList(userItems: List<FavoriteUser>) {
+        val listFavUser = ArrayList<FavoriteUser>()
+
+        for(i in 0 until userItems.size){
+            listFavUser.add(userItems[i])
+        }
+
+        myUsers =listFavUser
+
         notifyDataSetChanged()
     }
 
@@ -40,13 +46,6 @@ class MyUserFavoritAdapter(private val clickListener: MyUserFavoritListener)
             itemView.tvMyUserName.text = myUser.userName
             itemView.tvMyUserAdress.text = myUser.userAddress
             itemView.tvMyUserMobile.text = myUser.userPhone
-            itemView.setOnClickListener {
-                clickListener.onClick(myUser)
-            }
         }
     }
-}
-
-interface MyUserFavoritListener {
-    fun onClick(user: FavoriteUser)
 }

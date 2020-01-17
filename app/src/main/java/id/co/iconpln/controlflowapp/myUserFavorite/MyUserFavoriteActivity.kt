@@ -30,28 +30,12 @@ class MyUserFavoriteActivity : AppCompatActivity(), View.OnClickListener {
         showLoading(true)
         initRecyclerView()
         initViewModel()
-        //fetchUserList()
+        fetchFavoriteUserData()
         fabMyUserFavoritAdd.setOnClickListener(this)
     }
 
-    override fun onResume() {
-        super.onResume()
-        // reload data after deleted or updated
-        //fetchUserList()
-    }
-
     private fun initRecyclerView() {
-        adapter = MyUserFavoritAdapter(object :
-            MyUserFavoritListener {
-            override fun onClick(user: UserDataResponse) {
-                val intent = Intent(applicationContext, MyUserFormActivity::class.java)
-                //intent.putExtra(MyUserFormActivity.EXTRA_USER, user)
-                intent.putExtra(MyUserFormActivity.EXTRA_USER_ID, user.id)
-                intent.putExtra(MyUserFormActivity.EXTRA_USER_EDIT, true)
-
-                startActivity(intent)
-            }
-        })
+        adapter = MyUserFavoritAdapter()
 
         rvMyUserFavoritList.layoutManager = LinearLayoutManager(this)
         rvMyUserFavoritList.adapter = adapter
