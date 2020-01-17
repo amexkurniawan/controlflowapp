@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.database.FavoriteViewModel
 import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
 import id.co.iconpln.controlflowapp.myUser.MyUserAdapter
 import id.co.iconpln.controlflowapp.myUser.MyUserListener
@@ -18,23 +20,24 @@ import kotlinx.android.synthetic.main.activity_my_user_favorite.*
 class MyUserFavoriteActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var adapter: MyUserFavoritAdapter
-    private lateinit var viewModel: MyUserViewModel
+    private lateinit var favoriteViewModel: FavoriteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_user_favorite)
 
+        setActionBarTitle("User Favorite List")
         showLoading(true)
         initRecyclerView()
         initViewModel()
-        fetchUserList()
+        //fetchUserList()
         fabMyUserFavoritAdd.setOnClickListener(this)
     }
 
     override fun onResume() {
         super.onResume()
         // reload data after deleted or updated
-        fetchUserList()
+        //fetchUserList()
     }
 
     private fun initRecyclerView() {
@@ -63,16 +66,16 @@ class MyUserFavoriteActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun initViewModel() {
-        //pbUserProgressForm.visibility = View.VISIBLE
-        viewModel = ViewModelProviders.of(this)
-            .get(MyUserViewModel::class.java)
+        favoriteViewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application))
+            .get(FavoriteViewModel::class.java)
     }
 
-    private fun fetchUserList() {
-        viewModel.getListUsers().observe(this, Observer {
-            adapter.setMyUserList(it)
-            showLoading(false)
-        })
+    private fun fetchFavoriteUserData() {
+        favoriteViewModel.getAllFavoriteUsers().observe(
+            this, Observer { listFav ->
+                adapter.setMyUserList(listFav)
+            }
+        )
     }
 
     override fun onClick(view: View) {
@@ -81,5 +84,9 @@ class MyUserFavoriteActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(Intent(this, MyUserFormActivity::class.java))
             }
         }
+    }
+
+    private fun setActionBarTitle(title: String){
+        supportActionBar?.title = title
     }
 }

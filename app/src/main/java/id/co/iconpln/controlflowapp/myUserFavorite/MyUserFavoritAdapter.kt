@@ -5,15 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.co.iconpln.controlflowapp.R
-import id.co.iconpln.controlflowapp.models.myUser.UserDataResponse
+import id.co.iconpln.controlflowapp.database.FavoriteUser
 import kotlinx.android.synthetic.main.item_list_myuser.view.*
 
 class MyUserFavoritAdapter(private val clickListener: MyUserFavoritListener)
     : RecyclerView.Adapter<MyUserFavoritAdapter.MyUserFavoritViewHolder>() {
 
-    private val myUsers = ArrayList<UserDataResponse>()
+    private val myUsers = ArrayList<FavoriteUser>()
 
-    fun setMyUserList(listItem: ArrayList<UserDataResponse>) {
+    fun setMyUserList(listItem: ArrayList<FavoriteUser>) {
         myUsers.clear()
         myUsers.addAll(listItem)
         notifyDataSetChanged()
@@ -36,10 +36,10 @@ class MyUserFavoritAdapter(private val clickListener: MyUserFavoritListener)
 
     inner class MyUserFavoritViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        fun bind(myUser: UserDataResponse) {
-            itemView.tvMyUserName.text = myUser.name
-            itemView.tvMyUserAdress.text = myUser.address
-            itemView.tvMyUserMobile.text = myUser.phone
+        fun bind(myUser: FavoriteUser) {
+            itemView.tvMyUserName.text = myUser.userName
+            itemView.tvMyUserAdress.text = myUser.userAddress
+            itemView.tvMyUserMobile.text = myUser.userPhone
             itemView.setOnClickListener {
                 clickListener.onClick(myUser)
             }
@@ -48,5 +48,5 @@ class MyUserFavoritAdapter(private val clickListener: MyUserFavoritListener)
 }
 
 interface MyUserFavoritListener {
-    fun onClick(user: UserDataResponse)
+    fun onClick(user: FavoriteUser)
 }
