@@ -46,6 +46,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="@dimen/activity_half_vertical_margin"
+        android:clickable="true"
+        android:focusable="true"
         android:text="Don't have an account ? Register" />
 
 </LinearLayout>
