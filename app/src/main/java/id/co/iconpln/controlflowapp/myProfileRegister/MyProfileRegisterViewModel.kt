@@ -7,7 +7,7 @@ import id.co.iconpln.controlflowapp.models.myProfile.ProfileResponse
 import id.co.iconpln.controlflowapp.network.MyProfileNetworkRepository
 
 class MyProfileRegisterViewModel : ViewModel(){
-    fun register(profileRegisterUser: ProfileRegisterUser): MutableLiveData<ProfileResponse{
+    fun register(profileRegisterUser: ProfileRegisterUser): MutableLiveData<ProfileResponse>{
         return MyProfileNetworkRepository().doRegister(profileRegisterUser)
     }
 }
