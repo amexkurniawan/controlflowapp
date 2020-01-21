@@ -1,5 +1,6 @@
 package id.co.iconpln.controlflowapp.network
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import id.co.iconpln.controlflowapp.models.myProfile.BaseProfileResponse
 import id.co.iconpln.controlflowapp.models.myProfile.ProfileLoginResponse
@@ -32,11 +33,13 @@ class MyProfileNetworkRepository {
 
                     // on response
                     if(response.isSuccessful){
-
+                        // Response 200
                         val loginResponse = response.body()?.data
                         loginData.postValue(loginResponse)
+                        Log.d("@@@Profile", "${loginResponse?.customer?.email} -- LOGIN")
 
                     } else {
+                        // Response 400
                         loginData.postValue(null)
                     }
                 }
