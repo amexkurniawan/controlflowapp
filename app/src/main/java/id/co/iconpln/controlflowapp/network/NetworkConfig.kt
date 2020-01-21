@@ -87,6 +87,10 @@ class NetworkConfig {
         fun userApi(): UserApiService {
             return getUserRetrofit().create(UserApiService::class.java)
         }
+
+        fun profileApi(): ProfileApiService {
+            return getProfileRetrofit().create(ProfileApiService::class.java)
+        }
     }
 }
 
@@ -117,4 +121,8 @@ interface UserApiService {
     fun getUser(@Path("id") id: Int)
             :Call<SingleUserResponse<UserDataResponse>>
     
+}
+
+interface ProfileApiService {
+
 }
