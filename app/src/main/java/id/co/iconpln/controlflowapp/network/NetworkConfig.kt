@@ -128,6 +128,6 @@ interface UserApiService {
 
 interface ProfileApiService {
     @POST ("api/v1/customer/login")
-    fun doLogin(@Body profileLoginUser: ProfileLoginUser)
+    fun loginUser(@Body profileLoginUser: ProfileLoginUser)
         : Call<BaseProfileResponse<ProfileLoginResponse>>
 }
