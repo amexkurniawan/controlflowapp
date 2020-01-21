@@ -2,9 +2,7 @@ package id.co.iconpln.controlflowapp.network
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import id.co.iconpln.controlflowapp.models.myProfile.BaseProfileResponse
-import id.co.iconpln.controlflowapp.models.myProfile.ProfileLoginResponse
-import id.co.iconpln.controlflowapp.models.myProfile.ProfileLoginUser
+import id.co.iconpln.controlflowapp.models.myProfile.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,7 +34,7 @@ class MyProfileNetworkRepository {
                         // Response 200
                         val loginResponse = response.body()?.data
                         loginData.postValue(loginResponse)
-                        Log.d("@@@Profile", "${loginResponse?.customer?.email} -- LOGIN")
+                        Log.d("@@@Profile", "Login: ${loginResponse?.customer?.email} -- LOGIN")
 
                     } else {
                         // Response 400
@@ -46,5 +44,38 @@ class MyProfileNetworkRepository {
             })
 
         return loginData
+    }
+
+    fun doRegister(profileRegisterUser: ProfileRegisterUser): MutableLiveData<ProfileResponse> {
+
+        val registerData = MutableLiveData<ProfileResponse>()
+
+        NetworkConfig.profileApi().registerUser(profileRegisterUser)
+            .enqueue(object : Callback<ProfileRegisterResponse<ProfileResponse>>{
+                override fun onFailure(
+                    call: Call<ProfileRegisterResponse<ProfileResponse>>,
+                    t: Throwable
+                ) {
+
+                    registerData.postValue(null)
+                }
+
+                override fun onResponse(
+                    call: Call<ProfileRegisterResponse<ProfileResponse>>,
+                    response: Response<ProfileRegisterResponse<ProfileResponse>>
+                ) {
+
+                    if (response.isSuccessful){
+                        val registerResponse = response.body()?.data
+                        registerData.postValue(registerResponse)
+                        Log.d("@@@Profile", "Register: Success -- CREATED")
+                    } else {
+                        registerData.postValue(null)
+                    }
+                }
+
+            })
+
+        return registerData
     }
 }
