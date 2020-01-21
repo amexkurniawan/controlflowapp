@@ -3,9 +3,7 @@ package id.co.iconpln.controlflowapp.network
 import id.co.iconpln.controlflowapp.BuildConfig
 import id.co.iconpln.controlflowapp.models.myContact.BaseContactResponse
 import id.co.iconpln.controlflowapp.models.myContact.ContactResponse
-import id.co.iconpln.controlflowapp.models.myProfile.BaseProfileResponse
-import id.co.iconpln.controlflowapp.models.myProfile.ProfileLoginResponse
-import id.co.iconpln.controlflowapp.models.myProfile.ProfileLoginUser
+import id.co.iconpln.controlflowapp.models.myProfile.*
 import id.co.iconpln.controlflowapp.models.myUser.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -130,4 +128,8 @@ interface ProfileApiService {
     @POST ("api/v1/customer/login")
     fun loginUser(@Body profileLoginUser: ProfileLoginUser)
         : Call<BaseProfileResponse<ProfileLoginResponse>>
+
+    @POST ("api/v1/customer/register")
+    fun registerUser(@Body profileRegisterUser: ProfileRegisterUser)
+        : Call<ProfileRegisterResponse<ProfileResponse>>
 }
