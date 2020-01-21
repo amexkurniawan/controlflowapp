@@ -1,10 +1,12 @@
 package id.co.iconpln.controlflowapp.myProfileLogin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.myProfileRegister.MyProfileRegisterActivity
 import kotlinx.android.synthetic.main.activity_my_profile_login.*
 
 class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -27,7 +29,7 @@ class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "Login", Toast.LENGTH_SHORT).show()
             }
             R.id.tvProfileLoginRegister -> {
-                Toast.makeText(this, "Register", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, MyProfileRegisterActivity::class.java) )
             }
         }
     }
