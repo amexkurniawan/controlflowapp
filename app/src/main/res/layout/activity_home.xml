@@ -220,6 +220,14 @@
             android:background="@drawable/bg_button"
             android:text="My User" />
 
+        <Button
+            android:id="@+id/btnHomeLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button"
+            android:text="Login " />
+
     </LinearLayout>
 
 </ScrollView>
