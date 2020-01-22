@@ -64,6 +64,25 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
     private fun showExistingPreferences() {
         profileUserPreference = ProfileUserPreference(this)
         profileUser = profileUserPreference.getProfileUser()
+
+        if(!profileUserPreference.getProfileUser().userToken.isNullOrEmpty()){
+
+        } else {
+            showLogoutProfile()
+        }
+    }
+
+    private fun showLogoutProfile() {
+        pbProfileLoading.visibility = View.GONE
+        llProfileContent.visibility = View.VISIBLE
+        tvProfileWarning.visibility - View.VISIBLE
+        btnProfileToLogin.visibility = View.VISIBLE
+        btnProfileLogout.visibility = View.GONE
+
+        tvProfileId.text = resources.getString(R.string.profile_empty)
+        tvProfileName.text = resources.getString(R.string.profile_empty)
+        tvProfileEmail.text = resources.getString(R.string.profile_empty)
+        tvProfileHandphone.text = resources.getString(R.string.profile_empty)
     }
 
     override fun onClick(view: View) {
