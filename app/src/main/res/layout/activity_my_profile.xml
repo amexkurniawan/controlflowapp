@@ -74,7 +74,7 @@
             android:textSize="16sp"
             android:textColor="@android:color/holo_green_dark"
             android:gravity="center"
-            android:text="Please Login to view Your Profile"/>
+            android:text="@string/profile_warning"/>
 
         <Button
             android:id="@+id/btnProfileToLogin"

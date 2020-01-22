@@ -149,5 +149,6 @@
     <string name="sp_password">Password</string>
     <string name="sp_register">Register</string>
     <string name="profile_empty">[EMPTY]</string>
+    <string name="profile_warning">Please Login to view Your Profile</string>
 
 </resources>

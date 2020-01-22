@@ -14,7 +14,8 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".myProfile.MyProfileActivity"></activity>
         <activity android:name=".myProfileRegister.MyProfileRegisterActivity" />
-        <activity android:name=".myProfileLogin.MyProfileLoginActivity" />
+        <activity android:name=".myProfileLogin.MyProfileLoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".myUserFavorite.MyUserFavoriteActivity" />
         <activity android:name=".myUserForm.MyUserFormActivity" />
         <activity android:name=".myUser.MyUserActivity" />
