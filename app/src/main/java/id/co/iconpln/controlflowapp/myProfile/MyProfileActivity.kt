@@ -99,6 +99,10 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
         myProfileViewModel.getProfile(token).observe(this, Observer { profileResponse ->
             if (profileResponse != null){
                 showProfile(profileResponse)
+            } else {
+                Toast.makeText(this, "Failed to get Profile", Toast.LENGTH_SHORT).show()
+                profileUserPreference.removeProfileUser(profileUser)
+                showLogoutProfile()
             }
         })
     }
