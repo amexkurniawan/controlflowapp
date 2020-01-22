@@ -13,6 +13,10 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var myProfileViewModel: MyProfileViewModel
 
+    companion object{
+        const val REQUEST_CODE = 200
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_profile)
@@ -35,7 +39,7 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.btnProfileToLogin -> {
                 val intent = Intent(this, MyProfileLoginActivity::class.java)
-                startActivity(intent)
+                startActivityForResult(intent, REQUEST_CODE)
             }
             R.id.btnProfileLogout -> {
 
