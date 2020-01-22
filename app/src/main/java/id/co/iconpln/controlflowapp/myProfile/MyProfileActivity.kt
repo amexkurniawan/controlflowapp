@@ -60,18 +60,26 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
             profileUser.userToken = profileLoginResponse?.token
             profileUserPreference.setProfileUser(profileUser)
             Toast.makeText(this, "Token Saved!", Toast.LENGTH_SHORT).show()
+            showExistingPreferences()
         }
     }
 
     private fun showExistingPreferences() {
         profileUserPreference = ProfileUserPreference(this)
         profileUser = profileUserPreference.getProfileUser()
+        val token = profileUserPreference.getProfileUser().userToken
 
-        if(!profileUserPreference.getProfileUser().userToken.isNullOrEmpty()){
-
+        if(!token.isNullOrEmpty()){
+            initiateGetProfile(token)
         } else {
             showLogoutProfile()
         }
+    }
+
+    private fun initiateGetProfile(token: String) {
+        pbProfileLoading.visibility = View.VISIBLE
+        llProfileContent.visibility = View.GONE
+        fetchUserProfile(token)
     }
 
     private fun showLogoutProfile() {
