@@ -148,5 +148,6 @@
     <string name="address">Address</string>
     <string name="sp_password">Password</string>
     <string name="sp_register">Register</string>
+    <string name="profile_empty">[EMPTY]</string>
 
 </resources>
