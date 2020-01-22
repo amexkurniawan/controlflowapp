@@ -15,6 +15,7 @@ import id.co.iconpln.controlflowapp.fragmentViewPager.ScrollActivity
 import id.co.iconpln.controlflowapp.fragments.DemoFragmentActivity
 import id.co.iconpln.controlflowapp.hero.ListHeroActivity
 import id.co.iconpln.controlflowapp.myContact.MyContactActivity
+import id.co.iconpln.controlflowapp.myProfile.MyProfileActivity
 import id.co.iconpln.controlflowapp.myProfileLogin.MyProfileLoginActivity
 import id.co.iconpln.controlflowapp.myUser.MyUserActivity
 import id.co.iconpln.controlflowapp.sharedPreferences.SharedPreferencesActivity
@@ -211,7 +212,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
             R.id.btnHomeLogin -> {
-                val intent = Intent(this, MyProfileLoginActivity::class.java)
+                val intent = Intent(this, MyProfileActivity::class.java)
                 startActivity(intent)
             }
         }
