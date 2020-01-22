@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.models.myProfile.ProfileLoginResponse
+import id.co.iconpln.controlflowapp.models.myProfile.ProfileResponse
 import id.co.iconpln.controlflowapp.myContact.ProfileUser
 import id.co.iconpln.controlflowapp.myProfileLogin.MyProfileLoginActivity
 import kotlinx.android.synthetic.main.activity_my_profile.*
@@ -83,6 +85,27 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
         tvProfileName.text = resources.getString(R.string.profile_empty)
         tvProfileEmail.text = resources.getString(R.string.profile_empty)
         tvProfileHandphone.text = resources.getString(R.string.profile_empty)
+    }
+
+    private fun fetchUserProfile(token: String){
+        myProfileViewModel.getProfile(token).observe(this, Observer { profileResponse ->
+            if (profileResponse != null){
+                showProfile(profileResponse)
+            }
+        })
+    }
+
+    private fun showProfile(profileResponse: ProfileResponse) {
+        pbProfileLoading.visibility = View.GONE
+        llProfileContent.visibility = View.VISIBLE
+        tvProfileWarning.visibility - View.GONE
+        btnProfileToLogin.visibility = View.GONE
+        btnProfileLogout.visibility = View.VISIBLE
+
+        tvProfileId.text = profileResponse.id.toString()
+        tvProfileName.text = profileResponse.name
+        tvProfileEmail.text = profileResponse.email
+        tvProfileHandphone.text = profileResponse.phone
     }
 
     override fun onClick(view: View) {
