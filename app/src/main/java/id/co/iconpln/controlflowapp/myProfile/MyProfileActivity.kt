@@ -16,8 +16,8 @@ import kotlinx.android.synthetic.main.activity_my_profile.*
 
 class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var myProfileViewModel: MyProfileViewModel
-    private var profileLoginResponse: ProfileLoginResponse? = null
+    private var profileLoginResponse : ProfileLoginResponse? = null
+    private lateinit var viewModel: MyProfileViewModel
     private lateinit var profileUserPreference: ProfileUserPreference
     private lateinit var profileUser: ProfileUser
 
@@ -29,55 +29,74 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_profile)
 
-        clickListener()
-        initialViewModel()
-        showExistingPreferences()
+        initViewModel()
+        setupActionBar()
+        setOnClickListener()
+        showExistingPreference()
     }
 
-    private fun initialViewModel() {
-        myProfileViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(MyProfileViewModel::class.java)
-    }
-
-    private fun clickListener(){
-        btnProfileToLogin.setOnClickListener(this)
-        btnProfileLogout.setOnClickListener(this)
+    private fun setupActionBar() {
+        supportActionBar?.title = "My Profile"
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (resultCode == REQUEST_CODE){
-            if(resultCode == MyProfileLoginActivity.RESULT_CODE){
-                profileLoginResponse = data?.getParcelableExtra(
-                    MyProfileLoginActivity.EXTRA_PROFILE_RESULT
-                ) as ProfileLoginResponse
+        if (requestCode == REQUEST_CODE){
+            if (resultCode == MyProfileLoginActivity.RESULT_CODE){
+                profileLoginResponse = data?.getParcelableExtra(MyProfileLoginActivity.EXTRA_PROFILE_RESULT) as ProfileLoginResponse
+                saveProfileUserPreference()
             }
         }
     }
 
-    private fun saveProfileUserPreference(){
-        if(profileLoginResponse != null){
+    private fun saveProfileUserPreference() {
+        if (profileLoginResponse != null){
             profileUser.userToken = profileLoginResponse?.token
             profileUserPreference.setProfileUser(profileUser)
-            Toast.makeText(this, "Token Saved!", Toast.LENGTH_SHORT).show()
-            showExistingPreferences()
+            Toast.makeText(this, "Token Saved???", Toast.LENGTH_SHORT).show()
+            showExistingPreference()
         }
     }
 
-    private fun showExistingPreferences() {
+    private fun initViewModel() {
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
+            .get(MyProfileViewModel::class.java)
+    }
+
+    private fun setOnClickListener() {
+        btnProfileToLogin.setOnClickListener(this)
+        btnProfileLogout.setOnClickListener(this)
+    }
+
+    override fun onClick(view: View) {
+        when (view.id) {
+            R.id.btnProfileToLogin -> {
+                val loginIntent = Intent(this, MyProfileLoginActivity::class.java)
+                startActivityForResult(loginIntent, REQUEST_CODE)
+            }
+            R.id.btnProfileLogout -> {
+                profileUserPreference.removeProfileUser(profileUser)
+                showLogoutProfile()
+            }
+        }
+    }
+
+    private fun showExistingPreference() {
         profileUserPreference = ProfileUserPreference(this)
         profileUser = profileUserPreference.getProfileUser()
+
         val token = profileUserPreference.getProfileUser().userToken
 
-        if(!token.isNullOrEmpty()){
+        if (!token.isNullOrEmpty()){
             initiateGetProfile(token)
-        } else {
+        }else{
             showLogoutProfile()
         }
     }
 
     private fun initiateGetProfile(token: String) {
-        pbProfileLoading.visibility = View.VISIBLE
+        pbProfileLoading.visibility = View.GONE
         llProfileContent.visibility = View.GONE
         fetchUserProfile(token)
     }
@@ -85,10 +104,9 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
     private fun showLogoutProfile() {
         pbProfileLoading.visibility = View.GONE
         llProfileContent.visibility = View.VISIBLE
-        tvProfileWarning.visibility - View.VISIBLE
+        tvProfileWarning.visibility = View.VISIBLE
         btnProfileToLogin.visibility = View.VISIBLE
         btnProfileLogout.visibility = View.GONE
-
         tvProfileId.text = resources.getString(R.string.profile_empty)
         tvProfileName.text = resources.getString(R.string.profile_empty)
         tvProfileEmail.text = resources.getString(R.string.profile_empty)
@@ -96,8 +114,8 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun fetchUserProfile(token: String){
-        myProfileViewModel.getProfile(token).observe(this, Observer { profileResponse ->
-            if (profileResponse != null){
+        viewModel.getProfile(token).observe(this, Observer { profileResponse ->
+            if (profileResponse != null ){
                 showProfile(profileResponse)
             } else {
                 Toast.makeText(this, "Failed to get Profile", Toast.LENGTH_SHORT).show()
@@ -110,7 +128,7 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
     private fun showProfile(profileResponse: ProfileResponse) {
         pbProfileLoading.visibility = View.GONE
         llProfileContent.visibility = View.VISIBLE
-        tvProfileWarning.visibility - View.GONE
+        tvProfileWarning.visibility = View.GONE
         btnProfileToLogin.visibility = View.GONE
         btnProfileLogout.visibility = View.VISIBLE
 
@@ -118,21 +136,5 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
         tvProfileName.text = profileResponse.name
         tvProfileEmail.text = profileResponse.email
         tvProfileHandphone.text = profileResponse.phone
-    }
-
-    override fun onClick(view: View) {
-        when(view.id){
-
-            R.id.btnProfileToLogin -> {
-                val intent = Intent(this, MyProfileLoginActivity::class.java)
-                startActivityForResult(intent, REQUEST_CODE)
-            }
-            R.id.btnProfileLogout -> {
-                // remove preference containing token
-                profileUserPreference.removeProfileUser(profileUser)
-                showLogoutProfile()
-            }
-
-        }
     }
 }
