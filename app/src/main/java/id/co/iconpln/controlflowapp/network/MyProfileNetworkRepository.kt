@@ -78,4 +78,10 @@ class MyProfileNetworkRepository {
 
         return registerData
     }
+
+    fun getProfile(token: String): MutableLiveData<ProfileResponse> {
+        val profileData = MutableLiveData<ProfileResponse>()
+
+        return profileData
+    }
 }
