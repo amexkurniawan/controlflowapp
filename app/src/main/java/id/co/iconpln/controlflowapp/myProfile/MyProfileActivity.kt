@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.models.myProfile.ProfileLoginResponse
 import id.co.iconpln.controlflowapp.myContact.ProfileUser
 import id.co.iconpln.controlflowapp.myProfileLogin.MyProfileLoginActivity
 import kotlinx.android.synthetic.main.activity_my_profile.*
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_my_profile.*
 class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var myProfileViewModel: MyProfileViewModel
+    private var profileLoginResponse: ProfileLoginResponse? = null
     private lateinit var profileUserPreference: ProfileUserPreference
     private lateinit var profileUser: ProfileUser
 
@@ -29,11 +31,6 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
         showExistingPreferences()
     }
 
-    private fun showExistingPreferences() {
-        profileUserPreference = ProfileUserPreference(this)
-        profileUser = profileUserPreference.getProfileUser()
-    }
-
     private fun initialViewModel() {
         myProfileViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(MyProfileViewModel::class.java)
     }
@@ -41,6 +38,23 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
     private fun clickListener(){
         btnProfileToLogin.setOnClickListener(this)
         btnProfileLogout.setOnClickListener(this)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == REQUEST_CODE){
+            if(resultCode == MyProfileLoginActivity.RESULT_CODE){
+                profileLoginResponse = data?.getParcelableExtra(
+                    MyProfileLoginActivity.EXTRA_PROFILE_RESULT
+                ) as ProfileLoginResponse
+            }
+        }
+    }
+
+    private fun showExistingPreferences() {
+        profileUserPreference = ProfileUserPreference(this)
+        profileUser = profileUserPreference.getProfileUser()
     }
 
     override fun onClick(view: View) {
