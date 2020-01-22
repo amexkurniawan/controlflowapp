@@ -127,7 +127,7 @@ interface UserApiService {
 interface ProfileApiService {
     @POST ("api/v1/customer/login")
     fun loginUser(@Body profileLoginUser: ProfileLoginUser)
-        : Call<BaseProfileResponse<ProfileLoginResponse>>
+        : Call<BaseProfileLoginResponse<ProfileLoginResponse>>
 
     @POST ("api/v1/customer/register")
     fun registerUser(@Body profileRegisterUser: ProfileRegisterUser)
