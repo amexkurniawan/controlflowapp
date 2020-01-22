@@ -63,6 +63,7 @@ class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
             loginResponse ->
                 if (loginResponse != null) {
                     Toast.makeText(this, "Success login " + "${loginResponse.customer.email}", Toast.LENGTH_SHORT).show()
+                    openProfilePage(loginResponse)
                 }
         })
     }
