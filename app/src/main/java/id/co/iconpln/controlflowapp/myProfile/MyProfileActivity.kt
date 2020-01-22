@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import id.co.iconpln.controlflowapp.R
+import id.co.iconpln.controlflowapp.myContact.ProfileUser
 import id.co.iconpln.controlflowapp.myProfileLogin.MyProfileLoginActivity
 import kotlinx.android.synthetic.main.activity_my_profile.*
 
 class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var myProfileViewModel: MyProfileViewModel
+    private lateinit var profileUserPreference: ProfileUserPreference
+    private lateinit var profileUser: ProfileUser
 
     companion object{
         const val REQUEST_CODE = 200
@@ -23,6 +26,12 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
 
         clickListener()
         initialViewModel()
+        showExistingPreferences()
+    }
+
+    private fun showExistingPreferences() {
+        profileUserPreference = ProfileUserPreference(this)
+        profileUser = profileUserPreference.getProfileUser()
     }
 
     private fun initialViewModel() {
