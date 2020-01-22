@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.models.myProfile.ProfileLoginResponse
@@ -49,6 +50,14 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
                     MyProfileLoginActivity.EXTRA_PROFILE_RESULT
                 ) as ProfileLoginResponse
             }
+        }
+    }
+
+    private fun saveProfileUserPreference(){
+        if(profileLoginResponse != null){
+            profileUser.userToken = profileLoginResponse?.token
+            profileUserPreference.setProfileUser(profileUser)
+            Toast.makeText(this, "Token Saved!", Toast.LENGTH_SHORT).show()
         }
     }
 
