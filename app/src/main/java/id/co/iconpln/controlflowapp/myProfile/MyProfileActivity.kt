@@ -128,7 +128,9 @@ class MyProfileActivity : AppCompatActivity(), View.OnClickListener {
                 startActivityForResult(intent, REQUEST_CODE)
             }
             R.id.btnProfileLogout -> {
-
+                // remove preference containing token
+                profileUserPreference.removeProfileUser(profileUser)
+                showLogoutProfile()
             }
 
         }
