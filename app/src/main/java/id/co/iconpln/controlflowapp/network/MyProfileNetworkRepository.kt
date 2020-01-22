@@ -89,7 +89,7 @@ class MyProfileNetworkRepository {
                     t: Throwable
                 ) {
 
-
+                    profileData.postValue(null)
                 }
 
                 override fun onResponse(
@@ -97,7 +97,14 @@ class MyProfileNetworkRepository {
                     response: Response<BaseProfileResponse<ProfileResponse>>
                 ) {
 
-                    
+                    if (response.isSuccessful){
+                        
+                        val profileResponse = response.body()?.data
+                        profileData.postValue(profileResponse)
+                    } else {
+
+                        profileData.postValue(null)
+                    }
                 }
 
             })
