@@ -40,7 +40,7 @@ class MyProfileNetworkRepository {
                     } else {
                         // Response failed
                         when(response.code()){
-                            400 -> {
+                            in 400..420 -> {
                                 val errorResponse = JSONObject( response.errorBody()?.string() ?: "")
                                 val errorMessage = errorResponse.getJSONArray("messages")[0].toString()
                                 Log.d("okhttp - -", errorMessage)
