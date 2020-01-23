@@ -7,6 +7,10 @@ import id.co.iconpln.controlflowapp.models.myProfile.ProfileLoginUser
 import id.co.iconpln.controlflowapp.network.MyProfileNetworkRepository
 
 class MyProfileLoginViewModel :ViewModel() {
+    companion object {
+        var errorMessage = ""
+    }
+
     fun login(profileLoginUser: ProfileLoginUser)
     : MutableLiveData<ProfileLoginResponse> {
 

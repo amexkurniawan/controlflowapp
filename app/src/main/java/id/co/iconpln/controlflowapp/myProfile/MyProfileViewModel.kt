@@ -7,10 +7,6 @@ import id.co.iconpln.controlflowapp.network.MyProfileNetworkRepository
 
 class MyProfileViewModel : ViewModel() {
 
-    companion object {
-        var errorMessage = ""
-    }
-
     fun getProfile(token: String): MutableLiveData<ProfileResponse> {
         return MyProfileNetworkRepository().getProfile(token)
     }

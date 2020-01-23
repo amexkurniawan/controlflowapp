@@ -24,6 +24,7 @@ class MyProfileNetworkRepository {
                 ) {
 
                     // on failure code
+                    MyProfileLoginViewModel.errorMessage = ""
                     loginData.postValue(null)
                 }
 
@@ -45,8 +46,11 @@ class MyProfileNetworkRepository {
                             in 400..420 -> {
                                 val errorResponse = JSONObject( response.errorBody()?.string() ?: "")
                                 val errorMessage = errorResponse.getJSONArray("messages")[0].toString()
-                                MyProfileViewModel.errorMessage = errorMessage
+                                MyProfileLoginViewModel.errorMessage = errorMessage
                                 Log.d("okhttp - -", errorMessage)
+                            }
+                            else -> {
+                                MyProfileLoginViewModel.errorMessage = "Unknown Network Error"
                             }
                         }
                         loginData.postValue(null)
