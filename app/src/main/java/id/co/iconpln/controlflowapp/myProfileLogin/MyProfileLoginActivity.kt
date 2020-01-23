@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import id.co.iconpln.controlflowapp.R
 import id.co.iconpln.controlflowapp.models.myProfile.ProfileLoginResponse
 import id.co.iconpln.controlflowapp.models.myProfile.ProfileLoginUser
+import id.co.iconpln.controlflowapp.myProfile.MyProfileViewModel
 import id.co.iconpln.controlflowapp.myProfileRegister.MyProfileRegisterActivity
 import kotlinx.android.synthetic.main.activity_my_profile_login.*
 
@@ -64,6 +65,8 @@ class MyProfileLoginActivity : AppCompatActivity(), View.OnClickListener {
                 if (loginResponse != null) {
                     Toast.makeText(this, "Success login " + "${loginResponse.customer.email}", Toast.LENGTH_SHORT).show()
                     openProfilePage(loginResponse)
+                } else {
+                    Toast.makeText(this, "Login Failed ${MyProfileViewModel.errorMessage}", Toast.LENGTH_SHORT).show()
                 }
         })
     }
